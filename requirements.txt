@@ -1,0 +1,5 @@
+pyrogram
+pathlib
+glob2
+youtube-search-python
+pafy
