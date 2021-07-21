@@ -6,16 +6,17 @@ sys.path.append("../")
 from notemusic import Functions
 from client import NoteMusic
 
+#delete
 import os
 from pathlib import Path
 import glob
-
+import pafy
 import time
-
 import json
+# delete
 
 from functools import partial, wraps
-import pafy
+
 
 cmd = partial(filters.command, prefixes=list("/"))
 
