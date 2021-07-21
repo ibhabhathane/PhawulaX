@@ -7,6 +7,7 @@ from notemusic import Functions
 from client import NoteMusic
 
 from functools import partial, wraps
+import pafy
 
 cmd = partial(filters.command, prefixes=list("/"))
 
