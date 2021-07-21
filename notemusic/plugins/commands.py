@@ -48,3 +48,5 @@ async def song(_, message: Message):
             result = Functions.search_music(Functions.input_str(message), message)
             file_name = Functions.get_file_name(result)
             await Functions.process_request(Functions.input_str(message), message, file_name)
+    else:
+        await message.reply("Comando inválido. Digite uma música após o comando.")
