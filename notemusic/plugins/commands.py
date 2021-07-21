@@ -54,11 +54,9 @@ async def song(_, message: Message):
             file_name = str(video.title) + ".mp3"
             try:
                 down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
-                # await down_m.delete()
                 Functions.down_song(message, link, file_name)
-                await message.reply(os.path.exists(f"./cache/{file_name}"))
-                # time.sleep(1)
-                # await down_msg.delete()
+                time.sleep(3)
+                await down_msg.delete()
             except:
                 await message.reply("Não consegui baixar a música.")
             _fpath = ""
