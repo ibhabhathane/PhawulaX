@@ -45,15 +45,15 @@ class Functions:
             # "writethumbnail": True,
             "prefer_ffmpeg": True,
             "format": "bestaudio/best",
-            "geo_bypass": True,
-            "nocheckcertificate": True,
+            # "geo_bypass": True,
+            # "nocheckcertificate": True,
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3",
                 },
             ],
-            "quiet": True,
+            # "quiet": True,
         }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
