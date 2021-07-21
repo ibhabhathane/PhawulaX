@@ -87,7 +87,7 @@ class Functions:
 	        os.remove("album_cover.jpg")
 	    return msg
 	    
-    async def process_request(msg_: str, message: Message):
+    async def process_request(msg_: str, message: Message, file_name):
 	    result = Functions.search_music(Functions.input_str(message), message)
 	    link = Functions.get_link(result)
 	    video = pafy.new(link)
