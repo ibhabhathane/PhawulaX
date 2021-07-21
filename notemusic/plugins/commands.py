@@ -31,7 +31,7 @@ async def music(_, message: Message):
 
 @NoteMusic.on_message(cmd("song"))
 async def song(_, message: Message):
-    if Functions.input_str(mmessage != "":
+    if Functions.input_str(message) != "":
         if "open.spotify.com" in Functions.input_str(mmessage:
             await message.reply("SPOTIFY ERROR")
         else:
