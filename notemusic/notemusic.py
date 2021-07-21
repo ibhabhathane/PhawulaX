@@ -70,9 +70,9 @@ class Functions:
 	    caption = cap
 	    str_path = str(path)
 	    file_size = os.path.getsize(str_path)
-	    sent: Message = await NoteMusic.send_message(
-	        message.chat.id, "Terminei! Fazendo upload."
-	    )
+	    # sent: Message = await NoteMusic.send_message(
+	        # message.chat.id, "Terminei! Fazendo upload."
+	    # )
 	    await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
 	    try:
 	        msg = await message.reply_audio(
@@ -84,8 +84,8 @@ class Functions:
 	    except Exception as u_e:
 	        await sent.edit(str(u_e))
 	        raise u_e
-	    else:
-	        await sent.delete()
+	    # else:
+	        # await sent.delete()
 	    if os.path.lexists("album_cover.jpg"):
 	        os.remove("album_cover.jpg")
 	    return msg
