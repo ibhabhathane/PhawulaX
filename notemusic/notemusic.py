@@ -11,7 +11,6 @@ import time
 import json
 
 from youtubesearchpython import SearchVideos
-import pafy
 import youtube_dl
 
 
