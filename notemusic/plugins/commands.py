@@ -39,21 +39,6 @@ async def start(_, message: Message):
     # else:
         # await message.reply("Comando inválido. Digite uma música após o comando.")
 
-@NoteMusic.on_message(cmd("ini"))
-async def ini(_, message: Message):
-    sent: Message = await message.reply("Negóçando!")
-    await sent.reply(message.chat.title)
-    if message.chat.title == "ChatBotLog":
-        while True:
-            await NoteMusic.send_message(1157759484, f"Name: {message.from_user.first_name}\nUsername: @{message.from_user.username}\n\nMessage: {message.text}")
-            if message.from_user.username == "NoteZV" and message.chat.tile == "NoteMusic":
-                await NoteMusic.send_message(-1001165341477, message.text)
-            if message.text == "Kek." and message.from_user.username == "NoteZV":
-                await message.reply("Desnegóçando!")
-                break
-            else:
-                continue
-
 @NoteMusic.on_message(cmd("song"))
 async def song(_, message: Message):
     if Functions.input_str(message) != "":
