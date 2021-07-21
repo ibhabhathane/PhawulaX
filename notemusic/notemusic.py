@@ -52,7 +52,6 @@ class Functions:
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3",
                 },
-                {"key": "FFmpegMetadata"},
             ],
             "quiet": True,
         }
