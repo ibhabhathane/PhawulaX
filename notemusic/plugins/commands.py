@@ -29,15 +29,15 @@ async def help(_, message: Message):
 async def start(_, message: Message):
 	await message.reply("Tem nada aqui não, ainda estou pensando no que colocarei.")
 
-@NoteMusic.on_message(cmd("music"))
-async def music(_, message: Message):
-    if Functions.input_str(message) != "":
-        if "open.spotify.com" in Functions.input_str(message):
-        	await message.reply("SPITIFY ERROR")
-        else:
-        	await Functions.process_request(Functions.input_str(message), message)
-    else:
-        await message.reply("Comando inválido. Digite uma música após o comando.")
+# @NoteMusic.on_message(cmd("music"))
+# async def music(_, message: Message):
+    # if Functions.input_str(message) != "":
+        # if "open.spotify.com" in Functions.input_str(message):
+        	# await message.reply("SPITIFY ERROR")
+        # else:
+        	# await Functions.process_request(Functions.input_str(message), message)
+    # else:
+        # await message.reply("Comando inválido. Digite uma música após o comando.")
 
 @NoteMusic.on_message(cmd("song"))
 async def song(_, message: Message):
