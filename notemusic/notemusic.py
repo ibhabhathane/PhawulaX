@@ -42,7 +42,7 @@ class Functions:
         return result["search_result"][0]["views"]
 	        
     	
-    def down_song(message: Message, link, file_name):
+    def down_music(message: Message, link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             'format': 'bestaudio/best',
@@ -100,7 +100,7 @@ class Functions:
 	    try:
 	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
 	    	# await down_m.delete()
-	    	Functions.down_song(message, link, file_name)
+	    	Functions.down_music(message, link, file_name)
 	    	# await message.reply(os.path.exists(f"./cache/{file_name}"))
 	    	# time.sleep(1)
 	    	# await down_msg.delete()
