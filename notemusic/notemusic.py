@@ -32,12 +32,12 @@ class Functions:
     def get_duration(result):
         return result["search_result"][0]["duration"]
 	        
-    def download_music(link):
-    	pasta_arquivo = "./cache/"
-    	video = pafy.new(link)
-    	audio_musica = video.getbestaudio()
-    	nome_arquivo = pasta_arquivo + str(video.title) + ".mp3"
-    	info_dict = audio_musica.download(nome_arquivo)
+    # def download_music(link):
+    	# pasta_arquivo = "./cache/"
+    	# video = pafy.new(link)
+    	# audio_musica = video.getbestaudio()
+    	# nome_arquivo = pasta_arquivo + str(video.title) + ".mp3"
+    	# info_dict = audio_musica.download(nome_arquivo)
     	
     def down_song(message: Message, link, file_name):
         _opts = {
