@@ -53,7 +53,7 @@ class Functions:
                 },
             ],
             "prefer_ffmpeg": True,
-            # "quiet": True,
+            "quiet": True,
         }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
