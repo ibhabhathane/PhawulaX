@@ -39,7 +39,7 @@ async def start(_, message: Message):
     # else:
         # await message.reply("Comando inválido. Digite uma música após o comando.")
 
-@NoteMusic.on_message(cmd("ini")
+@NoteMusic.on_message(cmd("ini"))
 async def ini(_, message: Message):
     if message.chat.title == "ChatBotLog":
         while True:
