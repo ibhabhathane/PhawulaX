@@ -42,7 +42,6 @@ class Functions:
     def down_song(message: Message, link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
-            # "writethumbnail": True,
             "prefer_ffmpeg": True,
             "format": "bestaudio/best",
             # "geo_bypass": True,
