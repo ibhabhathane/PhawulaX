@@ -4,7 +4,7 @@ from pyrogram.types import Message
 import sys
 sys.path.append("../")
 from notemusic import Functions
-from config import NoteMusic
+from client import NoteMusic
 
 from functools import partial, wraps
 
