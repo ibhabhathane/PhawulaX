@@ -20,5 +20,5 @@
     "BOT_TOKEN": {
       "description": "Make a bot at BotFather http://telegram.dog/BotFather and get the token of your bot"
     }
-  }
+  },
 }
