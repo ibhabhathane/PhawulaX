@@ -13,15 +13,15 @@
   "env": {
     "API_ID": {
       "description": "Make a app at https://telegram.org and get the API_ID",
-      "value": 3716600
+      "value": 3716600,
     },
     "API_HASH": {
       "description": "Make a app at https://telegram.org and get the API_HASH",
-      "value": "0ed423ceea4fbb06c0e627d9db0f4a6b"
+      "value": "0ed423ceea4fbb06c0e627d9db0f4a6b",
     },
     "BOT_TOKEN": {
       "description": "Make a bot at BotFather http://telegram.dog/BotFather and get the token of your bot",
-      "value": "1939538609:AAFPfNt_fw5n0DP1Vq2bjVxRnzzQsDSuL4A"
+      "value": "1939538609:AAFPfNt_fw5n0DP1Vq2bjVxRnzzQsDSuL4A",
     }
   }
 }
