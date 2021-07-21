@@ -11,7 +11,7 @@ from functools import partial, wraps
 cmd = partial(filters.command, prefixes=list("/"))
 
 
-@NoteMusic.on_message(cmd("help")
+@NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
     await message.reply("Só use o /music e pronto.")
 	   
