@@ -56,6 +56,7 @@ async def song(_, message: Message):
                 down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
                 # await down_m.delete()
                 Functions.down_song(message, link, file_name)
+                await message.reply(os.path.exists(f"./cache/{file_name}"))
                 # time.sleep(1)
                 # await down_msg.delete()
             except:
