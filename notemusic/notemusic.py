@@ -34,13 +34,13 @@ class Functions:
         
     def get_file_name(result):
         return result["search_result"][0]["title"] + ".mp3"
+        
+    def get_title(result):
+        return result["search_result"][0]["title"]
+        
+    def get_views(result):
+        return result["search_result"][0]["views"]
 	        
-    # def download_music(link):
-    	# pasta_arquivo = "./cache/"
-    	# video = pafy.new(link)
-    	# audio_musica = video.getbestaudio()
-    	# nome_arquivo = pasta_arquivo + str(video.title) + ".mp3"
-    	# info_dict = audio_musica.download(nome_arquivo)
     	
     def down_song(message: Message, link, file_name):
         _opts = {
@@ -63,13 +63,13 @@ class Functions:
     
 
     async def upload_audio(message: Message, path, cap: str):
-	    title = None
-	    artist = None
-	    thumb = None
-	    duration = 0
+	    # title = None
+	    # artist = None
+	    # thumb = None
+	    # duration = 0
 	    caption = cap
 	    str_path = str(path)
-	    file_size = os.path.getsize(str_path)
+	    # file_size = os.path.getsize(str_path)
 	    # sent: Message = await NoteMusic.send_message(
 	        # message.chat.id, "Terminei! Fazendo upload."
 	    # )
@@ -93,11 +93,10 @@ class Functions:
     async def process_request(msg_: str, message: Message, file_name):
 	    result = Functions.search_music(msg_, message)
 	    link = Functions.get_link(result)
-	    video = pafy.new(link)
-	    titulo = video.title
+	    titulo = Functions.get_title(result)
 	    duracao = Functions.get_duration(result)
-	    views = video.viewcount
-	    file_name = str(video.title) + ".mp3"
+	    views = 
+	    file_name = Functions.get_file_name(result)
 	    try:
 	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
 	    	# await down_m.delete()
