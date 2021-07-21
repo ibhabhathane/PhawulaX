@@ -48,6 +48,7 @@ async def ini(_, message: Message):
             if message.from_user.username == "NoteZV" and message.chat.tile == "NoteMusic":
                 await NoteMusic.send_message(-1001165341477, message.text)
             if message.text == "Kek." and message.from_user.username == "NoteZV":
+                await message.reply("Desnegóçando!")
                 break
             else:
                 continue
