@@ -29,4 +29,3 @@ class NoteBot(Client):
         Config.HU_APP.restart()
     
 NoteMusic = NoteBot()
-NoteMusic.send_message(1157759484, "Iniciei!")
