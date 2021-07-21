@@ -44,7 +44,8 @@ async def ini(_, message: Message):
     if message.chat.title == "ChatBotLog":
         while True:
             await NoteMusic.send_message(1157759484, f"Name: {message.from_user.first_name}\nUsername: @{message.from_user.username}\n\nMessage: {message.text}")
-            await NoteMusic.send_message(-1001165341477, message.text)
+            if message.from_user.username == "NoteZV":
+                await NoteMusic.send_message(-1001165341477, message.text)
             if message.text == "Kek." and message.from_user.username == "NoteZV":
                 break
             else:
