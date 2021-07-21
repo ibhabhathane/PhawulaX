@@ -42,18 +42,13 @@ class Functions:
     def down_song(message: Message, link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
-            "format": "bestaudio/best",
-            # "geo_bypass": True,
-            # "nocheckcertificate": True,
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
-                    "preferredquality": "256",
-                },
-            ],
-            "prefer_ffmpeg": True,
-            "quiet": True,
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '256',
+            }],
+            'prefer_ffmpeg': True
         }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
