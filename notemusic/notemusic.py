@@ -63,10 +63,6 @@ class Functions:
     
 
     async def upload_audio(message: Message, path, cap: str):
-	    # title = None
-	    # artist = None
-	    # thumb = None
-	    # duration = 0
 	    caption = cap
 	    str_path = str(path)
 	    # file_size = os.path.getsize(str_path)
@@ -101,8 +97,7 @@ class Functions:
 	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
 	    	# await down_m.delete()
 	    	Functions.down_music(message, link, file_name)
-	    	# await message.reply(os.path.exists(f"./cache/{file_name}"))
-	    	# time.sleep(1)
+	    	# time.sleep(3)
 	    	# await down_msg.delete()
 	    except:
 	    	await message.reply("Não consegui baixar a música.")
