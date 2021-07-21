@@ -1,8 +1,10 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
+
 import sys
 sys.path.append("../")
 from notemusic Functions
+
 from config import NoteMusic
 
 from functools import partial, wraps
