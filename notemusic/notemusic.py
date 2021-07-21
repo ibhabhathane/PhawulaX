@@ -29,7 +29,7 @@ class Functions:
     def get_link(result):
         return result['search_result'][0]['link']
     
-    def get_duration(rresult:
+    def get_duration(result):
         return result["search_result"][0]["duration"]
 	        
     def download_music(link):
