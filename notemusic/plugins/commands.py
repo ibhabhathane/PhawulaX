@@ -5,6 +5,7 @@ import sys
 sys.path.append("../")
 from notemusic Functions
 
+sys.path.append("./")
 from config import NoteMusic
 
 from functools import partial, wraps
