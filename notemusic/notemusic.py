@@ -36,9 +36,9 @@ class Functions:
     	nome_arquivo = pasta_arquivo + str(video.title) + ".mp3"
     	info_dict = audio_musica.download(nome_arquivo)
     	
-    def down_song(message: Message, link):
+    def down_song(message: Message, link, file_name):
         ydl_opts = {
-            'outtmpl': './cache/',
+            'outtmpl': f'./cache/{file_name}',
             'format': 'bestaudio/best',
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
