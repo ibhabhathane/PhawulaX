@@ -13,7 +13,7 @@ cmd = partial(filters.command, prefixes=list("/"))
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
-    await message.reply("Só use o /music e pronto.")
+    await message.reply("Só use o /music e pronto. Kek.")
 	   
 @NoteMusic.on_message(cmd("start"))
 async def start(_, message: Message):
