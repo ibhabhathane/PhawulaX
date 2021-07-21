@@ -19,7 +19,7 @@ class NoteBot(Client):
     async def start(self):
         await super().start()
         print("START")
-        NoteMusic().send_message(1157759484, "Iniciei!")
+        NoteBot().send_message(1157759484, "Iniciei!")
 
     async def stop(self):
         await super().stop()
