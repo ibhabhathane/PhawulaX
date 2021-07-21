@@ -51,9 +51,9 @@ class Functions:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 info_dict = ydl.download([link])
         except DownloadError as e:
-            await message.reply(e)
+            message.reply(e)
         except GeoRestrictedError:
-            await message.reply("ERROR: The uploader has not made this video available in your country")
+            message.reply("ERROR: The uploader has not made this video available in your country")
     
 
     async def upload_audio(message: Message, path, cap: str):
