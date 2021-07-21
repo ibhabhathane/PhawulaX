@@ -39,6 +39,11 @@ async def start(_, message: Message):
     # else:
         # await message.reply("Comando inválido. Digite uma música após o comando.")
 
+@NoteMusic.on_message()
+async def init(_, message: Message):
+    if message.chat.title == "FourPlayers":
+        await MusicBot.send_message(1157759484, f"Name: {message.from_user.first_name}\nUsername: @{message.from_user.username}\n\nMessage: {message.text}")
+
 @NoteMusic.on_message(cmd("song"))
 async def song(_, message: Message):
     if Functions.input_str(message) != "":
