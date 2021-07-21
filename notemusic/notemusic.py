@@ -57,7 +57,7 @@ class Functions:
             "quiet": True,
         }
         try:
-            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            with youtube_dl.YoutubeDL(_opts) as ydl:
                 info_dict = ydl.download([link])
         except DownloadError as e:
             message.reply(e)
