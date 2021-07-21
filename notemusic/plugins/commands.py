@@ -49,7 +49,7 @@ async def song(_, message: Message):
             link = Functions.get_link(result)
             video = pafy.new(link)
             titulo = video.title
-            duracao = video.duration
+            duracao = Functions.get_duration(result)
             views = video.viewcount
             file_name = str(video.title) + ".mp3"
             try:
