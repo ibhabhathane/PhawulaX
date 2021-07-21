@@ -46,7 +46,7 @@ async def song(_, message: Message):
             await message.reply("SPOTIFY ERROR")
         else:
             result = Functions.search_music(Functions.input_str(message), message)
-            await message.reply(f"RESULT: {result}")
+            # await message.reply(f"RESULT: {result}")
             link = Functions.get_link(result)
             video = pafy.new(link)
             titulo = video.title
