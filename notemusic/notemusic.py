@@ -90,12 +90,12 @@ class Functions:
 	        os.remove("album_cover.jpg")
 	    return msg
 	    
-    async def process_request(msg_: str, message: Message, file_name):
+    async def process_request(msg_: str, message: Message):
 	    result = Functions.search_music(msg_, message)
 	    link = Functions.get_link(result)
 	    titulo = Functions.get_title(result)
 	    duracao = Functions.get_duration(result)
-	    views = 
+	    views = Functions.get_durations(result)
 	    file_name = Functions.get_file_name(result)
 	    try:
 	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
