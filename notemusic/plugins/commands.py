@@ -45,8 +45,8 @@ async def song(_, message: Message):
         if "open.spotify.com" in Functions.input_str(message):
             await message.reply("SPOTIFY ERROR")
         else:
-            result = Functions.search_music(Functions.input_str(message), message)
-            file_name = Functions.get_file_name(result)
-            await Functions.process_request(Functions.input_str(message), message, file_name)
+            # result = Functions.search_music(Functions.input_str(message), message)
+            # file_name = Functions.get_file_name(result)
+            await Functions.process_request(Functions.input_str(message), message)
     else:
         await message.reply("Comando inválido. Digite uma música após o comando.")
