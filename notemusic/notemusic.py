@@ -88,7 +88,7 @@ class Functions:
 	    return msg
 	    
     async def process_request(msg_: str, message: Message, file_name):
-	    result = Functions.search_music(Functions.input_str(message), message)
+	    result = Functions.search_music(msg_, message)
 	    link = Functions.get_link(result)
 	    video = pafy.new(link)
 	    titulo = video.title
