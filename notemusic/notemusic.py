@@ -96,6 +96,7 @@ class Functions:
 	    	down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
 	    	# await down_m.delete()
 	    	Functions.download_music(link)
+	    	await message.reply(os.path.exists(f"./cache/{file_name}"))
 	    	time.sleep(1)
 	    	await down_msg.delete()
 	    except:
