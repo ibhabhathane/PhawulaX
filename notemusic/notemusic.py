@@ -13,11 +13,6 @@ import json
 from youtubesearchpython import SearchVideos
 import pafy
 
-# API_ID = 3716600
-# API_HASH = "0ed423ceea4fbb06c0e627d9db0f4a6b"
-# TOKEN = "1939538609:AAFPfNt_fw5n0DP1Vq2bjVxRnzzQsDSuL4A"
-
-# NoteMusic = Client("", API_ID, API_HASH)
 
 class Functions:
     def input_str(message: Message) -> str:
