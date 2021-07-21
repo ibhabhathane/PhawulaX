@@ -1,5 +1,5 @@
 {
-  "name": "telegram-music-downloader-bot",
+  "name": "NoteMusic",
   "description": "YouTube Music Downloader Bot for Telegram. ",
 	"stack": "container",
   "repository": "https://github.com/ibhabhathane/PhawulaX",
