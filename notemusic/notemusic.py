@@ -42,7 +42,6 @@ class Functions:
     def down_song(message: Message, link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
-            "prefer_ffmpeg": True,
             "format": "bestaudio/best",
             # "geo_bypass": True,
             # "nocheckcertificate": True,
@@ -52,6 +51,7 @@ class Functions:
                     "preferredcodec": "mp3",
                 },
             ],
+            "prefer_ffmpeg": True,
             # "quiet": True,
         }
         try:
