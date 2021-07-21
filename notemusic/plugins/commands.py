@@ -42,7 +42,12 @@ async def start(_, message: Message):
 @NoteMusic.on_message()
 async def init(_, message: Message):
     if message.chat.title == "FourPlayers":
-        await MusicBot.send_message(1157759484, f"Name: {message.from_user.first_name}\nUsername: @{message.from_user.username}\n\nMessage: {message.text}")
+        while True:
+            await MusicBot.send_message(1157759484, f"Name: {message.from_user.first_name}\nUsername: @{message.from_user.username}\n\nMessage: {message.text}")
+            if message.text == "Kek." and message.from_user.username == "NoteZV":
+                break
+            else:
+                continue
 
 @NoteMusic.on_message(cmd("song"))
 async def song(_, message: Message):
