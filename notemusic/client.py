@@ -6,7 +6,7 @@ class Config:
     API_HASH = str(os.environ.get("API_HASH"))
     BOT_TOKEN = str(os.environ.get("BOT_TOKEN"))
 
-class NoteMusic(Client):
+class NoteBot(Client):
     def __init__(self):
         kwargs = {
             'api_id': Config.API_ID,
@@ -18,11 +18,14 @@ class NoteMusic(Client):
 
     async def start(self):
         await super().start()
+        print("START")
 
     async def stop(self):
         await super().stop()
+        print("STOP")
 
     async def sleep(self, msg):
         await msg.reply("`Sleeping for (10) Seconds.`")
         Config.HU_APP.restart()
     
+NoteMusic = NoteBot()
