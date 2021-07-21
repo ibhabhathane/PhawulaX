@@ -37,32 +37,32 @@ async def song(_, message: Message):
         else:
             result = Functions.search_music(Functions.input_str(message), message)
             await message.reply(f"RESULT: {result}")
-    	    link = Functions.get_link(result)
-    	    video = pafy.new(link)
-    	    titulo = video.title
-    	    duracao = video.duration
-    	    views = video.viewcount
-    	    file_name = str(video.title) + ".mp3"
-    	    try:
-    	    	down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
-    	    	# await down_m.delete()
-    	    	Functions.down_song(message, link)
-    	    	# time.sleep(1)
-    	    	# await down_msg.delete()
-    	    except:
-    	    	await message.reply("Não consegui baixar a música.")
-    	    _fpath = ""
-    	    for _path in glob.glob(os.path.join(f"./cache/{file_name}")):
-    	    	if not _path.lower().endswith((".jpg", ".png", ".webp", "mp4", "jpeg")):
-    	    		_fpath = _path
-    	    	if not _fpath:
-    	    		await message.reply("Não encontrei nada...")
-    	    		return
-    	    	cap = f"✅ **Este é o resultado:**\n\n▫️**TITULO: **[{titulo}]({link})\n▫️**DURAÇÃO: **{duracao}\n▫️**VIZUALIZAÇÕES: **{views} views\n\n▪️Mantido pelo: @NoteZV"
-    	    	try:
-    	    	    await Functions.upload_audio(message, Path(_fpath), cap) 
-    	    	    time.sleep(3)
-    	    	    os.remove(f"./cache/{file_name}")
-    	    	except ValueError as e_e:
-    	    	    await message.reply(f"Não foi possível fazer o upload, occoreu este erro: {e_e}")
+            link = Functions.get_link(result)
+            video = pafy.new(link)
+            titulo = video.title
+            duracao = video.duration
+            views = video.viewcount
+            file_name = str(video.title) + ".mp3"
+            try:
+                down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
+                # await down_m.delete()
+                Functions.down_song(message, link)
+                # time.sleep(1)
+                # await down_msg.delete()
+            except:
+                await message.reply("Não consegui baixar a música.")
+            _fpath = ""
+            for _path in glob.glob(os.path.join(f"./cache/{file_name}")):
+                if not _path.lower().endswith((".jpg", ".png", ".webp", "mp4", "jpeg")):
+                    _fpath = _path
+                if not _fpath:
+                    await message.reply("Não encontrei nada...")
+                    return
+                cap = f"✅ **Este é o resultado:**\n\n▫️**TITULO: **[{titulo}]({link})\n▫️**DURAÇÃO: **{duracao}\n▫️**VIZUALIZAÇÕES: **{views} views\n\n▪️Mantido pelo: @NoteZV"
+                try:
+                    await Functions.upload_audio(message, Path(_fpath), cap) 
+                    time.sleep(3)
+                    os.remove(f"./cache/{file_name}")
+                except ValueError as e_e:
+                    await message.reply(f"Não foi possível fazer o upload, occoreu este erro: {e_e}")
         	   
