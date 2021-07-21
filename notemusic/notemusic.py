@@ -12,6 +12,7 @@ import json
 
 from youtubesearchpython import SearchVideos
 import pafy
+import youtube-dl
 
 
 class Functions:
@@ -34,6 +35,22 @@ class Functions:
     	audio_musica = video.getbestaudio()
     	nome_arquivo = pasta_arquivo + str(video.title) + ".mp3"
     	info_dict = audio_musica.download(nome_arquivo)
+    	
+    def down_song(link):
+        ydl_opts = {
+            'outtmpl': './cache/',
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '256',
+            }],
+            'prefer_ffmpeg': True
+        }
+        try:
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=True)
+
     	
     async def upload_audio(message: Message, path, cap: str):
 	    title = None
