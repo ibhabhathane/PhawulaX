@@ -95,7 +95,7 @@ class Functions:
 	    link = Functions.get_link(result)
 	    titulo = Functions.get_title(result)
 	    duracao = Functions.get_duration(result)
-	    views = Functions.get_durations(result)
+	    views = Functions.get_views(result)
 	    file_name = Functions.get_file_name(result)
 	    try:
 	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
