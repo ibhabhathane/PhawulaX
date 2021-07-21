@@ -28,6 +28,9 @@ class Functions:
 
     def get_link(result):
         return result['search_result'][0]['link']
+    
+    def get_duration(rresult:
+        return result["search_result"][0]["duration"]
 	        
     def download_music(link):
     	pasta_arquivo = "./cache/"
