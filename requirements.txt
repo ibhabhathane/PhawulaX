@@ -3,5 +3,4 @@ tgcrypto
 pathlib
 glob2
 youtube-search-python
-pafy
 youtube-dl
