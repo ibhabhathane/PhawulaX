@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from plugins.config import NoteMusic
+from client import NoteMusic
 
 import os
 from pathlib import Path
