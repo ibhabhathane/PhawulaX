@@ -3,7 +3,7 @@ from pyrogram.types import Message
 
 import sys
 sys.path.append("../")
-from notemusic Functions
+from notemusic import Functions
 
 sys.path.append("./")
 from config import NoteMusic
