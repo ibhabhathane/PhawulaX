@@ -12,7 +12,7 @@ import json
 
 from youtubesearchpython import SearchVideos
 import pafy
-import youtube-dl
+import youtube_dl
 
 
 class Functions:
@@ -36,7 +36,7 @@ class Functions:
     	nome_arquivo = pasta_arquivo + str(video.title) + ".mp3"
     	info_dict = audio_musica.download(nome_arquivo)
     	
-    def down_song(link):
+    def down_song(message: Message, link):
         ydl_opts = {
             'outtmpl': './cache/',
             'format': 'bestaudio/best',
@@ -49,9 +49,13 @@ class Functions:
         }
         try:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            info_dict = ydl.extract_info(link, download=True)
+                info_dict = ydl.download([link])
+        except DownloadError as e:
+            await message.reply(e)
+        except GeoRestrictedError:
+            await message.reply("ERROR: The uploader has not made this video available in your country")
+    
 
-    	
     async def upload_audio(message: Message, path, cap: str):
 	    title = None
 	    artist = None
