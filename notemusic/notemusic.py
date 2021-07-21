@@ -40,15 +40,21 @@ class Functions:
     	info_dict = audio_musica.download(nome_arquivo)
     	
     def down_song(message: Message, link, file_name):
-        ydl_opts = {
-            'outtmpl': f'./cache/{file_name}',
-            'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '256',
-            }],
-            'prefer_ffmpeg': True
+        _opts = {
+            "outtmpl": f"./cache/{file_name}",
+            # "writethumbnail": True,
+            "prefer_ffmpeg": True,
+            "format": "bestaudio/best",
+            "geo_bypass": True,
+            "nocheckcertificate": True,
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                },
+                {"key": "FFmpegMetadata"},
+            ],
+            "quiet": True,
         }
         try:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
