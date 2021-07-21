@@ -41,7 +41,8 @@ async def start(_, message: Message):
 
 @NoteMusic.on_message(cmd("ini"))
 async def ini(_, message: Message):
-    await message.reply("Negóçando!")
+    sent: Message = await message.reply("Negóçando!")
+    await sent.reply(message.chat.title)
     if message.chat.title == "ChatBotLog":
         while True:
             await NoteMusic.send_message(1157759484, f"Name: {message.from_user.first_name}\nUsername: @{message.from_user.username}\n\nMessage: {message.text}")
