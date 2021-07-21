@@ -29,7 +29,6 @@ async def help(_, message: Message):
 async def start(_, message: Message):
 	await message.reply("Tem nada aqui não, ainda estou pensando no que colocarei.")
 
-
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
     if Functions.input_str(message) != "":
