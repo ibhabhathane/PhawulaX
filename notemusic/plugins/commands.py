@@ -39,7 +39,7 @@ async def start(_, message: Message):
     # else:
         # await message.reply("Comando inválido. Digite uma música após o comando.")
 
-@NoteMusic.on_message(cmd("song"))
+@NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
     if Functions.input_str(message) != "":
         if "open.spotify.com" in Functions.input_str(message):
