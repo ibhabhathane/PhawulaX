@@ -92,16 +92,16 @@ class Functions:
 	    link = Functions.get_link(result)
 	    video = pafy.new(link)
 	    titulo = video.title
-	    duracao = video.duration
+	    duracao = Functions.get_duration(result)
 	    views = video.viewcount
 	    file_name = str(video.title) + ".mp3"
 	    try:
-	    	down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
+	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
 	    	# await down_m.delete()
-	    	Functions.download_music(link)
-	    	await message.reply(os.path.exists(f"./cache/{file_name}"))
-	    	time.sleep(1)
-	    	await down_msg.delete()
+	    	Functions.down_song(message, link, file_name)
+	    	# await message.reply(os.path.exists(f"./cache/{file_name}"))
+	    	# time.sleep(1)
+	    	# await down_msg.delete()
 	    except:
 	    	await message.reply("Não consegui baixar a música.")
 	    _fpath = ""
