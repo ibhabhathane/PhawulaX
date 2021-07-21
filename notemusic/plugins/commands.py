@@ -18,7 +18,7 @@ async def help(_, message: Message):
 	   
 @NoteMusic.on_message(cmd("start"))
 async def start(_, message: Message):
-	await message.reply("Tem nada aqui não, ainda estou pensando no que colocarei.")
+    await message.reply("Tem nada aqui não, ainda estou pensando no que colocarei.")
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
