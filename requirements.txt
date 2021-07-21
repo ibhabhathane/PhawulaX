@@ -1,4 +1,5 @@
 pyrogram
+tgcrypto
 pathlib
 glob2
 youtube-search-python
