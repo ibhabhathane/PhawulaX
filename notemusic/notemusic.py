@@ -34,9 +34,10 @@ class Functions:
     def get_file_name(result):
         title = result["search_result"][0]["title"]
         if not ("[" and "]") in title:
+            print("KEKEKEKEKSKSAKZMXKESN")
             return title + ".mp3"
         else:
-            await message.reply("kek")
+            print("UUASUUUUUUAUUAUAUAAUAU")
             return re.sub("[]]", "", title) + ".mp3"
         
     def get_title(result):
