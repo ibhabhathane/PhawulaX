@@ -21,6 +21,7 @@ async def fp_conversation(_, message: Message):
 async def fp_answer(_, message: Message):
     await NoteMusic.send_message(-1001446397223, Functions.input_str(mmessage))
 
+
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
     await message.reply('Só use "/music [música]" ou "/music [nome do músico] - [música]" e pronto, kek.')
