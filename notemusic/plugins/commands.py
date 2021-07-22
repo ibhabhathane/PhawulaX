@@ -16,7 +16,6 @@ cmd = partial(filters.command, prefixes=list("/"))
 @NoteMusic.on_message(filters.chat(-1001446397223))
 async def fp_conversation(_, message: Message):
     await message.forward(-1001594265342)
-    await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
 
 @NoteMusic.on_message(cmd("fp")),
 async def fp_answer(_, message: Message):
