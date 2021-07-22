@@ -36,8 +36,7 @@ class Functions:
         if not ("[" and "]") in title:
             return title + ".mp3"
         else:
-            import re
-            return re.sub("[]]", "", title) + ".mp3"
+            return title.replace("]", "") + ".mp3"
         
     def get_title(result):
         return result["search_result"][0]["title"]
