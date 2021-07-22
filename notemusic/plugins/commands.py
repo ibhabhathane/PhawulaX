@@ -43,8 +43,7 @@ async def song(_, message: Message):
 @NoteMusic.on_message(filters.private)
 async def pm_answer(_, message: Message):
     if not message.entities:
-        if not message.from_user.id == 1157759484:
+        if not message.from_user.id == 1157759484 or 1939538609:
             await message.forward(1157759484)
         if message.reply_to_message:
-            await NoteMusic.send_message(message.chat.id, message.reply_to_message)
             await NoteMusic.send_message(message.reply_to_message.forward_from.id, message.text)
