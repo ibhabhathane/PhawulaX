@@ -18,7 +18,7 @@ async def pm_answer(_, message: Message):
         if not message.from_user.id == 1157759484:
             await message.forward(1157759484)
         if message.reply_to_message:
-            await send_message(message.reply_to_message.forward_from.id, message.text)
+            await NoteMusic.send_message(message.reply_to_message.forward_from.id, message.text)
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
