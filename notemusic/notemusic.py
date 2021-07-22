@@ -32,6 +32,7 @@ class Functions:
         return result["search_result"][0]["duration"]
         
     def get_file_name(result):
+        import re
         title = result["search_result"][0]["title"]
         if not ("[" and "]") in title:
             print("KEKEKEKEKSKSAKZMXKESN")
