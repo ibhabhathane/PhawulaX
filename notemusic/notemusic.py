@@ -36,6 +36,7 @@ class Functions:
         if not ("[" and "]") in title:
             return title + ".mp3"
         else:
+            await message.reply("kek")
             return re.sub("[]]", "", title) + ".mp3"
         
     def get_title(result):
