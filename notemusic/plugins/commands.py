@@ -31,8 +31,6 @@ async def song(_, message: Message):
         if "open.spotify.com" in Functions.input_str(message):
             await message.reply("SPOTIFY ERROR")
         else:
-            # result = Functions.search_music(Functions.input_str(message), message)
-            # file_name = Functions.get_file_name(result)
             try:
                 await Functions.process_request(Functions.input_str(message), message)
             except:
@@ -40,7 +38,7 @@ async def song(_, message: Message):
     else:
         await message.reply("Comando inválido. Digite uma música após o comando.")
         
-@NoteMusic.on_message(filters.private)
+@NoteMusic.on_message(filters.private | filters.chat(-1001446397223))
 async def pm_answer(_, message: Message):
     exceptions_ = [1157759484, 1939538609]
     if not message.entities:
