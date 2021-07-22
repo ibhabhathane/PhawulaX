@@ -33,10 +33,10 @@ class Functions:
         
     def get_file_name(result):
         title = result["search_result"][0]["title"]
-        if not "[" or "]" in title:
+        if not ("[" and "]") in title:
             return title + ".mp3"
         else:
-            return title.strip("[]") + ".mp3"
+            return re.sub("[]]", "", title) + ".mp3"
         
     def get_title(result):
         return result["search_result"][0]["title"]
