@@ -20,6 +20,10 @@ async def pm_answer(_, message: Message):
         if message.reply_to_message:
             await NoteMusic.send_message(message.chat.id, message.reply_to_message)
             await NoteMusic.send_message(message.reply_to_message.forward_from.id, message.text)
+            
+@NoteMusic.on_message(cmd("cvs"))
+async def cvs(_, message: Message):
+    await NoteMusic.send_message(-1001446397223
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
