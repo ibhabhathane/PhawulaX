@@ -19,7 +19,7 @@ async def cvs(_, message: Message):
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
-    await message.reply('Só use "/music [música]" e pronto, kek.')
+    await message.reply('Só use "/music [música]" ou "/music [nome do músico] - [música]" e pronto, kek.')
 	   
 @NoteMusic.on_message(cmd("start"))
 async def start(_, message: Message):
