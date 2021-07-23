@@ -17,8 +17,8 @@ async def fp_conversation_and_answer(_, message: Message):
     await message.forward(-1001594265342)
     if not Functions.input_str(message):
         pass
-    else:
-        if message.from_user.id == 1157759484:
+        return
+    if message.from_user.id == 1157759484:
             await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
 
 # @NoteMusic.on_message(cmd("fp"))
