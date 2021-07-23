@@ -33,20 +33,24 @@ class Functions:
             return result['search_result'][0]['link']
     
     def get_duration(result):
-        return result["search_result"][0]["duration"]
+        if not result == None:
+            return result["search_result"][0]["duration"]
         
     def get_file_name(result):
-        title = result["search_result"][0]["title"]
-        if not ("[" and "]") in title:
-            return title + ".mp3"
-        else:
-            return title.replace(("]" or "["), "") + ".mp3"
+        if not result == None:
+            title = result["search_result"][0]["title"]
+            if not ("[" and "]") in title:
+                return title + ".mp3"
+            else:
+                return title.replace(("]" or "["), "") + ".mp3"
         
     def get_title(result):
-        return result["search_result"][0]["title"]
+        if not result == None:
+            return result["search_result"][0]["title"]
         
     def get_views(result):
-        return result["search_result"][0]["views"]
+        if not result == None:
+            return result["search_result"][0]["views"]
 	        
     	
     def down_music(message: Message, link, file_name):
