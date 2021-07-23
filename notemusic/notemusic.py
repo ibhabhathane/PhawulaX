@@ -77,11 +77,12 @@ class Functions:
 	        msg = await message.reply_audio(
 	            audio=str_path,
 	            caption=caption,
+	            reply_to_message_id=message.message_id,
 	        )
 	    except ValueError as e_e:
-	        await message.reply(f"Skipping `{str_path}` due to {e_e}")
+	        await message.reply(f"Skipping `{str_path}` due to {e_e}", quote=True)
 	    except Exception as u_e:
-	        await message.reply(str(u_e))
+	        await message.reply(str(u_e), quote=True)
 	        raise u_e
 	    # else:
 	        # await sent.delete()
