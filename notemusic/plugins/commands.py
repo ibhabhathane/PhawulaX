@@ -35,10 +35,11 @@ async def start(_, message: Message):
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
     if Functions.input_str(message) != "":
-        try:
-            await Functions.process_request(Functions.input_str(message), message)
-        except:
-            await message.reply("Não foi possível fazer o upload da música.", quote=True)
+        await Functions.process_request(Functions.input_str(message), message)
+        # try:
+            # await Functions.process_request(Functions.input_str(message), message)
+        # except:
+            # await message.reply("Não foi possível fazer o upload da música.", quote=True)
     else:
         await message.reply("Comando inválido. Digite uma música após o comando.", quote=True)
         
