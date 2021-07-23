@@ -23,10 +23,13 @@ async def fp_conversation_and_answer(_, message: Message):
 # async def fp_answer(_, message: Message):
     # await NoteMusic.send_message(-1001446397223, Functions.input_str(mmessage))
 
+@NoteMusic.on_message(cmd("report"))
+async def report(_, message: Message):
+    await message.forward(-1001578295861)
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
-    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`"
+    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`\n\n/report\n__Use este comando para reportar uma erro.__"
     await message.reply(help_text)
 	   
 @NoteMusic.on_message(cmd("start"))
