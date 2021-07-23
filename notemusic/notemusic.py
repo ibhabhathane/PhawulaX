@@ -92,8 +92,6 @@ class Functions:
 	        raise u_e
 	    # else:
 	        # await sent.delete()
-	    if os.path.lexists("album_cover.jpg"):
-	        os.remove("album_cover.jpg")
 	    return msg
 	    
     async def process_request(msg_: str, message: Message):
