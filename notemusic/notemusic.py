@@ -94,7 +94,7 @@ class Functions:
 	    try:
 	        result = Functions.search_music(msg_, message)
 	    except:
-	        await message.reply("Não encontrei a música.", quote,=True)
+	        await message.reply("Não encontrei a música.", quote=True)
 	    link = Functions.get_link(result)
 	    titulo = Functions.get_title(result)
 	    duracao = Functions.get_duration(result)
