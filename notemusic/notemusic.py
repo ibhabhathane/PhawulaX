@@ -93,10 +93,10 @@ class Functions:
     async def process_request(msg_: str, message: Message):
         result = Functions.search_music(msg_, message)
         link = Functions.get_link(result)
-	    titulo = Functions.get_title(result)
-	    duracao = Functions.get_duration(result)
-	    views = Functions.get_views(result)
-	    file_name = Functions.get_file_name(result)
+        titulo = Functions.get_title(result)
+        duracao = Functions.get_duration(result)
+        views = Functions.get_views(result)
+        file_name = Functions.get_file_name(result)
 	    try:
 	    	Functions.down_music(message, link, file_name)
 	    except:
