@@ -91,11 +91,7 @@ class Functions:
 	    return msg
 	    
     async def process_request(msg_: str, message: Message):
-        try:
-	        result = Functions.search_music(msg_, message)
-	    except:
-	        await message.reply("Não encontrei a música.", quote=True)
-	        return
+        result = Functions.search_music(msg_, message)
 	    link = Functions.get_link(result)
 	    titulo = Functions.get_title(result)
 	    duracao = Functions.get_duration(result)
@@ -110,7 +106,7 @@ class Functions:
 	    	if not _path.lower().endswith((".jpg", ".png", ".webp", "mp4", "jpeg")):
 	    		_fpath = _path
 	    	if not _fpath:
-	    		await message.reply("Não encontrei nada...")
+	    		await message.reply("Não encontrei nada...", )
 	    		return
 	    	cap = f"✅ **Este é o resultado:**\n\n▫️**TITULO: **[{titulo}]({link})\n▫️**DURAÇÃO: **{duracao}\n▫️**VIZUALIZAÇÕES: **{views} views\n\n▪️Mantido pelo: @NoteZV"
 	    	try:
