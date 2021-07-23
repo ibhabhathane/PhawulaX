@@ -120,8 +120,9 @@ class Functions:
             cap = f"✅ **Este é o resultado:**\n\n▫️**TITULO: **[{titulo}]({link})\n▫️**DURAÇÃO: **{duracao}\n▫️**VIZUALIZAÇÕES: **{views} views\n\n▪️Mantido pelo: @NoteZV"
             try:
                 await Functions.upload_audio(message, Path(_fpath), cap) 
-                time.sleep(2)
-                os.remove(f"./cache/{file_name}")
+                if os.path.exists(f"./cache/{file_name}"):
+                    time.sleep(2)
+                    os.remove(f"./cache/{file_name}")
             except ValueError as e_e:
                 await message.reply(f"Não foi possível fazer o upload, occoreu este erro: {e_e}")
     	   
