@@ -38,10 +38,6 @@ async def start(_, message: Message):
 async def song(_, message: Message):
     if Functions.input_str(message) != "":
         await Functions.process_request(Functions.input_str(message), message)
-        # try:
-            # await Functions.process_request(Functions.input_str(message), message)
-        # except:
-            # await message.reply("Não foi possível fazer o upload da música.", quote=True)
     else:
         await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
         
