@@ -58,7 +58,7 @@ async def pm_answer(_, message: Message):
             elif message.photo:
                 if not message.caption:
                     await NoteMusic.send_photo(fw_id, message.photo.file_id)
-                    # return
+                    return
                 await NoteMusic.send_photo(fw_id, message.photo.file_id, message.caption)
             elif message.animation:
                 if not message.caption:
