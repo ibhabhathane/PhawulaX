@@ -105,11 +105,7 @@ class Functions:
 	        await message.reply("Não encontrei a música.", quote=True)
 	    print(f"AQUI PORRAAAAAAA: {kek}")
 	    try:
-	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
-	    	# await down_m.delete()
 	    	Functions.down_music(message, link, file_name)
-	    	# time.sleep(3)
-	    	# await down_msg.delete()
 	    except:
 	    	await message.reply("Não consegui baixar a música.")
 	    _fpath = ""
