@@ -59,7 +59,7 @@ async def pm_answer(_, message: Message):
             elif message.photo:
                 # if not message.photo.caption:
                     # await NoteMusic.send_photo(fw_id, message.photo.file_id)
-                await NoteMusic.send_message(fw_id, message.photo)
+                await NoteMusic.send_message(fw_id, message)
                 await NoteMusic.send_photo(fw_id, message.photo.file_id)#, message.photo.caption)
             elif message.animation:
                 await NoteMusic.send_animation(fw_id, message.animation.file_id)
@@ -68,5 +68,6 @@ async def pm_answer(_, message: Message):
                    await NoteMusic.send_video(fw_id, message.video.file_id)
                     # return
                 await NoteMusic.send_video(fw_id, message.video.file_id, message.video.caption)
+                await NoteMusic.send_photo(fw_id, message.video)
                     
                 
