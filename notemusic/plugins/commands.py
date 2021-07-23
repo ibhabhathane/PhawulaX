@@ -46,7 +46,7 @@ async def song(_, message: Message):
         
 @NoteMusic.on_message(filters.private)
 async def pm_answer(_, message: Message):
-    exceptions_ = [1939538609]# [1157759484, 1939538609]
+    exceptions_ = [1157759484, 1939538609]
     if not message.entities:
         if not message.from_user.id in exceptions_:
             await message.forward(1157759484)
@@ -57,13 +57,15 @@ async def pm_answer(_, message: Message):
             elif message.sticker:
                 await NoteMusic.send_sticker(fw_id, message.sticker.file_id)
             elif message.photo:
-                await NoteMusic.send_photo(fw_id, message.photo.file_id)
+                if not message.photo.caption:
+                    await NoteMusic.send_photo(fw_id, message.photo.file_id)
+                await 
             elif message.animation:
                 await NoteMusic.send_animation(fw_id, message.animation.file_id)
             elif message.video:
-                if message.video.caption:
-                   await NoteMusic.send_video(fw_id, message.video.file_id, message.video.caption)
+                if not message.video.caption:
+                   await NoteMusic.send_video(fw_id, message.video.file_id)
                     # return
-                await NoteMusic.send_video(fw_id, message.video.file_id)
+                await NoteMusic.send_video(fw_id, message.video.file_id, message.video.caption)
                     
                 
