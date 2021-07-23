@@ -40,7 +40,7 @@ async def song(_, message: Message):
         except:
             await message.reply("Não foi possível fazer o upload da música.", quote=True)
     else:
-        await message.reply("Comando inválido. Digite uma música após o comando.")
+        await message.reply("Comando inválido. Digite uma música após o comando.", quote=True)
         
 
 @NoteMusic.on_message(filters.private)
