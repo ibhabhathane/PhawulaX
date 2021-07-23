@@ -10,7 +10,7 @@ from functools import partial, wraps
 cmd = partial(filters.command, prefixes=list("/"))
 
 
-@NoteMusic.on_message(filters.chat(-1001446397223) | cmd("fp"))
+@NoteMusic.on_message(filters.chat(-1001446397223))
 async def fp_conversation_and_answer(_, message: Message):
     await message.forward(-1001594265342)
     if not Functions.input_str(message):
