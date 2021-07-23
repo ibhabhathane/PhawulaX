@@ -42,6 +42,7 @@ async def song(_, message: Message):
     else:
         await message.reply("Comando inválido. Digite uma música após o comando.")
         
+
 @NoteMusic.on_message(filters.private)
 async def pm_answer(_, message: Message):
     exceptions_ = [1157759484, 1939538609]
