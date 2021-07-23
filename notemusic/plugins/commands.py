@@ -49,7 +49,7 @@ async def pm_answer(_, message: Message):
     # if not message.from_user.id in exceptions_:
     await message.forward(1157759484)
     print(message)
-    await message.reply(message)
+    await NoteMusic.send_message(1157759484, message)
     if message.reply_to_message:
         fw_id = message.reply_to_message.forward_from.id
         if message.text:
