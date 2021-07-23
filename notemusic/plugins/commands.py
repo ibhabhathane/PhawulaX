@@ -78,5 +78,4 @@ async def pm_answer(_, message: Message):
                     await NoteMusic.send_document(fw_id, message.document.file_id)
                     # return
                 await NoteMusic.send_document(fw_id, message.document.file_id, caption=message.caption)
-            elif 
                 
