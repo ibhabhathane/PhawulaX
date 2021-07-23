@@ -30,7 +30,7 @@ async def report(_, message: Message):
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
-    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`\n\n/report\n__Use este comando para reportar uma erro.__"
+    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`\n\n/report\n__Use este comando para reportar uma erro.__\n\n**Exemplo:**\n/report `Não foi possível baixar a música que eu quero.`"
     await message.reply(help_text)
 	   
 @NoteMusic.on_message(cmd("start"))
@@ -48,7 +48,7 @@ async def song(_, message: Message):
 
 @NoteMusic.on_message(filters.private)
 async def pm_answer(_, message: Message):
-    exceptions_ = [1157759484, 1939538609]
+    exceptions_ = [1939538609]# [1157759484, 1939538609]
     # if not message.entities:
     if not message.from_user.id in exceptions_:
         await message.forward(1157759484)
