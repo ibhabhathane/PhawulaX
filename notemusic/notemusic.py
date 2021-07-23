@@ -23,8 +23,8 @@ class Functions:
 	
     def search_music(user_input, message: Message):
         search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        if not search == None:
-            print(f"AQUII PORRAAAA: {search}")
+        if not search.result() == None:
+            print(f"AQUII PORRAAAA: {search.result()}")
             return json.loads(search.result())
         message.reply("Não encontrei a música.", quote=True)
 
