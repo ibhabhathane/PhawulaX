@@ -91,19 +91,16 @@ class Functions:
 	    return msg
 	    
     async def process_request(msg_: str, message: Message):
-        kek = False
         try:
 	        result = Functions.search_music(msg_, message)
-	        link = Functions.get_link(result)
-	        titulo = Functions.get_title(result)
-	        duracao = Functions.get_duration(result)
-	        views = Functions.get_views(result)
-	        file_name = Functions.get_file_name(result)
-	        kek = True
-	        return kek
 	    except:
 	        await message.reply("Não encontrei a música.", quote=True)
-	    print(f"AQUI PORRAAAAAAA: {kek}")
+	        return
+	    link = Functions.get_link(result)
+	    titulo = Functions.get_title(result)
+	    duracao = Functions.get_duration(result)
+	    views = Functions.get_views(result)
+	    file_name = Functions.get_file_name(result)
 	    try:
 	    	Functions.down_music(message, link, file_name)
 	    except:
