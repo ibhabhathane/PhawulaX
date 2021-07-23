@@ -21,15 +21,16 @@ class Functions:
     		return str(input_.split(maxsplit=1)[1].strip())
     	return ''
 	
-    def search_music(user_input, message: Message):
+    async def search_music(user_input, message: Message):
         search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
         if not search.result() == None:
             print(f"AQUII PORRAAAA: {search.result()}")
             return json.loads(search.result())
-        message.reply("Não encontrei a música.", quote=True)
+        await message.reply("Não encontrei a música.", quote=True)
 
     def get_link(result):
-        return result['search_result'][0]['link']
+        if not result == None:
+            return result['search_result'][0]['link']
     
     def get_duration(result):
         return result["search_result"][0]["duration"]
@@ -94,7 +95,7 @@ class Functions:
 	    return msg
 	    
     async def process_request(msg_: str, message: Message):
-        result = Functions.search_music(msg_, message)
+        result = await Functions.search_music(msg_, message)
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
         duracao = Functions.get_duration(result)
