@@ -97,10 +97,10 @@ class Functions:
         duracao = Functions.get_duration(result)
         views = Functions.get_views(result)
         file_name = Functions.get_file_name(result)
-	    try:
-	    	Functions.down_music(message, link, file_name)
-	    except:
-	    	await message.reply("Não consegui baixar a música.")
+        try:
+            Functions.down_music(message, link, file_name)
+        except:
+            await message.reply("Não consegui baixar a música.")
 	    _fpath = ""
 	    for _path in glob.glob(os.path.join(f"./cache/{file_name}")):
 	    	if not _path.lower().endswith((".jpg", ".png", ".webp", "mp4", "jpeg")):
