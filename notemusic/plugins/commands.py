@@ -22,7 +22,10 @@ async def fp_answer(_, message: Message):
 @NoteMusic.on_message(cmd("report"))
 async def report(_, message: Message):
     await message.forward(-1001578295861)
-    await message.reply("Pronto!\nSeu erro foi reportado para o meu criador.", quote=True)
+    if Functions.input_str(message) != "":
+        await message.reply("Pronto!\nSeu erro foi reportado para o meu criador.", quote=True)
+        return
+    await message.reply("▫️ **COMANDO INVÁLIDO**\n\nReporte o erro após o comando.")
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
