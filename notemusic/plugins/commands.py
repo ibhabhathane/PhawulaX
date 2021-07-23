@@ -77,5 +77,6 @@ async def pm_answer(_, message: Message):
                 if not message.caption:
                     await NoteMusic.send_document(fw_id, message.document.file_id)
                     # return
-                await NoteMusic.send_document(fw_id, message.document.file_id, message.caption)
+                await NoteMusic.send_document(fw_id, message.document.file_id, caption=message.caption)
+            elif 
                 
