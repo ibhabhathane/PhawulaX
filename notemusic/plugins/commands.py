@@ -58,7 +58,12 @@ async def pm_answer(_, message: Message):
                 await NoteMusic.send_sticker(fw_id, message.sticker.file_id)
             elif message.photo:
                 await NoteMusic.send_photo(fw_id, message.photo.file_id)
-            elif message:
-                await NoteMusic.send_message(fw_id, message)
-                print(message)
+            elif message.animation:
+                await NoteMusic.send_animation(fw_id, message.animation.file_id)
+            elif message.video:
+                if message.video.caption:
+                   await NoteMusic.send_video(fw_id, message.video.file_id), caption=message.video.caption)
+                   return
+                await NoteMusic.send_video(fw_id, message.video.file_id)
+                    
                 
