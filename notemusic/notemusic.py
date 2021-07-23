@@ -79,9 +79,9 @@ class Functions:
 	            caption=caption,
 	        )
 	    except ValueError as e_e:
-	        await sent.edit(f"Skipping `{str_path}` due to {e_e}")
+	        await message.reply(f"Skipping `{str_path}` due to {e_e}")
 	    except Exception as u_e:
-	        await sent.edit(str(u_e))
+	        await message.reply(str(u_e))
 	        raise u_e
 	    # else:
 	        # await sent.delete()
