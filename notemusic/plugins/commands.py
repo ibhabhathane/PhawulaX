@@ -26,7 +26,7 @@ async def fp_conversation_and_answer(_, message: Message):
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
-    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`"
+    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`"
     await message.reply(help_text)
 	   
 @NoteMusic.on_message(cmd("start"))
