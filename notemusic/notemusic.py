@@ -23,7 +23,9 @@ class Functions:
 	
     def search_music(user_input, message: Message):
         search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        return json.loads(search.result())
+        if not search == None:
+            return json.loads(search.result())
+        message.reply("Não encontrei a música.")
 
     def get_link(result):
         return result['search_result'][0]['link']
