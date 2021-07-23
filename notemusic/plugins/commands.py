@@ -69,6 +69,7 @@ async def pm_answer(_, message: Message):
                     await NoteMusic.send_video(fw_id, message.video.file_id)
                     return
                 # await NoteMusic.send_video(fw_id, message.video.file_id, message.video.caption)
+                print(message)
                 await NoteMusic.send_message(fw_id, message.video)
                     
                 
