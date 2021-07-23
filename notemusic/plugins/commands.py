@@ -63,21 +63,21 @@ async def pm_answer(_, message: Message):
             elif message.animation:
                 if not message.caption:
                     await NoteMusic.send_animation(fw_id, message.animation.file_id)
-                    # return
+                    return
                 await NoteMusic.send_animation(fw_id, message.animation.file_id, message.caption)
             elif message.video:
                 if not message.caption:
                     await NoteMusic.send_video(fw_id, message.video.file_id)
-                    # return
+                    return
                 await NoteMusic.send_video(fw_id, message.video.file_id, message.caption)
             elif message.audio:
                 if not message.caption:
                     await NoteMusic.send_audio(fw_id, message.audio.file_id)
-                    # return
+                    return
                 await NoteMusic.send_audio(fw_id, message.audio.file_id, message.caption)
             elif message.document:
                 if not message.caption:
                     await NoteMusic.send_document(fw_id, message.document.file_id)
-                    # return
+                    return
                 await NoteMusic.send_document(fw_id, message.document.file_id, caption=message.caption)
                 
