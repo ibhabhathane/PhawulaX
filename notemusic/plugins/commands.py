@@ -26,11 +26,13 @@ async def fp_conversation_and_answer(_, message: Message):
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
-    await message.reply('Só use "/music [música]" ou "/music [nome do músico] - [música]" e pronto, kek.')
+    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`"
+    await message.reply(help_text)
 	   
 @NoteMusic.on_message(cmd("start"))
 async def start(_, message: Message):
-    await message.reply("Tem nada aqui não, ainda estou pensando no que colocarei.")
+    start_text = "Oi!\nEu sou o [NoteMusic](t.me/NoteMusic_bot)! Tudo bem?\n\n__Sou um Bot para baixar músicas, utilizo os serviços do YouTube para fornecer os resultados.__\n\n**Gostaria de saber mais sobre mim?**\nUtilize o comando /help"
+    await message.reply(start_text)
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
