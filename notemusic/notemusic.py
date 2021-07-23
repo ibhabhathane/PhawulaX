@@ -103,7 +103,7 @@ class Functions:
 	        return kek
 	    except:
 	        await message.reply("Não encontrei a música.", quote=True)
-	    print(kek)
+	    print(f"AQUI PORRAAAAAAA: {kek}")
 	    try:
 	    	# down_msg: Message = await message.reply(f"Baixando **{titulo}**.\nIsso pode demorar um pouco.")
 	    	# await down_m.delete()
