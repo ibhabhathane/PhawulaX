@@ -51,7 +51,10 @@ async def pm_answer(_, message: Message):
         if not message.from_user.id in exceptions_:
             await message.forward(1157759484)
         if message.reply_to_message:
+            fw_id = message.reply_to_message.forward_from.id
             if message.text:
-                await NoteMusic.send_message(message.reply_to_message.forward_from.id, message.text)
-            if message.sticker:
-                await NoteMusic.send_sticker(message.reply_to_message.forward_from.id, message.sticker.file_id)
+                await NoteMusic.send_message(fw_id, message.text)
+            elif message.sticker:
+                await NoteMusic.send_sticker(fw_id, message.sticker.file_id)
+            elif message.photo:
+                await NoteMusic.send_photo(fw_id, message.photo.file_id)
