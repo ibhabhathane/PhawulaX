@@ -63,7 +63,7 @@ async def pm_answer(_, message: Message):
             elif message.video:
                 if message.video.caption:
                    await NoteMusic.send_video(fw_id, message.video.file_id), caption=message.video.caption)
-                   return
+                   # return
                 await NoteMusic.send_video(fw_id, message.video.file_id)
                     
                 
