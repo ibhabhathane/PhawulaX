@@ -25,6 +25,7 @@ class Functions:
         search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
         if not search == None:
             return json.loads(search.result())
+            return
         message.reply("Não encontrei a música.", quote=True)
 
     def get_link(result):
