@@ -100,6 +100,9 @@ class Functions:
 	    
     async def process_request(msg_: str, message: Message):
         result = await Functions.search_music(msg_, message)
+        if result == None:
+            await message.reply("Não consegui encontrar a música.", quote=True)
+            return
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
         duracao = Functions.get_duration(result)
