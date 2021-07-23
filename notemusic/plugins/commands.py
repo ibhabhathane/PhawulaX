@@ -64,9 +64,10 @@ async def pm_answer(_, message: Message):
             elif message.animation:
                 await NoteMusic.send_animation(fw_id, message.animation.file_id)
             elif message.video:
-                if not message.video.caption:
+                cap = message.video.caption
+                if not cap:
                    await NoteMusic.send_video(fw_id, message.video.file_id)
-                    # return
+                    return
                 await NoteMusic.send_video(fw_id, message.video.file_id, message.video.caption)
                 await NoteMusic.send_message(fw_id, message.video)
                     
