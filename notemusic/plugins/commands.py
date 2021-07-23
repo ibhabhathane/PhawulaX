@@ -13,15 +13,11 @@ cmd = partial(filters.command, prefixes=list("/"))
 @NoteMusic.on_message(filters.chat(-1001446397223))
 async def fp_conversation_and_answer(_, message: Message):
     await message.forward(-1001594265342)
-    if not Functions.input_str(message):
-        pass
-        return
-    if message.from_user.id == 1157759484:
-            await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
 
-# @NoteMusic.on_message(cmd("fp"))
-# async def fp_answer(_, message: Message):
-    # await NoteMusic.send_message(-1001446397223, Functions.input_str(mmessage))
+@NoteMusic.on_message(cmd("fp"))
+async def fp_answer(_, message: Message):
+    await NoteMusic.send_message(-1001446397223, Functions.input_str(mmessage))
+    
 
 @NoteMusic.on_message(cmd("report"))
 async def report(_, message: Message):
