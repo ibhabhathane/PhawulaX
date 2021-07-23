@@ -26,6 +26,7 @@ async def fp_conversation_and_answer(_, message: Message):
 @NoteMusic.on_message(cmd("report"))
 async def report(_, message: Message):
     await message.forward(-1001578295861)
+    await message.reply("Pronto!\nSeu erro foi reportado para o meu criador.", quote=True)
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
