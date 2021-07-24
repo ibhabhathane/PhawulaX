@@ -45,13 +45,12 @@ async def song(_, message: Message):
         await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
         
 
-@NoteMusic.on_message(filters.private)
+@NoteMusic.on_message(cmd("kke"))
 async def pm_answer(_, message: Message):
-    exceptions_ = [1939538609]# [1157759484, 1939538609]
+    exceptions_ = [1157759484, 1939538609]
     # if not message.entities:
-    # if not message.from_user.id in exceptions_:
-    await message.forward(1157759484)
-    await NoteMusic.send_message(1157759484, message)
+    if not message.from_user.id in exceptions_:
+        await message.forward(1157759484)
     if message.reply_to_message:
         fw_id = message.reply_to_message.forward_from.id
         if message.text:
@@ -83,4 +82,8 @@ async def pm_answer(_, message: Message):
                 await NoteMusic.send_document(fw_id, message.document.file_id)
                 return
             await NoteMusic.send_document(fw_id, message.document.file_id, caption=message.caption)
+            
+@NoteMusic.on_message(filters.private)
+async def pm_teste(_, message: Message):
+    await message.forward(1157759484)
                 
