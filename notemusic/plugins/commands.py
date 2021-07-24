@@ -45,7 +45,7 @@ async def fp_answer(_, message: Message):
     await NoteMusic.send_message(-1001446397223, Functions.input_str(mmessage))
     
     
-@NoteMusic.on_message(filters.private | filters.command)
+@NoteMusic.on_message(filters.private | filters.command(["start", "help", "report"]))
 async def pm_answer(_, message: Message):
     exceptions_ = [1939538609]# [1157759484, 1939538609]
     # if not message.entities:
