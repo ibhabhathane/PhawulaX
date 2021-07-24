@@ -25,7 +25,7 @@ async def report(_, message: Message):
     if Functions.input_str(message) != "":
         await message.reply("Pronto!\nSeu erro foi reportado para o meu criador.", quote=True)
         return
-    await message.reply("▫️ **COMANDO INVÁLIDO**\n\nReporte o erro após o comando.")
+    await message.reply("▫️ **COMANDO INVÁLIDO**\n\nReporte o erro após o comando.", quote=True)
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
