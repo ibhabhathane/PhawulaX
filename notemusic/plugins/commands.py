@@ -48,12 +48,12 @@ async def sm(_, message: Message):
         
         
 def check_owner(func):
-    async def wrapper(_, c_q: CallbackQuery):
-        if c_q.from_user and (
-            c_q.from_user.id in [1157759484]
+    async def wrapper(_, message: Message):
+        if message.from_user and (
+            message.from_user.id in [1157759484]
         ):
             try:
-                await func(c_q)
+                await func(message)
             except FloodWait as e:
                 await asyncio.sleep(e.x + 5)
             except MessageNotModified:
