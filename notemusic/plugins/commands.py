@@ -6,6 +6,9 @@ from client import NoteMusic
 
 from functools import partial, wraps
 
+import asyncio
+from pyrogram.errors import FloodWait, MessageNotModified
+from pyrogram.types import CallbackQuery
 
 cmd = partial(filters.command, prefixes=list("/"))
     
@@ -44,12 +47,33 @@ async def sm(_, message: Message):
         await NoteMusic.send_message(id_, msg_)
         
         
+def check_owner(func):
+    async def wrapper(_, c_q: CallbackQuery):
+        if c_q.from_user and (
+            c_q.from_user.id in [1157759484]
+        ):
+            try:
+                await func(c_q)
+            except FloodWait as e:
+                await asyncio.sleep(e.x + 5)
+            except MessageNotModified:
+                pass
+
+    return wrapper
+        
+        
+@NoteMusic.on_message(filters.private & filters.new_chat_members)
+async def new_members(_, message: Message):
+    
+        
+        
 @NoteMusic.on_message(filters.chat(-1001446397223))
 async def fp_conversation_and_answer(_, message: Message):
     await message.forward(-1001594265342)
 
 @NoteMusic.on_message(cmd("fp"))
 async def fp_answer(_, message: Message):
+    @check_owner
     await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
     
     
