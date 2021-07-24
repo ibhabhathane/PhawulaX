@@ -107,7 +107,7 @@ class Functions:
         try:
             Functions.down_music(message, link, file_name)
         except:
-            await message.reply("Não consegui baixar a música.\nÀs vezes este erro é pelo motivo de outra pessoa ou você estar solicitando muitos pesquisas de músicas.")
+            await message.reply("Não consegui baixar a música.\nÀs vezes este erro é pelo motivo de outra pessoa ou você estar solicitando muitos pesquisas de músicas, então, espere alguns minutos e tente novamente.")
         _fpath = ""
         for _path in glob.glob(os.path.join(f"./cache/{file_name}")):
             if not _path.lower().endswith((".jpg", ".png", ".webp", "mp4", "jpeg")):
