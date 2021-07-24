@@ -18,7 +18,6 @@ async def report(_, message: Message):
         
         nome = f"{message.from_user.first_name} {message.from_user .last_name}" if message.from_user.last_name else message .from_user.first_name
         await rtext.reply(f"Pessoa que reportou:\n  id: `{message.from_user.id}`\n  Nome: {nome}\n  👤: @{message.from_user.username}")
-        
         return
     await message.reply("▫️ **COMANDO INVÁLIDO**\n\nReporte o erro após o comando.", quote=True)
 
