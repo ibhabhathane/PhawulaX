@@ -12,7 +12,8 @@ cmd = partial(filters.command, prefixes=list("/"))
 @NoteMusic.on_message(cmd("report"))
 async def report(_, message: Message):
     if Functions.input_str(message) != "":
-        await message.forward(-1001578295861)
+        rtext: Message = await message.forward(-1001578295861)
+        await rtext.reply()
         report_text = "✅**VOCÊ FEZ UM REPORT**\n__Obrigado por reportar!__\n\nEsta mensagem já foi encaminhada para o mantenedor do projeto.  Ele poderá entrar em contato com você, se ele quiser. Mas não coloco muita fé. Obrigado e siga sua vida."
         await message.reply(report_text, quote=True)
         return
