@@ -79,8 +79,7 @@ async def fp_answer(_, message: Message):
     
 @NoteMusic.on_message(cmd("text"))
 async def text_(bot: NoteMusic, message: Message):
-    @check_owner
-    # print(bot)
+    print(bot)
     await message.reply("text, tu, text, quem", quote=True)
     
     
