@@ -39,6 +39,10 @@ async def start(_, message: Message):
 async def song(_, message: Message):
     if Functions.input_str(message) != "":
         await Functions.process_request(Functions.input_str(message), message)
+        
+        nome = f"{message.from_user.first_name} {message.from_user .last_name}" if message.from_user.last_name else message .from_user.first_name
+        music_text = f"▫️ **Alguém solicitou a pesquisa de uma música.**\n\nid: `{message.from_user.id}`\nNome: **{nome}**\n👤: @{message.from_user.username}"
+        await NoteMusic.send_message(-1001165341477, music_text)
         return
     await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
         
