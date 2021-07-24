@@ -13,7 +13,7 @@ cmd = partial(filters.command, prefixes=list("/"))
 async def report(_, message: Message):
     if Functions.input_str(message) != "":
         rtext: Message = await message.forward(-1001578295861)
-        report_text = "✅**VOCÊ FEZ UM REPORT**\n__Obrigado por reportar!__\n\nEsta mensagem já foi encaminhada para o mantenedor do projeto.  Ele poderá entrar em contato com você, se ele quiser. Mas não coloco muita fé. Obrigado e siga sua vida."
+        report_text = "✅* *VOCÊ FEZ UM REPORT**\n__Obrigado por reportar!__\n\nEsta mensagem já foi encaminhada para o mantenedor do projeto.  Ele poderá entrar em contato com você, se ele quiser. Mas não coloco muita fé. Obrigado e siga sua vida."
         await message.reply(report_text, quote=True)
         
         nome = f"{message.from_user.first_name} {message.from_user .last_name}" if message.from_user.last_name else message .from_user.first_name
