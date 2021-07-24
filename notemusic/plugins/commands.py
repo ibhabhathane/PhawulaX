@@ -42,31 +42,9 @@ async def song(_, message: Message):
 async def sm(_, message: Message):
     if message.from_user.id == 1157759484:
         msg = Functions.input_str(message)
-        id_ = msg.split(maxpslit=1)[0]
-        msg_ = msg.split(maxspli=1)[1]
+        id_ = msg.split(maxsplit=1)[0]
+        msg_ = msg.split(maxsplit=1)[1]
         await NoteMusic.send_message(id_, msg_)
-        
-        
-def check_owner(func):
-    @wraps(func)
-    async def wrapper(_, message: Message):
-        if message.from_user and (
-            message.from_user.id in [1157759484]
-        ):
-            try:
-                await func(message)
-            except FloodWait as e:
-                await asyncio.sleep(e.x + 5)
-            except MessageNotModified:
-                pass
-
-    return wrapper
-        
-        
-@NoteMusic.on_message(filters.bot)
-async def new_members(_, message: Message):
-    # new_members = [f"{u.mention}" for u in message.new_chat_members]
-    await message.reply("oi", quote=True)
         
         
 @NoteMusic.on_message(filters.chat(-1001446397223))
