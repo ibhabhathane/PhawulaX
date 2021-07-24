@@ -6,10 +6,6 @@ from client import NoteMusic
 
 from functools import partial, wraps
 
-import asyncio
-from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import CallbackQuery
-
 cmd = partial(filters.command, prefixes=list("/"))
     
 
