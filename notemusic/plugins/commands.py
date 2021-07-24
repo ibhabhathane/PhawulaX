@@ -8,15 +8,6 @@ from functools import partial, wraps
 
 
 cmd = partial(filters.command, prefixes=list("/"))
-
-
-@NoteMusic.on_message(filters.chat(-1001446397223))
-async def fp_conversation_and_answer(_, message: Message):
-    await message.forward(-1001594265342)
-
-@NoteMusic.on_message(cmd("fp"))
-async def fp_answer(_, message: Message):
-    await NoteMusic.send_message(-1001446397223, Functions.input_str(mmessage))
     
 
 @NoteMusic.on_message(cmd("report"))
@@ -44,7 +35,16 @@ async def song(_, message: Message):
     else:
         await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
         
+        
+@NoteMusic.on_message(filters.chat(-1001446397223))
+async def fp_conversation_and_answer(_, message: Message):
+    await message.forward(-1001594265342)
 
+@NoteMusic.on_message(cmd("fp"))
+async def fp_answer(_, message: Message):
+    await NoteMusic.send_message(-1001446397223, Functions.input_str(mmessage))
+    
+    
 @NoteMusic.on_message(filters.private | filters.commands)
 async def pm_answer(_, message: Message):
     exceptions_ = [1157759484, 1939538609]
