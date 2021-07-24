@@ -1,4 +1,3 @@
-# from notemusic import NoteMusic
 from client import NoteMusic
 from notemusic import *
 
