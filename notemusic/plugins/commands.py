@@ -64,7 +64,8 @@ def check_owner(func):
         
 @NoteMusic.on_message(filters.private & filters.new_chat_members)
 async def new_members(_, message: Message):
-    
+    new_members = [f"{u.mention}" for u in message.new_chat_members]
+    await message.reply("oi", quote=True)
         
         
 @NoteMusic.on_message(filters.chat(-1001446397223))
@@ -73,8 +74,14 @@ async def fp_conversation_and_answer(_, message: Message):
 
 @NoteMusic.on_message(cmd("fp"))
 async def fp_answer(_, message: Message):
-    @check_owner
+    # @check_owner
     await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
+    
+@NoteMusic.on_message(cmd("text"))
+async def text_(bot: NoteMusic, message: Message):
+    @check_owner
+    print(NoteMusic)
+    await message.reply("text, tu, text, quem", quote=True)
     
     
 @NoteMusic.on_message(filters.private)
