@@ -29,7 +29,6 @@ async def start(_, message: Message):
     
     nome = f"{message.from_user.first_name} {message.from_user.last_name}" if message.from_user.last_name else message.from_user.first_name
     await NoteMusic.send_message(-1001165341477, f"Uma pessoa iniciou o seu bot.\n\nid: `{message.from_user.id}`\nNome: {nome}\n👤: @{message.from_user.username}")
-    await NoteMusic.send_message(-1001165341477, message.text)
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
