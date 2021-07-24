@@ -9,6 +9,7 @@ from functools import partial, wraps
 
 cmd = partial(filters.command, prefixes=list("/"))
 
+
 def check_owner(user: Union[int, str]) -> bool:
     if user == 1157759484:
         return True
