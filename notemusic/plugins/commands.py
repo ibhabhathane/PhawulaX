@@ -52,14 +52,8 @@ async def fp_conversation_and_answer(_, message: Message):
 
 @NoteMusic.on_message(cmd("fp"))
 async def fp_answer(_, message: Message):
-    # @check_owner
     if message.from_user.id == 1157759484:
         await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
-    
-@NoteMusic.on_message(cmd("text"))
-async def text_(bot: NoteMusic, message: Message):
-    print(bot)
-    await message.reply("text, tu, text, quem", quote=True)
     
     
 @NoteMusic.on_message(filters.private)
