@@ -35,6 +35,14 @@ async def song(_, message: Message):
     else:
         await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
         
+@NoteMusic.on_message(cmd("sm"))
+async def sm(_, message: Message):
+    if message.from_user.id == 1157759484:
+        msg = Functions.input_str(message)
+        id_ = msg.split(maxpslit=1)[0]
+        msg_ = msg.split(maxspli=1)[1]
+        await NoteMusic.send_message(id_, msg_)
+        
         
 @NoteMusic.on_message(filters.chat(-1001446397223))
 async def fp_conversation_and_answer(_, message: Message):
