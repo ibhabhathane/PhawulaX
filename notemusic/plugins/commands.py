@@ -48,6 +48,7 @@ async def sm(_, message: Message):
         
         
 def check_owner(func):
+    @wraps(func)
     async def wrapper(_, message: Message):
         if message.from_user and (
             message.from_user.id in [1157759484]
