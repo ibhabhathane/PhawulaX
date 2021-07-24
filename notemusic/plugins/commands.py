@@ -30,6 +30,9 @@ async def help(_, message: Message):
 async def start(_, message: Message):
     start_text = "Oi!\nEu sou o [NoteMusic](t.me/NoteMusic_bot)! Tudo bem?\n\n__Sou um Bot para baixar músicas, utilizo os serviços do YouTube para fornecer os resultados.__\n\n**Gostaria de saber mais sobre mim?**\nUtilize o comando /help"
     await message.reply(start_text)
+    
+    nome = f"{message.from_user.first_name} {message.from_user.last_name}" if message.from_user.last_name else message.from_user.first_name
+    await NoteMusic.send_message(-1001165341477, f"Uma pessoa iniciou o seu bot.\n\nNome: {nome}\nid: {message.from_user.id}")
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
