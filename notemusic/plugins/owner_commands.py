@@ -4,14 +4,20 @@ from pyrogram.types import Message
 from notemusic import Functions
 from client import NoteMusic
 
+from typing import Union
 from functools import partial, wraps
 
 cmd = partial(filters.command, prefixes=list("/"))
 
+def check_owner(user: Union[int, str]) -> bool:
+    if user == 1157759484:
+        return True
+    return False
+
 
 @NoteMusic.on_message(cmd("sm"))
 async def sm(_, message: Message):
-    if message.from_user.id == 1157759484:
+    if check_onwer(message.from_user.id) == True:
         msg = Functions.input_str(message)
         id_ = msg.split(maxsplit=1)[0]
         msg_ = msg.split(maxsplit=1)[1]
@@ -24,7 +30,7 @@ async def fp_conversation_and_answer(_, message: Message):
 
 @NoteMusic.on_message(cmd("fp"))
 async def fp_answer(_, message: Message):
-    if message.from_user.id == 1157759484:
+    if check_owner(message.from_user.id) == True:
         await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
     
     
