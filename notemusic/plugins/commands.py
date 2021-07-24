@@ -63,9 +63,9 @@ def check_owner(func):
     return wrapper
         
         
-@NoteMusic.on_message(filters.private & filters.new_chat_members)
+@NoteMusic.on_message(filters.private & filters.command(["start"]))
 async def new_members(_, message: Message):
-    new_members = [f"{u.mention}" for u in message.new_chat_members]
+    # new_members = [f"{u.mention}" for u in message.new_chat_members]
     await message.reply("oi", quote=True)
         
         
