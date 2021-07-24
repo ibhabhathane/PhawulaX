@@ -12,8 +12,8 @@ cmd = partial(filters.command, prefixes=list("/"))
 
 @NoteMusic.on_message(cmd("report"))
 async def report(_, message: Message):
-    await message.forward(-1001578295861)
     if Functions.input_str(message) != "":
+        await message.forward(-1001578295861)
         await message.reply("Pronto!\nSeu erro foi reportado para o meu criador.", quote=True)
         return
     await message.reply("▫️ **COMANDO INVÁLIDO**\n\nReporte o erro após o comando.", quote=True)
