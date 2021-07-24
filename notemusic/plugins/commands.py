@@ -17,7 +17,7 @@ async def report(_, message: Message):
         await message.reply(report_text, quote=True)
         
         nome = f"{message.from_user.first_name} {message.from_user .last_name}" if message.from_user.last_name else message .from_user.first_name
-        await rtext.reply(f"▫️ **Pessoa que reportou:**\n  id: `{message.from_user.id}`\n  Nome: **{nome}**\n  👤: @{message.from_user.username}")
+        await rtext.reply(f"▫️ **Pessoa que reportou:**\n  id: `{message.from_user.id}`\n  Nome: __{nome}__\n  👤: @{message.from_user.username}")
         return
     await message.reply("▫️ **COMANDO INVÁLIDO**\n\nReporte o erro após o comando.", quote=True)
 
@@ -33,7 +33,7 @@ async def start(_, message: Message):
     
     if message.chat.type == "private":
         nome = f"{message.from_user.first_name} {message.from_user.last_name}" if message.from_user.last_name else message.from_user.first_name
-        await NoteMusic.send_message(-1001165341477, f"▫️ **Uma pessoa iniciou o seu bot.**\n\nid: `{message.from_user.id}`\nNome: **{nome}**\n👤: @{message.from_user.username}")
+        await NoteMusic.send_message(-1001165341477, f"▫️ **Uma pessoa iniciou o seu bot.**\n\nid: `{message.from_user.id}`\nNome: __{nome}__\n👤: @{message.from_user.username}")
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
@@ -42,7 +42,7 @@ async def song(_, message: Message):
         
         if message.chat.type == "private":
             nome = f"{message.from_user.first_name} {message.from_user .last_name}" if message.from_user.last_name else message .from_user.first_name
-            music_text = f"▫️ **Alguém solicitou a pesquisa de uma música.**\n ╰• Música: {Functions.input_str(message)}\n\nid: `{message.from_user.id}`\nNome: **{nome}**\n👤: @{message.from_user.username}"
+            music_text = f"▫️ **Alguém solicitou a pesquisa de uma música.**\n ╰• Música: {Functions.input_str(message)}\n\nid: `{message.from_user.id}`\nNome: __{nome}__\n👤: @{message.from_user.username}"
             await NoteMusic.send_message(-1001165341477, music_text)
         return
     await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
