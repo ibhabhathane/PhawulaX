@@ -20,7 +20,7 @@ async def report(_, message: Message):
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
-    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`\n\n/report\n__Use este comando para reportar uma erro.__\n\n➖**Exemplo de como usar:**\n/report `Não foi possível baixar a música que eu quero.`"
+    help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`\n\n/report\n__Use este comando para reportar um erro.__\n\n➖**Exemplo de como usar:**\n/report `Não foi possível baixar a música que eu quero.`"
     await message.reply(help_text)
 	   
 @NoteMusic.on_message(cmd("start"))
