@@ -29,7 +29,7 @@ async def help(_, message: Message):
 @NoteMusic.on_message(cmd("start"))
 async def start(_, message: Message):
     start_text = "Oi!\nEu sou o [NoteMusic](t.me/NoteMusic_bot)! Tudo bem?\n\n__Sou um Bot para baixar músicas, utilizo os serviços do YouTube para fornecer os resultados.__\n\n**Gostaria de saber mais sobre mim?**\nUtilize o comando /help"
-    await message.reply(start_text)
+    await message.reply(start_text, disable_web_page_preview=True)
     
     if message.chat.type == "private":
         nome = f"{message.from_user.first_name} {message.from_user.last_name}" if message.from_user.last_name else message.from_user.first_name
