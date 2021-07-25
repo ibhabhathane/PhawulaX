@@ -9,9 +9,10 @@ from functools import partial, wraps
 
 cmd = partial(filters.command, prefixes=list("/"))
 
+CREATOR_ID = 1157759484
 
 def check_owner(user: Union[int, str]) -> bool:
-    if user == 1157759484:
+    if user == CREATOR_ID:
         return True
     return False
 
