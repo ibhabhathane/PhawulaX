@@ -2,9 +2,9 @@ import os
 from pyrogram import Client
 
 class Config:
-    API_ID = int(os.environ.get("API_ID"))
-    API_HASH = str(os.environ.get("API_HASH"))
-    BOT_TOKEN = str(os.environ.get("BOT_TOKEN"))
+    API_ID = int(3716600)# int(os.environ.get("API_ID"))
+    API_HASH = str("0ed423ceea4fbb06c0e627d9db0f4a6b")# str(os.environ.get("API_HASH"))
+    BOT_TOKEN = str("1939538609:AAFPfNt_fw5n0DP1Vq2bjVxRnzzQsDSuL4A")# str(os.environ.get("BOT_TOKEN"))
 
 class NoteBot(Client):
     def __init__(self):
