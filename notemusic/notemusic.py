@@ -106,7 +106,7 @@ class Functions:
             return
         duracao = Functions.get_duration(result)
         n = str(duracao[0]) + str(duracao[1]) #if str(duracao[1]) != ":" else str(duracao[0])
-        if not len(d) < 6 and not n[1] == ":" and not int(n) < 10:
+        if len(duracao) > 5 and n[1] == ":" and int(n) > 10:
             await message.reply("kek")
             return
         link = Functions.get_link(result)
