@@ -106,9 +106,11 @@ class Functions:
             return
         duracao = Functions.get_duration(result)
         n = str(duracao[0]) + str(duracao[1]) #if str(duracao[1]) != ":" else str(duracao[0])
-        if len(duracao) > 5 and n[1] == ":" and int(n) > 10:
+        if len(duracao) > 5:
             await message.reply("kek")
             return
+        elif int(n) > 10:
+            await message.reply("kek")
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
         views = Functions.get_views(result)
