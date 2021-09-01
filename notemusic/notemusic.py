@@ -100,11 +100,9 @@ class Functions:
             await message.reply("Não consegui encontrar a música.", quote=True)
             return
         duracao = Functions.get_duration(result)
-        if duracao != "00:10:59":
-            return
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
-        
+        print("DURACAAAAAAAAO: {}".format(duracao))
         views = Functions.get_views(result)
         file_name = Functions.get_file_name(result)
         try:
