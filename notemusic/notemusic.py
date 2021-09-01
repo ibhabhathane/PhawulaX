@@ -33,11 +33,6 @@ class Functions:
     def get_duration(result):
         if not result == None:
             return result["search_result"][0]["duration"]
-        d = result["search_result"][0]["duration"]
-        n = str(d[0]) + str(d[1]) if str(d[1]) != ":" else str(d[0])
-        if not len(d) < 6 and not int(n) < 10:
-            NoteMusic.reply("Não foi possível baixar a música, pois é maior que 10 minutos.")
-            result = None
         
     def get_file_name(result):
         if not result == None:
@@ -107,10 +102,10 @@ class Functions:
         duracao = Functions.get_duration(result)
         n = str(duracao[0]) + str(duracao[1]) if str(duracao[1]) != ":" else str(duracao[0])
         if len(duracao) > 5:
-            await message.reply("A música que você quer baixar tem mais de 10 minutos, portanto, não vai ser possível baixar.")
+            await message.reply("A música que você quer baixar tem mais de 10 minutos de duração, portanto, não vai ser possível baixar.")
             return
         elif int(n) > 10:
-            await message.reply("A música que você quer baixar tem mais de 10 minutos, portanto, não vai ser possível baixar.")
+            await message.reply("A música que você quer baixar tem mais de 10 minutos de duração, portanto, não vai ser possível baixar.")
             return
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
