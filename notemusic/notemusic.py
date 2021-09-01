@@ -107,10 +107,10 @@ class Functions:
         duracao = Functions.get_duration(result)
         n = str(duracao[0]) + str(duracao[1]) if str(duracao[1]) != ":" else str(duracao[0])
         if len(duracao) > 5:
-            await message.reply("kek")
+            await message.reply("A música que você quer baixar tem mais de 10 minutos, portanto, não vai ser possível baixar.")
             return
         elif int(n) > 10:
-            await message.reply("kek")
+            await message.reply("A música que você quer baixar tem mais de 10 minutos, portanto, não vai ser possível baixar.")
             return
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
