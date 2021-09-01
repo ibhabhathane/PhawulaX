@@ -105,9 +105,10 @@ class Functions:
             await message.reply("Não consegui encontrar a música.", quote=True)
             return
         duracao = Functions.get_duration(result)
-        # n = str(duracao[0]) + str(duracao[1]) if str(duracao[1]) != ":" else str(duracao[0])
-        # if not len(d) < 6 and not int(n) < 10:
-            # await message.reply()
+        n = str(duracao[0]) + str(duracao[1]) #if str(duracao[1]) != ":" else str(duracao[0])
+        if not len(d) < 6 and not n[1] == ":" and not int(n) < 10:
+            await message.reply("kek")
+            return
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
         views = Functions.get_views(result)
