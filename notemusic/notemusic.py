@@ -111,6 +111,7 @@ class Functions:
             return
         elif int(n) > 10:
             await message.reply("kek")
+            return
         link = Functions.get_link(result)
         titulo = Functions.get_title(result)
         views = Functions.get_views(result)
