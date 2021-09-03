@@ -36,17 +36,6 @@ async def fp_answer(_, message: Message):
         await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
     
     
-@NoteMusic.on_message(filters.chat(-1001165341477))
-async def tst_cnv(_, message: Message):
-    await message.forward(-1001244869131)
-    
-@NoteMusic.on_message(cmd("tst"))
-async def fp_answer(_, message: Message):
-    if check_owner(message.from_user.id) == True:
-        await message.reply(Functions.input_str(message), quote=True)
-        # await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
-    
-    
 @NoteMusic.on_message(filters.private)
 async def pm_answer(_, message: Message):
     exceptions_ = [1157759484, 1986585144]
