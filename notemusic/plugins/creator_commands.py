@@ -34,7 +34,12 @@ async def fp_conversation_and_answer(_, message: Message):
 async def fp_answer(_, message: Message):
     if check_owner(message.from_user.id) == True:
         await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
-        
+    
+    
+@NoteMusic.on_message(filters.chat(-1001165341477))
+async def tst_cnv(_, message: Message):
+    await message.forward(-1001165341477)
+    
 @NoteMusic.on_message(cmd("tst"))
 async def fp_answer(_, message: Message):
     if check_owner(message.from_user.id) == True:
