@@ -48,7 +48,23 @@ class Functions:
         
     def get_views(result):
         if not result == None:
-            return result["search_result"][0]["views"]
+            s = result["search_result"][0]["views"]
+            if len(s) == 10:
+                s = s[0] + "," + s[1] + s[2] + s[3] + "," + s[4] + s[5] + s[6] +"," + s[7] + s[8] + s[9]
+            if len(s) == 9:
+                s = s[0] + s[1] + s[2] + "," + s[3] + s[4] + s[5] + "," + s[6] + s[7] + s[8]
+            if len(s) == 8:
+                s = s[0] + s[1] + "," + s[2] + s[3] + s[4] + "," + s[5] + s[6] + s[7]
+            if len(s) == 7:
+                s = s[0] + "," + s[1] + s[2] + s[3] + "," + s[4] + s[5] + s[6]
+            if len(s) == 6:
+                s = s[0] + s[1] + s[2] + "," + s[3] + s[4] + s[5]
+            if len(s) == 5:
+                s = s[0] + s[1] + "," + s[2] + s[3] + s[4]
+            if len(s) == 4:
+                s = s[0] + "," + s[1] + s[2] + s[3]
+            return s
+            # return result["search_result"][0]["views"]
 	        
     	
     def down_music(message: Message, link, file_name):
