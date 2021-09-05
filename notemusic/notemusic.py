@@ -62,7 +62,6 @@ class Functions:
                     "preferredcodec": "mp3",
                     "preferredquality": uid,
                 },
-                {"key": "FFmpegMetadata"},
             ],
         }
             # 'format': 'bestaudio/best',
