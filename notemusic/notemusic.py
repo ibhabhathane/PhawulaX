@@ -56,8 +56,6 @@ class Functions:
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
             "format": "bestaudio/best",
-            "geo_bypass": True,
-            "nocheckcertificate": True,
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
