@@ -48,7 +48,7 @@ class Functions:
         
     def get_views(result):
         if not result == None:
-            s = result["search_result"][0]["views"]
+            s = str(result["search_result"][0]["views"])
             if len(s) == 10:
                 s = s[0] + "," + s[1] + s[2] + s[3] + "," + s[4] + s[5] + s[6] +"," + s[7] + s[8] + s[9]
             if len(s) == 9:
@@ -141,7 +141,7 @@ class Functions:
             if not _fpath:
                 await message.reply("Não encontrei nada...", )
                 return
-            cap = f"✅  **Este é o resultado:**\n\n▫️**TITULO: **[{titulo}]({link})\n▫️ **DURAÇÃO: **{duracao}\n▫️ **VIZUALIZAÇÕES: **{views} views\n\n▪️ Mantido pelo: @NoteZV"
+            cap = f"✅  **Este é o resultado:**\n\n▫️ **TITULO: **[{titulo}]({link})\n▫️ **DURAÇÃO: **{duracao}\n▫️ **VISUALIZAÇÕES: **{views} views\n\n▪️ Mantido pelo: @NoteZV"
             try:
                 await Functions.upload_audio(message, Path(_fpath), cap) 
                 if os.path.exists(f"./cache/{file_name}"):
