@@ -82,7 +82,7 @@ class Functions:
         except DownloadError as e:
             message.reply(e)
         except GeoRestrictedError:
-            message.reply("ERROR: The uploader has not made this video available in your country")
+            message.reply("ERRO: O vídeo não está disponível para o seu país.")
     
 
     async def upload_audio(message: Message, path, cap: str):
