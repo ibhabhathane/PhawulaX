@@ -55,7 +55,7 @@ class Functions:
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
-            "format": "bestaudio/best",
+            "format": "bestaudio",# /best",
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
