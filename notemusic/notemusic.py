@@ -64,7 +64,6 @@ class Functions:
                 },
                 {"key": "FFmpegMetadata"},
             ],
-            "quiet": True,
         }
             # 'format': 'bestaudio/best',
             # 'postprocessors': [{
