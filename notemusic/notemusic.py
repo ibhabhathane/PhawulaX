@@ -65,14 +65,6 @@ class Functions:
             ],
             "quiet": True,
         }
-            # 'format': 'bestaudio/best',
-            # 'postprocessors': [{
-                # 'key': 'FFmpegExtractAudio',
-                # 'preferredcodec': 'mp3',
-                # 'preferredquality': '256',
-            # }],
-            # 'prefer_ffmpeg': True
-        # }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
                 info_dict = ydl.download([link])
