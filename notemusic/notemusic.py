@@ -72,7 +72,7 @@ class Functions:
             'format': 'bestaudio/best',
             'extractaudio': True,
             'audioformat': 'mp3',
-            'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
+            'outtmpl': f"./cache/{file_name}",
             'restrictfilenames': True,
             'noplaylist': True,
             'nocheckcertificate': True,
