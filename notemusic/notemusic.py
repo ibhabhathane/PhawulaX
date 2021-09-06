@@ -76,6 +76,8 @@ class Functions:
             'restrictfilenames': True,
             'noplaylist': True,
             'nocheckcertificate': True,
+            'ignoreerrors': False,
+            'logtostderr': False,
             'quiet': True,
             'no_warnings': True,
             'default_search': 'auto',
