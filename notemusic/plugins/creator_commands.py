@@ -19,7 +19,7 @@ def check_owner(user: Union[int, str]) -> bool:
 
 @NoteMusic.on_message(cmd("sm"))
 async def sm(_, message: Message):
-    if check_onwer(message.from_user.id) == True:
+    if check_owner(message.from_user.id) == True:
         msg = Functions.input_str(message)
         id_ = msg.split(maxsplit=1)[0]
         msg_ = msg.split(maxsplit=1)[1]
