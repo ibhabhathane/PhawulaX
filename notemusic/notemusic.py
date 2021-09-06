@@ -69,17 +69,30 @@ class Functions:
     	
     def down_music(message: Message, link, file_name):
         _opts = {
-            "outtmpl": f"./cache/{file_name}",
-            "prefer_ffmpeg": True,
-            "format": "bestaudio",# /best",
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
-                    "preferredquality": "256",
-                },
-            ],
-            "quiet": True,
+            'format': 'bestaudio/best',
+            'extractaudio': True,
+            'audioformat': 'mp3',
+            'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
+            'restrictfilenames': True,
+            'noplaylist': True,
+            'nocheckcertificate': True,
+            'ignoreerrors': False,
+            'logtostderr': False,
+            'quiet': True,
+            'no_warnings': True,
+            'default_search': 'auto',
+            'source_address': '0.0.0.0',
+            # "outtmpl": f"./cache/{file_name}",
+            # "prefer_ffmpeg": True,
+            # "format": "bestaudio",# /best",
+            # "postprocessors": [
+                # {
+                    # "key": "FFmpegExtractAudio",
+                    # "preferredcodec": "mp3",
+                    # "preferredquality": "256",
+                # },
+            # ],
+            # "quiet": True,
         }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
@@ -93,7 +106,6 @@ class Functions:
     async def upload_audio(message: Message, path, cap: str):
 	    caption = cap
 	    str_path = str(path)
-	    # file_size = os.path.getsize(str_path)
 	    # sent: Message = await NoteMusic.send_message(
 	        # message.chat.id, "Terminei! Fazendo upload."
 	    # )
