@@ -69,7 +69,7 @@ class Functions:
     	
     def down_music(message: Message, link, file_name):
         _opts = {
-            'format': 'bestaudio/best',
+            'format': 'bestaudio',
             'extractaudio': True,
             'audioformat': 'mp3',
             'outtmpl': f"./cache/{file_name}",
@@ -82,6 +82,8 @@ class Functions:
             'no_warnings': True,
             'default_search': 'auto',
             'source_address': '0.0.0.0',
+            "prefer_ffmpeg": True,
+            
             # "outtmpl": f"./cache/{file_name}",
             # "prefer_ffmpeg": True,
             # "format": "bestaudio",# /best",
