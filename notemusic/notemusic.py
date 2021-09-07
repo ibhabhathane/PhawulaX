@@ -87,13 +87,13 @@ class Functions:
             # "outtmpl": f"./cache/{file_name}",
             # "prefer_ffmpeg": True,
             # "format": "bestaudio",# /best",
-            # "postprocessors": [
-                # {
-                    # "key": "FFmpegExtractAudio",
-                    # "preferredcodec": "mp3",
-                    # "preferredquality": "256",
-                # },
-            # ],
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "256",
+                },
+            ],
             # "quiet": True,
         }
         try:
