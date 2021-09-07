@@ -69,24 +69,9 @@ class Functions:
     	
     def down_music(message: Message, link, file_name):
         _opts = {
-            'format': 'bestaudio',
-            'extractaudio': True,
-            'audioformat': 'mp3',
-            'outtmpl': f"./cache/{file_name}",
-            'restrictfilenames': True,
-            'noplaylist': True,
-            'nocheckcertificate': True,
-            'ignoreerrors': False,
-            'logtostderr': False,
-            'quiet': True,
-            'no_warnings': True,
-            'default_search': 'auto',
-            'source_address': '0.0.0.0',
+            "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
-            
-            # "outtmpl": f"./cache/{file_name}",
-            # "prefer_ffmpeg": True,
-            # "format": "bestaudio",# /best",
+            "format": "bestaudio",# /best",
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
@@ -94,7 +79,7 @@ class Functions:
                     "preferredquality": "256",
                 },
             ],
-            # "quiet": True,
+            "quiet": True,
         }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
