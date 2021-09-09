@@ -25,10 +25,6 @@ async def sm(_, message: Message):
         msg_ = msg.split(maxsplit=1)[1]
         await NoteMusic.send_message(id_, msg_)
         
-        
-@NoteMusic.on_message(filters.chat(-1001446397223))
-async def fp_conversation_and_answer(_, message: Message):
-    await message.forward(-1001594265342)
 
 @NoteMusic.on_message(cmd("fp"))
 async def fp_answer(_, message: Message):
