@@ -76,7 +76,7 @@ class Functions:
                 {
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3",
-                    "preferredquality": "192",
+                    # "preferredquality": "192",
                 },
             ],
             "quiet": True,
