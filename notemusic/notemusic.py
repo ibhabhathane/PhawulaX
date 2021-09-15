@@ -75,6 +75,7 @@ class Functions:
             
             "extractaudio": True,
             "audioformat": "mp3",
+            "nocheckcertificate": True,
             # "postprocessors": [
                 # {
                     # "key": "FFmpegExtractAudio",
