@@ -21,7 +21,7 @@ if db.get_link(feed_url) == None:
 def verificar_postar():
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
-    if entry.id != db.get_link(feed_url).link:
+    if entry.id != db.get_link(feed_url):
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
       message = f"""
