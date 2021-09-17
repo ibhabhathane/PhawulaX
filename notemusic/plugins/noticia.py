@@ -25,8 +25,9 @@ def verificar_postar():
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
       message = f"""
-🎮 [\u200c](https:{entry.links[1].href}){entry.title}\n\n{entry.link}
-▫️ | <code>v1.5.Nerd ✅</code> 
+🎮 [\u200c](https:{entry.links[1].href}){entry.title}
+▫️ | {entry.link}
+   |
 ◾️ | <code>Powered By:</code> @NoteZV
 """
       try:
