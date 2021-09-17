@@ -22,6 +22,7 @@ def verificar_postar():
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
     if entry.id != db.get_link(entry.link):
+      print(f"HEREEEEE: {db.get_link({entry.link})}\nANOTHEEER: {db.get_link({feed_url})}")
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
       message = f"""
