@@ -1,7 +1,12 @@
-git+https://github.com/AmanoTeam/pyrogram.git
-TgCrypto==1.2.2
 pathlib
 glob2
 youtube-search-python==1.4.6
 git+https://github.com/ytdl-org/youtube-dl
-feedparser
+
+pyrogram==1.0.1
+feedparser>=6.0.2
+apscheduler
+psycopg2-binary
+sqlalchemy==1.3.23
+git+https://github.com/pyrogram/tgcrypto
+pickledb
