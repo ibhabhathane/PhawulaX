@@ -13,7 +13,7 @@ import os
 
 import feedparser
 
-from sql import db
+from notemusic.plugins.sql import db
 from time import sleep, time
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
