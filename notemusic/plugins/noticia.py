@@ -21,13 +21,13 @@ if db.get_link(feed_url) == None:
 def verificar_postar():
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
-    if entry.id != db.get_link(feed_url):
+    if entry.id != db.get_link(feed_url).link:
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
       message = f"""
-🎮 Adicione um título [aqui:]({entry.link}) 
+🎮 [\u200c](https:{entry.links[1].href}){entry.title}\n\n{entry.link}
 ▫️ | <code>v1.5.Nerd ✅</code> 
-◾️ | <code>Powered By:</code> @applled
+◾️ | <code>Powered By:</code> @NoteZV
 """
       try:
         NoteMusic.send_message(log_channel, message)
