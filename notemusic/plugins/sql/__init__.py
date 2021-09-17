@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from . import db
 
 # USO OBRIGATÓRIO 
-DATABASE_URL = db# os.environ.get("DATABASE_URL")
+DATABASE_URL = db.database# os.environ.get("DATABASE_URL")
 
 def start() -> scoped_session:
     engine = create_engine(DATABASE_URL)
