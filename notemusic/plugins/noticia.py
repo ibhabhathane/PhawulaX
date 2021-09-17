@@ -9,7 +9,7 @@ from notemusic import NoteMusic
 
 
 # CONFIGURAÇÃO IMPORTANTE 
-feed_url = "https://betteranime.net/lancamentos-rss"
+feed_url = "http://rss.cnn.com/rss/edition_world.rss"#  "https://betteranime.net/lancamentos-rss"
 log_channel = "-1001165341477"  # Canal do Bot+ BotAdmin
 check_interval = 10
 max_instances = 200 
