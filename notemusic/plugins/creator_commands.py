@@ -8,7 +8,7 @@ from typing import Union
 from functools import partial, wraps
 
 
-import feesparser as fp
+import feedparser as fp
 
 
 cmd = partial(filters.command, prefixes=list("/"))
@@ -23,7 +23,7 @@ def check_owner(user: Union[int, str]) -> bool:
 
 
 
-@NoteMusic.on_message(cmd("kek"))
+@NoteMusic.on_message(filters.chat(-1001165341477))
 async def kek(_, message: Message):
     if check_owner(message.from_user.id) == True:
         rss = fp.parse("https://betteranime.net/lancamentos-rss")
