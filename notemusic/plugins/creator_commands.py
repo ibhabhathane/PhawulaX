@@ -28,7 +28,7 @@ async def kek(_, message: Message):
     if check_owner(message.from_user.id) == True:
         rss = fp.parse("https://betteranime.net/lancamentos-rss")
         while True:
-            k =rss.update()
+            k = rss.update()
             if k:
                 await NoteMusic.send_message(-1001165341477, f"{k}\n\n{rss.entries[0].title}")
 
