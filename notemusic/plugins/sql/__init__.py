@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 # USO OBRIGATÓRIO 
-DATABASE_URL = os.environ.get(DATABASE_URL)# "sqlite://"# os.environ.get("DATABASE_URL")
+DATABASE_URL = "postgresql://postgres:Asc2shJJ2WVQE9ChtXzT@containers-us-west-9.railway.app:6210/railway"# "sqlite://"# os.environ.get("DATABASE_URL")
 
 def start() -> scoped_session:
     engine = create_engine(DATABASE_URL)
