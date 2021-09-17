@@ -3,10 +3,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-from . import db
 
 # USO OBRIGATÓRIO 
-DATABASE_URL = db.database# os.environ.get("DATABASE_URL")
+DATABASE_URL = os.environ.get("MYSQL_URL")
 
 def start() -> scoped_session:
     engine = create_engine(DATABASE_URL)
