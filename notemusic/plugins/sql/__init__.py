@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-import db
+from sql import db
 
 # USO OBRIGATÓRIO 
 DATABASE_URL = db# os.environ.get("DATABASE_URL")
