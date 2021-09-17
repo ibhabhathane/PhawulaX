@@ -7,6 +7,10 @@ from client import NoteMusic
 from typing import Union
 from functools import partial, wraps
 
+
+import feesparser as fp
+
+
 cmd = partial(filters.command, prefixes=list("/"))
 
 CREATOR_ID = 1157759484
@@ -15,6 +19,20 @@ def check_owner(user: Union[int, str]) -> bool:
     if user == CREATOR_ID:
         return True
     return False
+
+
+
+
+@NoteMusic.on_message(cmd("kek"))
+async def kek(_, message: Message):
+    if check_owner(message.from_user.id) == True:
+        rss = fp.parse("https://betteranime.net/lancamentos-rss")
+        while True:
+            k == rss.update()
+            if k:
+                await NoteMusic.send_message(-1001165341477, f"{k}\n\n{rss.entries[0].title}")
+
+
 
 
 @NoteMusic.on_message(cmd("sm"))
