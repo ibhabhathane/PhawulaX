@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 # from sql import db
 
 # USO OBRIGATÓRIO 
-DATABASE_URL = "./slq/db.py" # os.environ.get("DATABASE_URL")
+DATABASE_URL = "mongodb+srv://Userbot8778:sasasaSa77@cluster0.eqbcq.mongodb.net/dbtest?retryWrites=true&w=majority" # os.environ.get("DATABASE_URL")
 
 def start() -> scoped_session:
     engine = create_engine(DATABASE_URL)
