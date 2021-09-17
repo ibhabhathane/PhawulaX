@@ -3,10 +3,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-from sql import db
+# from sql import db
 
 # USO OBRIGATÓRIO 
-DATABASE_URL = db# os.environ.get("DATABASE_URL")
+DATABASE_URL = "./slq/db.py" # os.environ.get("DATABASE_URL")
 
 def start() -> scoped_session:
     engine = create_engine(DATABASE_URL)
