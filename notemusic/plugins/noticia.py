@@ -21,8 +21,8 @@ if db.get_link(feed_url) == None:
 def verificar_postar():
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
-    if entry.id != db.get_link(entry.link):
-      NoteMusic.send_message(log_channel, f"HEREEEEE: {db.get_link({entry.link})}\nANOTHEEER: {db.get_link({feed_url})}")
+    if entry.id != db.get_link(feed_url).link:
+      # NoteMusic.send_message(log_channel, f"HEREEEEE: {db.get_link({entry.link})}\nANOTHEEER: {db.get_link({feed_url})}")
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
       message = f"""
