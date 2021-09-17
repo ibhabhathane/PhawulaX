@@ -1,10 +1,10 @@
-import os, pickledb
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 # USO OBRIGATÓRIO 
-DATABASE_URL = "sqlite://"# os.environ.get("DATABASE_URL")
+DATABASE_URL = os.environ.get(DATABASE_URL)# "sqlite://"# os.environ.get("DATABASE_URL")
 
 def start() -> scoped_session:
     engine = create_engine(DATABASE_URL)
