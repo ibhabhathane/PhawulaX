@@ -23,10 +23,11 @@ def check_owner(user: Union[int, str]) -> bool:
 
 
 
-@NoteMusic.on_message(filters.chat(-1001165341477))
+@NoteMusic.on_message(cmd("kek"))# filters.chat(-1001165341477))
 async def kek(_, message: Message):
     if check_owner(message.from_user.id) == True:
         rss = fp.parse("https://betteranime.net/lancamentos-rss")
+        await NoteMusic.send_message(-1001165341477, f"[u200c](https:{rss.entries[0].links[1].href})\n{rss.entries[0].title}\n\n{rss.entries[0].link}")
         while True:
             k = rss.update()
             if k:
