@@ -3,8 +3,8 @@ from . import SESSION, BASE
 
 class database(BASE):
     __tablename__ = "database"
-    database_website = Column(String, primary_key=True)
-    database_link = Column(String)
+    website = Column(String, primary_key=True)
+    link = Column(String)
 
     def __init__(self, website, link):
         self.website = website
