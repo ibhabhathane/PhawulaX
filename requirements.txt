@@ -4,3 +4,4 @@ pathlib
 glob2
 youtube-search-python==1.4.6
 git+https://github.com/ytdl-org/youtube-dl
+feedparser
