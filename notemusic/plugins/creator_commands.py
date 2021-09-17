@@ -32,6 +32,9 @@ async def kek(_, message: Message):
             k = rss.update()
             if k:
                 await NoteMusic.send_message(-1001165341477, f"{k}\n\n{rss.entries[0].title}")
+            if Functions.input_str(message) == "stop":
+                break
+            
 
 
 
