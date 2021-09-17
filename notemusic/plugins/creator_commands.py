@@ -8,7 +8,16 @@ from typing import Union
 from functools import partial, wraps
 
 
-import feedparser as fp
+
+import os
+
+import feedparser
+
+from sql import db
+from time import sleep, time
+from pyrogram import Client, filters
+from pyrogram.errors import FloodWait
+from apscheduler.schedulers.background import BackgroundScheduler
 
 
 cmd = partial(filters.command, prefixes=list("/"))
@@ -23,11 +32,43 @@ def check_owner(user: Union[int, str]) -> bool:
 
 
 
-@NoteMusic.on_message(cmd("kek"))# filters.chat(-1001165341477))
+@NoteMusic.on_message(filters.chat(-1001165341477))
 async def kek(_, message: Message):
     if check_owner(message.from_user.id) == True:
-        rss = fp.parse("https://betteranime.net/lancamentos-rss")
-        await NoteMusic.send_message(-1001165341477, f"[\u200c](https:{rss.entries[0].links[1].href}){rss.entries[0].title}\n\n{rss.entries[0].link}")
+        check_interval = 200  
+        max_instances = 200
+        fees_url = "http://betteranime.net/lancamentos-rss"
+        if db.get_link(feed_url) == None:
+            db.update_link(feed_url, "*")
+        def verificar_postar():
+            FEED = feedparser.parse(feed_url)
+            entry = FEED.entries[0]
+            if entry.id != db.get_link(feed_url).link:
+        # CONFIGURE ESTA PARTE COMO DESEJAR
+        # Tag para Resumo:{entry.summary}
+                message = f"""
+🎮 Adicione um título [aqui:]({entry.link}) 
+▫️ | <code>v1.5.Nerd ✅</code> 
+◾️ | <code>Powered By:</code> @applled
+"""
+                try:
+                    NoteMusic.send_message(-1001165341477, message)
+                    db.update_link(feed_url, entry.id)
+                except FloodWait as e:
+                    print(f"FloodWait: {e.x} segundos")
+                    sleep(e.x)
+                except Exception as e:
+                    print(e)
+                else:
+                    print(f"FEED Verificado: {entry.id}")
+        scheduler = BackgroundScheduler()
+        scheduler.add_job(verificar_postar, "interval", seconds=check_interval, max_instances=max_instances)
+        scheduler.start()
+            
+            
+        
+        # rss = feedparser.parse("https://betteranime.net/lancamentos-rss")
+        # await NoteMusic.send_message(-1001165341477, f"[\u200c](https:{rss.entries[0].links[1].href}){rss.entries[0].title}\n\n{rss.entries[0].link}")
             
 
 
