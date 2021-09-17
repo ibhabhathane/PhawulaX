@@ -11,7 +11,7 @@ from notemusic import NoteMusic
 # CONFIGURAÇÃO IMPORTANTE 
 feed_url = "https://betteranime.net/lancamentos-rss"
 log_channel = "-1001165341477"  # Canal do Bot+ BotAdmin
-check_interval = 200  
+check_interval = 10
 max_instances = 200 
 
 if db.get_link(feed_url) == None:
