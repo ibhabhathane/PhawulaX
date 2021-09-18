@@ -22,6 +22,7 @@ if db.get_link(feed_url) == None:
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 def verificar_postar():
     FEED = feedparser.parse(feed_url)
+    print(FEED.entries)
     entry = FEED.entries[0]
     if entry.id != db.get_link(feed_url).link:
 # CONFIGURE ESTA PARTE COMO DESEJAR
