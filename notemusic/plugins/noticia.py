@@ -15,8 +15,8 @@ feed_url_ = "https://betteranime.net/lancamentos-rss | http://feeds.feedburner.c
 
 feed_url = random.choice(feed_url_)
 
-log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
-check_interval = 200
+log_channel = "-1001165341477"# "-1001446397223" # Canal do Bot+ BotAdmin
+check_interval = 10
 max_instances = 200 
 
 if db.get_link(feed_url) == None:
@@ -48,7 +48,7 @@ def verificar_postar():
             print(f"FEED Verificado: {entry.id}")
     else:
         if entry.id != db.get_link(feed_url).link:
-            message = f"**{entry.title}**\n{entry.feedburner_origlink}"
+            message = f"**{entry.title}**\n"
             try:
                 NoteMusic.send_message(log_channel, message)
                 db.update_link(feed_url, entry.id)
