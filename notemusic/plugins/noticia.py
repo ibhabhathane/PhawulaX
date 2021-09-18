@@ -7,67 +7,39 @@ from pyrogram.errors import FloodWait
 from apscheduler.schedulers.background import BackgroundScheduler
 from notemusic import NoteMusic
 
-import random
-
 
 # CONFIGURAÇÃO IMPORTANTE 
-feed_url_ = "https://betteranime.net/lancamentos-rss | https://mangatube.site/feed".split("|")
-
-
-
-log_channel = "-1001165341477"# "-1001446397223" # Canal do Bot+ BotAdmin
-check_interval = 60
+feed_url = "https://mangatube.site/feed"
+log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
+check_interval = 190
 max_instances = 200 
 
-# if db.get_link(feed_url) == None:
-  # db.update_link(feed_url, "*")
+if db.get_link(feed_url) == None:
+  db.update_link(feed_url, "*")
 
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 def verificar_postar():
-    feed_url = random.choice(feed_url_)
     FEED = feedparser.parse(feed_url)
-    print("HEEEEEETEEEE: " + feed_url)
     entry = FEED.entries[0]
-    if feed_url == "https://betteranime.net/lancamentos-rss":
-        if entry.id != db.get_link(feed_url).link:
+    if entry.id != db.get_link(feed_url).link:
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
-            message = f"""
+      message = f"""
 🎮 [\u200c](https:{entry.links[1].href}){entry.title}
 ▫️ | {entry.link}
 
 ◾️ | <code>Powered By:</code> @NoteZV
 """
-            try:
-                NoteMusic.send_message(log_channel, message)
-                db.update_link(feed_url, entry.id)
-            except FloodWait as e:
-                print(f"FloodWait: {e.x} segundos")
-                sleep(e.x)
-            except Exception as e:
-                print(e)
-        else:
-            print(f"FEED Verificado: {entry.id}")
+      try:
+        NoteMusic.send_message(log_channel, message)
+        db.update_link(feed_url, entry.id)
+      except FloodWait as e:
+        print(f"FloodWait: {e.x} segundos")
+        sleep(e.x)
+      except Exception as e:
+        print(e)
     else:
-        if entry.id != db.get_link(feed_url).link:
-            message = f"""
-**Novo cap de mangá, seu fi duma égua.**
-
-🎮 {entry.title}
-▫️ | {entry.link}
-
-◾️ | <code>Mantido por:</code> @NoteZV
-"""
-            try:
-                NoteMusic.send_message(log_channel, message)
-                db.update_link(feed_url, entry.id)
-            except FloodWait as e:
-                print(f"FloodWait: {e.x} segundos")
-                sleep(e.x)
-            except Exception as e:
-                print(e)
-        else:
-            print(f"FEEEEED Verificado: {entry.id}")
+      print(f"FEED Verificado: {entry.id}")
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(verificar_postar, "interval", seconds=check_interval, max_instances=max_instances)
