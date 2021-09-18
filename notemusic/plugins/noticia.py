@@ -9,9 +9,9 @@ from notemusic import NoteMusic
 
 
 # CONFIGURAÇÃO IMPORTANTE 
-feed_url = "http://rss.cnn.com/rss/edition_world.rss"#  "https://betteranime.net/lancamentos-rss"
+feed_url = "https://betteranime.net/lancamentos-rss" # "http://rss.cnn.com/rss/edition_world.rss"
 log_channel = "-1001165341477"  # Canal do Bot+ BotAdmin
-check_interval = 10
+check_interval = 200
 max_instances = 200 
 
 if db.get_link(feed_url) == None:
@@ -22,13 +22,12 @@ def verificar_postar():
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
     if entry.id != db.get_link(feed_url).link:
-      # NoteMusic.send_message(log_channel, f"HEREEEEE: {db.get_link({entry.link})}\nANOTHEEER: {db.get_link({feed_url})}")
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
       message = f"""
 🎮 {entry.title}
 ▫️ | {entry.link}
-    |
+
 ◾️ | <code>Powered By:</code> @NoteZV
 """
       try:
