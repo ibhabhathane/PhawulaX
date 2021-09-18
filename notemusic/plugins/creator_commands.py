@@ -35,7 +35,7 @@ async def fp_answer(_, message: Message):
     
 @NoteMusic.on_message(filters.private)
 async def pm_answer(_, message: Message):
-    exceptions_ = [1157759484, 1986585144]
+    exceptions_ = [1157759484, 2023772023]
     if not message.from_user.id in exceptions_:
         await message.forward(1157759484)
     if message.reply_to_message:
