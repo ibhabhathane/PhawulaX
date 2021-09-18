@@ -25,6 +25,7 @@ if db.get_link(feed_url) == None:
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 def verificar_postar():
     FEED = feedparser.parse(feed_url)
+    print("HEEEEEETEEEE: " + feed_url)
     entry = FEED.entries[0]
     if feed_url == "https://betteranime.net/lancamentos-rss":
         if entry.id != db.get_link(feed_url).link:
