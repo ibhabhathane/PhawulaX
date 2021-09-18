@@ -9,7 +9,7 @@ from notemusic import NoteMusic
 
 
 # CONFIGURAÇÃO IMPORTANTE 
-feed_url = "https://mangatube.site/feed"
+feed_url = "http://betteranime.net/lancamentos-rss"
 log_channel = "-1001165341477"  # Canal do Bot+ BotAdmin
 check_interval = 190
 max_instances = 200 
