@@ -13,7 +13,7 @@ import random
 # CONFIGURAÇÃO IMPORTANTE 
 feed_url_ = "https://betteranime.net/lancamentos-rss | https://br.ign.com/feed.xml".split("|")
 
-feed_url = random.choice(feed_url_)
+
 
 log_channel = "-1001165341477"# "-1001446397223" # Canal do Bot+ BotAdmin
 check_interval = 10
@@ -24,6 +24,7 @@ if db.get_link(feed_url) == None:
 
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 def verificar_postar():
+    feed_url = random.choice(feed_url_)
     FEED = feedparser.parse(feed_url)
     print("HEEEEEETEEEE: " + feed_url)
     entry = FEED.entries[0]
