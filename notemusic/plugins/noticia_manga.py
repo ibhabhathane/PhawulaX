@@ -42,8 +42,6 @@ def verificar_postar():
         print(e)
     else:
       print(f"FEED Verificado: {entry.id}")
-      kek = db.get_link(feed_url).link
-      print(kek)
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(verificar_postar, "interval", seconds=check_interval, max_instances=max_instances)
