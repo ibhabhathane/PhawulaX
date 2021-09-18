@@ -11,7 +11,7 @@ from notemusic import NoteMusic
 
 
 # CONFIGURAÇÃO IMPORTANTE 
-feed_url = "https://mangayabu.top/rss/"
+feed_url = "https://mangayabu.top/feed"
 log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
 check_interval = 200
 max_instances = 200 
