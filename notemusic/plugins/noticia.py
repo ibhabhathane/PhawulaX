@@ -11,7 +11,7 @@ import random
 
 
 # CONFIGURAÇÃO IMPORTANTE 
-feed_url_ = "https://betteranime.net/lancamentos-rss | http://feeds.feedburner.com/gizmochina/ngRn".split("|")
+feed_url_ = "https://betteranime.net/lancamentos-rss | https://br.ign.com/feed.xml".split("|")
 
 feed_url = random.choice(feed_url_)
 
