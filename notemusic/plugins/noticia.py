@@ -10,7 +10,7 @@ from notemusic import NoteMusic
 
 # CONFIGURAÇÃO IMPORTANTE 
 feed_url = "https://betteranime.net/lancamentos-rss" # "http://rss.cnn.com/rss/edition_world.rss"
-log_channel = "-1001165341477"  # Canal do Bot+ BotAdmin
+log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
 check_interval = 200
 max_instances = 200 
 
@@ -25,7 +25,7 @@ def verificar_postar():
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
       message = f"""
-🎮 {entry.title}
+🎮 [\u200c](https:{entry.links[1].href}){entry.title}
 ▫️ | {entry.link}
 
 ◾️ | <code>Powered By:</code> @NoteZV
