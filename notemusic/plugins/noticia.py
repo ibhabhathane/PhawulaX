@@ -11,12 +11,12 @@ import random
 
 
 # CONFIGURAÇÃO IMPORTANTE 
-feed_url_ = "https://betteranime.net/lancamentos-rss | https://br.ign.com/feed.xml".split("|")
+feed_url_ = "https://betteranime.net/lancamentos-rss | https://mangatube.site/feed".split("|")
 
 
 
 log_channel = "-1001165341477"# "-1001446397223" # Canal do Bot+ BotAdmin
-check_interval = 10
+check_interval = 60
 max_instances = 200 
 
 # if db.get_link(feed_url) == None:
@@ -50,7 +50,14 @@ def verificar_postar():
             print(f"FEED Verificado: {entry.id}")
     else:
         if entry.id != db.get_link(feed_url).link:
-            message = f"**{entry.title}**\n"
+            message = f"""
+**Novo cap de mangá, seu fi duma égua.**
+
+🎮 {entry.title}
+▫️ | {entry.link}
+
+◾️ | <code>Mantido por:</code> @NoteZV
+"""
             try:
                 NoteMusic.send_message(log_channel, message)
                 db.update_link(feed_url, entry.id)
