@@ -30,7 +30,7 @@ def verificar_postar():
 🎮 {entry.title}
 ▫️ | {entry.link}
 
-◾️ | <code>Powered By:</code> @NoteZV
+◾️ | <code>Mantido por:</code> @NoteZV
 """
       try:
         NoteMusic.send_message(log_channel, message)
