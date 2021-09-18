@@ -19,8 +19,8 @@ log_channel = "-1001165341477"# "-1001446397223" # Canal do Bot+ BotAdmin
 check_interval = 10
 max_instances = 200 
 
-if db.get_link(feed_url) == None:
-  db.update_link(feed_url, "*")
+# if db.get_link(feed_url) == None:
+  # db.update_link(feed_url, "*")
 
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 def verificar_postar():
