@@ -12,6 +12,7 @@ import random
 from .creator_commands import cmd, check_owner
 from notemusic import Functions
 import heroku3
+from pyrogram.types import Message
 
 
 @NoteMusic.on_message(cmd("add"))
