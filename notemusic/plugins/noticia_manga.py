@@ -12,7 +12,7 @@ from notemusic import NoteMusic
 # feed_url = "https://mangatube.site/feed"
 feed_urls = list(set(i for i in os.environ.get("FEED_URLS").split("|")))
 log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
-check_interval = 190
+check_interval = 10
 max_instances = 200 
 
 # if db.get_link(feed_url) == None:
@@ -21,7 +21,7 @@ max_instances = 200
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 # def create_feed_checker(feed_url):
 def verificar_postar():
-    for feed_url in fees_urls:
+    for feed_url in feed_urls:
         feed_url = feed_url
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
