@@ -23,6 +23,7 @@ max_instances = 200
 def verificar_postar():
     for feed_url in feed_urls:
         feed_url = feed_url
+    print("HEEEEREEEE: " + feed_url)
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
     if entry.id != db.get_link(feed_url).link:
