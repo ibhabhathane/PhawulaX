@@ -9,6 +9,21 @@ from notemusic import NoteMusic
 
 import random
 
+from creator_commands import cmd, check_owner
+from notemusic import Functions
+import heroku3
+
+
+@NoteMusic.on_message(cmd("add"))
+async def add_feed(_, message: Message):
+    if check_owner(message.from_user.id) == True:
+        heroku_conn = heroku3.from_key(os.environ.get("HEROKU_KEY"))
+        app = heroku_conn.apps()[os.environ.get("HEROKU_APP")]
+        heroku_vars = app.config()
+        var = heroku_vars["FEED_URLS"]
+        heroku_vars["FEED_URLS"] = f"{var} | {Functions.input_str(message)}"
+
+
 feed_urls = list(set(i for i in os.environ.get("FEED_URLS").split(" | ")))
 log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
 check_interval = 100
