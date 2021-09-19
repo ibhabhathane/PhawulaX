@@ -34,8 +34,6 @@ def verificar_postar():
 # CONFIGURE ESTA PARTE COMO DESEJAR
 # Tag para Resumo:{entry.summary}
         message = f"""
-**Novo cap de mangá, seu fi duma égua.**
-
 🎮 {entry.title}
 ▫️ | {entry.link}
 
