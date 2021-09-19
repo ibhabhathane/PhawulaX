@@ -50,11 +50,3 @@ for feed_url in feed_urls:
     feed_checker = verificar_postar(feed_url)
     scheduler.add_job(feed_checker, "interval", seconds=check_interval, max_instances=max_instances)
 scheduler.start()
-
-
-scheduler = BackgroundScheduler()
-
-scheduler.add_job(verificar_postar, "interval", seconds=check_interval, max_instances=max_instances)
-
-scheduler.start()
-
