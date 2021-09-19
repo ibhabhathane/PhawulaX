@@ -9,7 +9,7 @@ from notemusic import NoteMusic
 
 import random
 
-from creator_commands import cmd, check_owner
+from .creator_commands import cmd, check_owner
 from notemusic import Functions
 import heroku3
 
