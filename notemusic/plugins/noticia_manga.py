@@ -12,7 +12,7 @@ import random
 
 # CONFIGURAÇÃO IMPORTANTE 
 # feed_url = "https://mangatube.site/feed"
-feed_urls = list(set(i for i in os.environ.get("FEED_URLS").split("|")))
+feed_urls = list(set(i for i in os.environ.get("FEED_URLS").split(" | ")))
 log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
 check_interval = 10
 max_instances = 200 
