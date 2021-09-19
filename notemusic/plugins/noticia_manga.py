@@ -20,7 +20,9 @@ max_instances = 200
 
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 # def create_feed_checker(feed_url):
-def verificar_postar(feed_url):
+def verificar_postar():
+    for feed_url in fees_urls:
+        feed_url = feed_url
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
     if entry.id != db.get_link(feed_url).link:
@@ -46,7 +48,7 @@ def verificar_postar(feed_url):
         print(f"FEED Verificado: {entry.id}")
 
 scheduler = BackgroundScheduler()
-for feed_url in feed_urls:
-    feed_checker = verificar_postar(feed_url)
-    scheduler.add_job(feed_checker, "interval", seconds=check_interval, max_instances=max_instances)
+# for feed_url in feed_urls:
+    # feed_checker = verificar_postar(feed_url)
+scheduler.add_job(verificar_postar, "interval", seconds=check_interval, max_instances=max_instances)
 scheduler.start()
