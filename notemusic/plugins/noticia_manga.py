@@ -9,7 +9,6 @@ from notemusic import NoteMusic
 
 import random
 
-
 feed_urls = list(set(i for i in os.environ.get("FEED_URLS").split(" | ")))
 log_channel = "-1001446397223"# "-1001165341477"  # Canal do Bot+ BotAdmin
 check_interval = 100
