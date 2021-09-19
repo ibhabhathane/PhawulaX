@@ -27,7 +27,7 @@ def verificar_postar():
         # feed_url = feed_url
     feed_url = random.choice(feed_urls)
     print("HEEEEREEEE: " + feed_url)
-    print("HEREEEWW TOOOO: " + feed_urls)
+    print(feed_urls)
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
     if entry.id != db.get_link(feed_url).link:
