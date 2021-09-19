@@ -7,6 +7,8 @@ from pyrogram.errors import FloodWait
 from apscheduler.schedulers.background import BackgroundScheduler
 from notemusic import NoteMusic
 
+import random
+
 
 # CONFIGURAÇÃO IMPORTANTE 
 # feed_url = "https://mangatube.site/feed"
@@ -21,8 +23,9 @@ max_instances = 200
 # AQUI É ONDE É EXIBIDO O POST APÓS CHECK DE URL/FEED
 # def create_feed_checker(feed_url):
 def verificar_postar():
-    for feed_url in feed_urls:
-        feed_url = feed_url
+    # for feed_url in feed_urls:
+        # feed_url = feed_url
+    feed_url = random.choice(feed_urls)
     print("HEEEEREEEE: " + feed_url)
     FEED = feedparser.parse(feed_url)
     entry = FEED.entries[0]
