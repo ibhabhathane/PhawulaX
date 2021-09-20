@@ -3,8 +3,8 @@ glob2
 youtube-search-python==1.4.6
 git+https://github.com/ytdl-org/youtube-dl
 
-pyrogram==1.0.1
-git+https://github.com/pyrogram/tgcrypto
+git+https://github.com/pyrogram/pyrogram
+TgCrypto==1.2.2
 
 feedparser>=6.0.2
 apscheduler
