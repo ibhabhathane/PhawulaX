@@ -75,13 +75,13 @@ class Functions:
             
             "extractaudio": True,
             "audioformat": "mp3",
-            # "postprocessors": [
-                # {
-                    # "key": "FFmpegExtractAudio",
-                    # "preferredcodec": "mp3",
-                    # "preferredquality": "196",
-                # },
-            # ],
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "192",
+                },
+            ],
             "quiet": True,
         }
         try:
