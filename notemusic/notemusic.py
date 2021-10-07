@@ -86,7 +86,8 @@ class Functions:
         }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
-                info_dict = ydl.download([link])
+                info_dict = ydl.extract_info(link, download=True)
+                print(info_dict)
         except DownloadError as e:
             message.reply(e)
         except GeoRestrictedError:
