@@ -73,8 +73,8 @@ class Functions:
             "prefer_ffmpeg": True,
             "format": "bestaudio",# /best",
             
-            "extractaudio": True,
-            "audioformat": "mp3",
+            # "extractaudio": True,
+            # "audioformat": "mp3",
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
