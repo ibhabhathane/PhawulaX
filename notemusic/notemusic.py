@@ -82,7 +82,7 @@ class Functions:
                     "preferredquality": "192",
                 },
             ],
-            "quiet": True,
+            # "quiet": True,
         }
         try:
             with youtube_dl.YoutubeDL(_opts) as ydl:
