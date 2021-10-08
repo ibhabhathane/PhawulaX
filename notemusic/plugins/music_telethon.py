@@ -64,7 +64,7 @@ async def song(event):
         await event.reply("Num deu pra baixar...")
     if os.path.exists(f"./cache/{file_name}"):
         try:
-            await c.send_file(event.chat_id, f"./cache/{file_name}", voice_note=True, caption="MUSICAAAAAA")
+            await c.send_file(event.chat_id, f"./cache/{file_name}", caption="MUSICAAAAAA")
         except:
             await event.reply("Credita que num deu pra enviar?")
         time.sleep(2)
