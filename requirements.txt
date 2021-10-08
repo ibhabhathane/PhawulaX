@@ -1,5 +1,5 @@
 youtube-search-python==1.4.6
-git+https://github.com/TheChiefMeat/youtube-dl
+youtube-dl==1.4.2
 git+https://github.com/AmanoTeam/pyrogram.git
 TgCrypto==1.2.2
 https://github.com/1Danish-00/Telethon/archive/master.zip
