@@ -52,7 +52,7 @@ def down_music(link, file_name):
 
 @c.on(events.NewMessage(pattern="^/song*$"))
 async def song(event):
-    result = search_music(input_str(event))
+    result = search_music(event.text.split(maxsplit=1)[1])
     link = get_link(result)
     file_name = get_file_name(result)
     try:
