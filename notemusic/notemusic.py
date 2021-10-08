@@ -136,19 +136,12 @@ class Functions:
             Functions.down_music(message, link, file_name)
         except:
             await message.reply("Não consegui baixar a música.\n\nÀs vezes este erro é pelo motivo de outra pessoa ou você estar solicitando muitos pesquisas de músicas, então, tente novamente mais tarde.")
-        _fpath = ""
-        for _path in glob.glob(os.path.join(f"./cache/{file_name}")):
-            if not _path.lower().endswith((".jpg", ".png", ".webp", "mp4", "jpeg")):
-                _fpath = _path
-            if not _fpath:
-                await message.reply("Não encontrei nada...", )
-                return
-            cap = f"✅  **Este é o resultado:**\n\n▫️ **TITULO: **[{titulo}]({link})\n▫️ **DURAÇÃO: **{duracao}\n▫️ **VISUALIZAÇÕES: **{views} views\n\n▪️ Mantido pelo: @NoteZV"
+        cap = f"✅  **Este é o resultado:**\n\n▫️ **TITULO: **[{titulo}]({link})\n▫️ **DURAÇÃO: **{duracao}\n▫️ **VISUALIZAÇÕES: **{views} views\n\n▪️ Mantido pelo: @NoteZV"
+        if os.path.exists(f"./cache/{file_name}"):
             try:
-                await Functions.upload_audio(message, Path(_fpath), cap) 
-                if os.path.exists(f"./cache/{file_name}"):
-                    time.sleep(2)
-                    os.remove(f"./cache/{file_name}")
-            except ValueError as e_e:
-                await message.reply(f"Não foi possível fazer o upload, occoreu este erro: {e_e}")
-    	   
+                await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
+                await message.reply_audio(audio=f"./cache/{file_name}", caption=cap, reply_to_message_id=message.message_id)
+            except:
+                await message.reply("Não foi possivél enviar a música.")
+            time.sleep(2)
+            os.remove(f"./cache/{file_name}")
