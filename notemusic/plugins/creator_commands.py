@@ -12,7 +12,7 @@ cmd = partial(filters.command, prefixes=list("/"))
 
 CREATOR_ID = 1157759484
 
-def check_owner(user: Union[int, str]) -> bool:
+def check_owner(user: int) -> bool:
     if user == CREATOR_ID:
         return True
     return False
