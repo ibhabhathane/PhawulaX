@@ -65,7 +65,7 @@ class Functions:
             # return result["search_result"][0]["views"]
 	        
     	
-    def down_music(message: Message, link, file_name):
+    def down_music(link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
@@ -104,7 +104,7 @@ class Functions:
         views = Functions.get_views(result)
         file_name = Functions.get_file_name(result)
         try:
-            Functions.down_music(message, link, file_name)
+            Functions.down_music(link, file_name)
         except:
             await message.reply("Não consegui baixar a música.\n\nÀs vezes este erro é pelo motivo de outra pessoa ou você estar solicitando muitos pesquisas de músicas, então, tente novamente mais tarde.")
         cap = f"✅  **Este é o resultado:**\n\n▫️ **TITULO: **[{titulo}]({link})\n▫️ **DURAÇÃO: **{duracao}\n▫️ **VISUALIZAÇÕES: **{views} views\n\n▪️ Mantido pelo: @NoteZV"
