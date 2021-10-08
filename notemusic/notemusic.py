@@ -3,8 +3,6 @@ from pyrogram.types import Message
 from client import NoteMusic
 
 import os
-from pathlib import Path
-import glob
 
 import time
 
@@ -21,7 +19,7 @@ class Functions:
     		return str(input_.split(maxsplit=1)[1].strip())
     	return ''
 	
-    def search_music(user_input, message: Message):
+    def search_music(user_input):
         search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
         if not search.result() == None:
             return json.loads(search.result())
@@ -92,31 +90,9 @@ class Functions:
         except GeoRestrictedError:
             message.reply("ERRO: O vídeo não está disponível para o seu país.")
     
-
-    async def upload_audio(message: Message, path, cap: str):
-	    caption = cap
-	    str_path = str(path)
-	    # sent: Message = await NoteMusic.send_message(
-	        # message.chat.id, "Terminei! Fazendo upload."
-	    # )
-	    await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-	    try:
-	        msg = await message.reply_audio(
-	            audio=str_path,
-	            caption=caption,
-	            reply_to_message_id=message.message_id,
-	        )
-	    except ValueError as e_e:
-	        await message.reply(f"Skipping `{str_path}` due to {e_e}", quote=True)
-	    except Exception as u_e:
-	        await message.reply(str(u_e), quote=True)
-	        raise u_e
-	    # else:
-	        # await sent.delete()
-	    return msg
 	    
     async def process_request(msg_: str, message: Message):
-        result = Functions.search_music(msg_, message)
+        result = Functions.search_music(msg_)
         if result == None:
             await message.reply("Não consegui encontrar a música.", quote=True)
             return
