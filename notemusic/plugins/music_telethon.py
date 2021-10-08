@@ -37,7 +37,7 @@ def down_music(link, file_name):
             {
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "mp3",
-                "preferredquality": "256",
+                "preferredquality": "192",
             },
         ],
     }
@@ -53,11 +53,11 @@ async def song(event):
         down_music(link, file_name)
     except:
         await event.reply("Num deu pra baixar...")
-    try:
-        await c.send_file(event.chat_id, f"./cache/{file_name}", voice_note=True)
-    except:
-        await event.reply("Credita que num deu pra enviar?")
     if os.path.exists(f"./cache/{file_name}"):
+        try:
+            await c.send_file(event.chat_id, f"./cache/{file_name}", voice_note=True, caption="MUSICAAAAAA")
+        except:
+            await event.reply("Credita que num deu pra enviar?")
         time.sleep(2)
         os.remove(f"./cache/{file_name}")
         
