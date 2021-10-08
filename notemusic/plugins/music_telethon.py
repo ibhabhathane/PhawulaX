@@ -3,6 +3,7 @@ from youtubesearchpython import SearchVideos
 import time
 import os
 import json
+import youtube_dl
 
 api_id = 3716600
 api_hash = "0ed423ceea4fbb06c0e627d9db0f4a6b"
@@ -49,7 +50,7 @@ async def song(event):
     link = get_link(result)
     file_name = get_file_name(result)
     try:
-        await down_music(link, file_name)
+        down_music(link, file_name)
     except:
         await event.reply("Num deu pra baixar...")
     try:
