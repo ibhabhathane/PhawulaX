@@ -11,7 +11,12 @@ bot_token = "2090823500:AAGq5HhTTFu_mj3lA8yCry3kHjM73f2fEIk"
 
 c = TelegramClient("test", api_id, api_hash).start(bot_token=bot_token)
 
-    	
+def input_str(event):
+    input_ = event.text
+    if ' ' in input_ or '\n' in input_:
+        return str(input_.split(maxsplit=1)[1].strip())
+    return ''
+    
 def search_music(user_input):
     search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
     if not search.result() == None:
@@ -47,7 +52,7 @@ def down_music(link, file_name):
 
 @c.on(events.NewMessage(pattern="^/song*"))
 async def song(event):
-    if not event.text.split(maxsplit=1)[1]:
+    if input_str(event) == "":
         await event.reply("Vou pesquisar o vento, arrombado?")
         return
     result = search_music(event.text.split(maxsplit=1)[1])
