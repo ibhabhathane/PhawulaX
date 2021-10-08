@@ -49,7 +49,7 @@ async def song(event):
     link = get_link(result)
     file_name = get_file_name(result)
     try:
-        down_music(link, file_name)
+        await down_music(link, file_name)
     except:
         await event.reply("Num deu pra baixar...")
     try:
