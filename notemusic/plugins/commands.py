@@ -32,7 +32,7 @@ async def song(_, message: Message):
     link = Functions.get_link(result)
     file_name = Functions.get_file_name(result)
     try:
-        Functions.down_music(link, file_name)
+        await Functions.down_music(link, file_name)
     except:
         await message.reply("Viiiish... Num deu pra baixar o song. Heheh.")
     if os.path.exists(f"./cache/{file_name}"):
