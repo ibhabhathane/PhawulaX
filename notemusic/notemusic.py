@@ -77,13 +77,13 @@ class Functions:
                 {
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3",
-                    "preferredquality": "192",
+                    "preferredquality": "140",
                 },
             ],
             "quiet": True,
         }
         with youtube_dl.YoutubeDL(_opts) as ydl:
-                info_dict = ydl.download([link])
+                ydl.download([link])
     
 	    
     async def process_request(msg_: str, message: Message):
