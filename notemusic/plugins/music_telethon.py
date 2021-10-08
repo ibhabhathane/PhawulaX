@@ -50,7 +50,7 @@ def down_music(link, file_name):
     with youtube_dl.YoutubeDL(_opts) as ydl:
         info_dict = ydl.download([link])
 
-@c.on(events.NewMessage(pattern="^/song*$"))
+@c.on(events.NewMessage(pattern="^/song*"))
 async def song(event):
     result = search_music(event.text.split(maxsplit=1)[1])
     link = get_link(result)
