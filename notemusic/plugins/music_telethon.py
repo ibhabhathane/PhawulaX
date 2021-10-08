@@ -1,4 +1,4 @@
-from telethon import TelethonClient, events
+from telethon import TelegramClient, events
 from youtubesearchpython import SearchVideos
 import time
 import os
@@ -7,7 +7,7 @@ api_id = 371600
 api_hash = "0ed423ceea4fbb06c0e627d9db0f4a6b"
 bot_token = "2090823500:AAGq5HhTTFu_mj3lA8yCry3kHjM73f2fEIk"
 
-c = TelethonClient("test", api_id, api_hash).start(bot_token=bot_token)
+c = TelegramClient("test", api_id, api_hash).start(bot_token=bot_token)
 
 def search_music(user_input):
     search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
