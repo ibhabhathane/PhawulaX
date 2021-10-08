@@ -77,18 +77,13 @@ class Functions:
                 {
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3",
-                    "preferredquality": "196",
+                    "preferredquality": "192",
                 },
             ],
             "quiet": True,
         }
-        try:
-            with youtube_dl.YoutubeDL(_opts) as ydl:
+        with youtube_dl.YoutubeDL(_opts) as ydl:
                 info_dict = ydl.download([link])
-        except DownloadError as e:
-            message.reply(e)
-        except GeoRestrictedError:
-            message.reply("ERRO: O vídeo não está disponível para o seu país.")
     
 	    
     async def process_request(msg_: str, message: Message):
