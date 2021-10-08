@@ -38,7 +38,7 @@ async def song(_, message: Message):
     if os.path.exists(f"./cache/{file_name}"):
         try:
             await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-            await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({Functions.get_link})\n\n▫️ Atualizado pelo: @NoteZV")
+            await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV")
         except:
             await message.reply("VISH PORRAAAAA!!! Num deu pra enviar the música.")
         time.sleep(2)
