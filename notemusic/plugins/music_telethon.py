@@ -51,11 +51,11 @@ async def song(event):
     try:
         down_music(link, file_name)
     except:
-        event.reply("Num deu pra baixar...")
+        await event.reply("Num deu pra baixar...")
     try:
         await c.send_file(event.chat_id, f"./cache/{file_name}", voice_note=True)
     except:
-        event.reply("Credita que num deu pra enviar?")
+        await event.reply("Credita que num deu pra enviar?")
     if os.path.exists(f"./cache/{file_name}"):
         time.sleep(2)
         os.remove(f"./cache/{file_name}")
