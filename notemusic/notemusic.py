@@ -2,10 +2,6 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from client import NoteMusic
 
-import os
-
-import time
-
 import json
 
 from youtubesearchpython import SearchVideos
