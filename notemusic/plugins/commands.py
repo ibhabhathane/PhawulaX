@@ -37,13 +37,22 @@ async def start(_, message: Message):
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
-    if Functions.input_str(message) != "":
-        await Functions.process_request(Functions.input_str(message), message)
-        
-        if message.chat.type == "private":
-            nome = f"{message.from_user.first_name} {message.from_user .last_name}" if message.from_user.last_name else message .from_user.first_name
-            music_text = f"▫️ **Alguém solicitou a pesquisa de uma música.**\n ╰• Música: __{Functions.input_str(message)}__\n\nid: `{message.from_user.id}`\nNome: __{nome}__\n👤: @{message.from_user.username}"
-            await NoteMusic.send_message(-1001165341477, music_text)
+    if Functions.input_str(message) == "":
+        await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
         return
-    await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
+    result = Functions.search_music(Functions.input_str(message))
+    link = Functions.get_link(result)
+    file_name = Functions.get_file_name(result)
+    try:
+        Functions.down_music(link, file_name)
+    except:
+        await message.reply("Viiiish... Num deu pra baixar o song. Heheh.")
+    if os.path.exists(f"./cache/{file_name}"):
+        try:
+            await message.reply_audio(f"./cache/{file_name}")
+        except:
+            await message.reply("VISH PORRAAAAA!!! Num deu pra enviar the música.")
+        time.sleep(2)
+        os.remove(f"./cache/{file_name}")
+        
         
