@@ -32,7 +32,7 @@ class Functions:
             else:
                 return title.replace(("]" or "["), "") + ".mp3"
     	
-    def down_music(link, file_name):
+    async def down_music(link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
