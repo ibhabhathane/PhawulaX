@@ -2,6 +2,7 @@ from telethon import TelegramClient, events
 from youtubesearchpython import SearchVideos
 import time
 import os
+import json
 
 api_id = 3716600
 api_hash = "0ed423ceea4fbb06c0e627d9db0f4a6b"
