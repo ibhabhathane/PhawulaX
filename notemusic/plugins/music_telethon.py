@@ -59,4 +59,8 @@ async def song(event):
     if os.path.exists(f"./cache/{file_name}"):
         time.sleep(2)
         os.remove(f"./cache/{file_name}")
+        
+@c.on(events.NewMessage(pattern="/kek"))
+async def kek(event):
+    await event.reply("KEEEEEK")
     
