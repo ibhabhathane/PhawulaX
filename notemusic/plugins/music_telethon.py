@@ -7,7 +7,7 @@ import youtube_dl
 
 api_id = 3716600
 api_hash = "0ed423ceea4fbb06c0e627d9db0f4a6b"
-bot_token = "2090823500:AAGq5HhTTFu_mj3lA8yCry3kHjM73f2fEIk"
+bot_token = "2090823500:AAF3R8ERmALkx0seexQEL5JGRmzSrPdBytU"
 
 c = TelegramClient("test", api_id, api_hash).start(bot_token=bot_token)
 
