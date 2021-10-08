@@ -56,7 +56,7 @@ async def song(event):
         time.sleep(2)
         os.remove(f"./cache/{file_name}")
         
-@c.on(events.NewMessage(pattern="/kek"))
-async def kek(event):
-    await event.reply("KEEEEEK")
+@c.on(events.NewMessage(pattern="^/on$"))
+async def on(event):
+    await event.reply("I'm alive!")
     
