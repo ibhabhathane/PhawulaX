@@ -1,5 +1,4 @@
 from telethon import TelethonClient, events
-from notemusic import Funcions
 from youtubesearchpython import SearchVideos
 import time
 import os
