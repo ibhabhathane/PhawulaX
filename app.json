@@ -6,7 +6,7 @@
     "keywords": [
         "python", 
         "chatbot", 
-        "telegrambot"
+        "telegrambot",
     ],
     "website": "https://github.com/ibhabhathane/PhawulaX",
     "success_url": "https://t.me/notemusicbot",
@@ -14,17 +14,17 @@
         "API_ID": {
             "description": "Make a bot at BotFather http://telegram.dog/BotFather and get the token of your bot",
             "value": 3716600,
-            "required": true
+            "required": true,
         },
         "API_HASH": {
             "description": "Make a bot at BotFather http://telegram.dog/BotFather and get the token of your bot",
             "value": "0ed423ceea4fbb06c0e627d9db0f4a6b",
-            "required": true
+            "required": true,
         },
         "BOT_TOKEN": {
             "description": "Make a bot at BotFather http://telegram.dog/BotFather and get the token of your bot",
             "value": "1939538609:AAFPfNt_fw5n0DP1Vq2bjVxRnzzQsDSuL4A",
-            "required": true
+            "required": true,
         },
   },
   "buildpacks": [
@@ -33,7 +33,6 @@
         },
         {
             "url": "heroku/python"
-        }
-    ]
-    
+        },
+    ],
 }
