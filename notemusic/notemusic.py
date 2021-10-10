@@ -48,4 +48,5 @@ class Functions:
             # "quiet": True,
         }
         with youtube_dl.YoutubeDL(_opts) as ydl:
-                ydl.download([link])
+            ydl._ies = [ydl.get_info_extractor('Youtube')]
+            ydl.download([link])
