@@ -31,20 +31,19 @@ class Functions:
     def down_music(link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
-            "prefer_ffmpeg": True,
-            "format": "bestaudio",# /best",
-            
-            'noplaylist': True,
-            'continue_dl': True,
-        
-            # "extractaudio": True,
-            # "audioformat": "mp3",
-            "postprocessors": [{
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": "192",
-            }],
+            "source_address": "0.0.0.0",
+            "noplaylist": True,
+            "continue_dl": True,
+            "format": "bestaudio/best",
+            "extractaudio": True,
+            "audioformat": "mp3"
+            # "postprocessors": [{
+                # "key": "FFmpegExtractAudio",
+                # "preferredcodec": "mp3",
+                # "preferredquality": "192",
+            # }],
             # "quiet": True,
+            "prefer_ffmpeg": True, 
         }
         with youtube_dl.YoutubeDL(_opts) as ydl:
             ydl.download([link])
