@@ -1,4 +1,4 @@
 pyrogram
 tgcrypto
 youtube-search-python
-git+https://github.com/ytdl-org/youtube-dl
+youtube-dl
