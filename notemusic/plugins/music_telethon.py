@@ -21,7 +21,7 @@ async def down_music(link, file_name):
     _opts = {
         "outtmpl": f"./cache/{file_name}",
            "prefer_ffmpeg": True,
-           "format": "bestaudio/best",
+           "format": "bestaudio",
             
             # "extractaudio": True,
             # "audioformat": "mp3",
@@ -29,7 +29,7 @@ async def down_music(link, file_name):
                {
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "mp3",
-                "preferredquality": "192",
+                # "preferredquality": "140",
             },
         ],
     }
