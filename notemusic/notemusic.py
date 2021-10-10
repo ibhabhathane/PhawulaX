@@ -52,7 +52,7 @@ class Functions:
             
     def down_song(link):
         vid = pafy.new(link)
-        vid.getbestaudio().download("./cache/")
+        vid.getbestaudio().download()
             
     def get_file(link):
         vid = pafy.new(link)
