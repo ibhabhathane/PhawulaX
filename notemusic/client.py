@@ -2,6 +2,7 @@ import os
 
 from pyrogram import Client
 
+
 class Config:
     API_ID = int(3716600)# int(os.environ.get("API_ID"))
     API_HASH = str("0ed423ceea4fbb06c0e627d9db0f4a6b")# str(os.environ.get("API_HASH"))
