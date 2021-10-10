@@ -8,66 +8,16 @@
 			"description": "Get this value from https://my.telegram.org",
 			"value": "0ed423ceea4fbb06c0e627d9db0f4a6b"
 		},
-		"DATABASE_URL": {
-			"description": "Mongodb url from https://cloud.mongodb.com/, guide: https://del.dog/mongodb_guide",
-			"value": "mongodb+srv://Userbot8778:sasasaSa77@cluster0.eqbcq.mongodb.net/dbtest?retryWrites=true&w=majority"
-		},
-		"HEROKU_APP_NAME": {
-			"description": "Given app name to the Heroku App"
-		},
-		"LOG_CHANNEL_ID": {
-			"description": "[ Private Telegram Log Channel ID ], Note: Also add your Bot to LOG CHANNEL !",
-			"value": "-1001165341477"
-		},
-		"PM_LOG_GROUP_ID": {
-		  "description": "For pm messages(put the group id).",
-		  "required": false,
-		  "value": "-1001244869131"
-		},
-		"HEROKU_API_KEY": {
-			"description": "[Required] Get a Heroku API key from http://dashboard.heroku.com/account",
-			"required": false
-		},
-		"HU_STRING_SESSION": {
-			"description": "Get this using 'https://repl.it/@Leorio/stringsessiongen' or `bash genStr`",
-			"required": false
-		},
 		"BOT_TOKEN": {
 			"description": "Get this from https://t.me/botfather and enable Inline Mode. (ADD YOUR BOT IN LOG CHANNEL)",
 			"required": false,
 			"value": "1873445772:AAFl_RkVFVT3-MS1UBHsxfzgJnoZ9v6lZ5U"
-		},
-		"UPSTREAM_REPO": {
-			"description": "fill only if you maintain a fork !, else leave empty",
-			"required": false,
-			"value": "https://github.com/samuca78/NoteX"
-		},
-        "CUSTOM_PLUGINS_REPO": {
-            "description": "This is best if you wanna add your own plugins",
-            "required": false
-		},
-		"OWNER_ID": {
-			"description": "Your user_id(s) e.g 123456789 or mutiple ids",
-			"required": false,
-			"value": "1157759484"
-		},
-		"PREF_BRANCH": {
-			"description": "Upstream repo preffered branch. (Dont Touch This !)",
-			"required": false,
-			"value": "master"
 		}
 	},
 	"buildpacks": [
 		{
 			"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
 		},
-		{ "url": "https://github.com/HasibulKabir/heroku-buildpack-rarlab.git" },
-		{ "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip" },
-		{ "url": "https://github.com/code-rgb/heroku-buildpack-google-chrome" },
-		{ "url": "https://github.com/code-rgb/heroku-buildpack-chromedriver" },
-		{ "url": "https://github.com/chrismytton/heroku-buildpack-jq.git" },
-		{ "url": "https://github.com/justaprudev/heroku-buildpack-neofetch.git" },
-		{ "url": "https://github.com/code-pms/mediainfo_buildpack.git" },
 		{ "url": "heroku/python" }
 	]
 }
