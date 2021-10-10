@@ -38,13 +38,13 @@ class Functions:
             
             "extractaudio": True,
             "audioformat": "mp3",
-            # "postprocessors": [
-                # {
-                    # "key": "FFmpegExtractAudio",
-                    # "preferredcodec": "mp3",
-                    # "preferredquality": "140",
-                # },
-            # ],
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "192",
+                },
+            ],
             # "quiet": True,
         }
         with youtube_dl.YoutubeDL(_opts) as ydl:
