@@ -30,7 +30,7 @@ class Functions:
             else:
                 return title.replace(("]" or "["), "") + ".mp3"
     	
-    async def down_music(link, file_name):
+    def down_music(link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
@@ -47,5 +47,5 @@ class Functions:
             # ],
             # "quiet": True,
         }
-        async with youtube_dl.YoutubeDL(_opts) as ydl:
+        with youtube_dl.YoutubeDL(_opts) as ydl:
                 ydl.download([link])
