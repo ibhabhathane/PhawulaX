@@ -35,11 +35,11 @@ async def song(_, message: Message):
     link = Functions.get_link(result)
     file_name = Functions.get_file_name(result)
     file = Functions.get_file(link)
-    try:
+    # try:
         # Functions.down_music(link, file_name)
-        Functions.donw_song(link)
-    except:
-        await message.reply("Viiiish... Num deu pra baixar o song. Heheh.", quote=True)
+    Functions.donw_song(link)
+    # except:
+        # await message.reply("Viiiish... Num deu pra baixar o song. Heheh.", quote=True)
     if os.path.exists(f"./cache/{file}"):# os.path.exists(f"./cache/{file_name}"):
         try:
             await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
