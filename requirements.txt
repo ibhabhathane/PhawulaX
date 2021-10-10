@@ -1,6 +1,6 @@
 youtube-search-python==1.4.6
 youtube_dl
-pyrogram==1.0.1
-git+https://github.com/pyrogram/tgcrypto
+pyrogram
+tgcrypto
 telethon
 ffmpeg-python
