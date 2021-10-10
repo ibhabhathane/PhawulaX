@@ -4,7 +4,6 @@ import json
 
 from youtubesearchpython import SearchVideos
 import youtube_dl
-import pafy
 
 class Functions:
     def input_str(message) -> str:
