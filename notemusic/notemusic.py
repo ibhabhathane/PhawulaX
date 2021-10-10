@@ -47,5 +47,5 @@ class Functions:
             # ],
             # "quiet": True,
         }
-        with youtube_dl.YoutubeDL(_opts) as ydl:
+        async with youtube_dl.YoutubeDL(_opts) as ydl:
                 ydl.download([link])
