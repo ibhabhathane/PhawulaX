@@ -45,6 +45,7 @@ class Functions:
                      #"preferredquality": "140",
                 },
             ],
+            "quiet": True,
         }
         with youtube_dl.YoutubeDL(_opts) as ydl:
                 ydl.download([link])
