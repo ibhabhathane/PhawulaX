@@ -11,7 +11,8 @@ import os
 import time 
 
 
-cmd = partial(filters.command, prefixes=list("/"))
+# cmd = partial(filters.command, prefixes=list("/"))
+cmd = filters.command, prefixes=list("/")
 
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
