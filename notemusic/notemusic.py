@@ -34,10 +34,10 @@ class Functions:
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
-            "format": "bestaudio",#/best",
+            "format": "bestaudio/best",
             
-            "extractaudio": True,
-            "audioformat": "mp3",
+            # "extractaudio": True,
+            # "audioformat": "mp3",
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
