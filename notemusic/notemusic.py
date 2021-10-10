@@ -31,17 +31,12 @@ class Functions:
     def down_music(link, file_name):
         _opts = {
             "outtmpl": f"./cache/{file_name}",
-            "source_address": "0.0.0.0",
-            "noplaylist": True,
-            "continue_dl": True,
             "format": "bestaudio/best",
-            "extractaudio": True,
-            "audioformat": "mp3",
-            # "postprocessors": [{
-                # "key": "FFmpegExtractAudio",
-                # "preferredcodec": "mp3",
-                # "preferredquality": "192",
-            # }],
+            "postprocessors": [{
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "mp3",
+                "preferredquality": "256",
+            }],
             # "quiet": True,
             "prefer_ffmpeg": True, 
         }
