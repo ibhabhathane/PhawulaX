@@ -23,7 +23,8 @@ class Functions:
     
     def get_file_name(result):
         if not result == None:
-            title = result["search_result"][0]["title"]
+            title_ = result["search_result"][0]["title"]
+            title = title.replace(" ", "_")
             if not ("[" and "]") in title:
                 return title + ".mp3"
             else:
