@@ -36,7 +36,7 @@ class Functions:
             "continue_dl": True,
             "format": "bestaudio/best",
             "extractaudio": True,
-            "audioformat": "mp3"
+            "audioformat": "mp3",
             # "postprocessors": [{
                 # "key": "FFmpegExtractAudio",
                 # "preferredcodec": "mp3",
