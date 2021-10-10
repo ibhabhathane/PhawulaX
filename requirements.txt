@@ -3,3 +3,4 @@ youtube_dl
 pyrogram==1.0.1
 git+https://github.com/pyrogram/tgcrypto
 telethon
+ffmpeg-python
