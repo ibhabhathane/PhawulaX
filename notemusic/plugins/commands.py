@@ -29,6 +29,8 @@ async def song(_, message: Message):
         await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
         return
     result = Functions.search_music(Functions.input_str(message))
+    if result is None:
+        await message.reply("Não foi possível encontrar a música.")
     link = Functions.get_link(result)
     file_name = Functions.get_file_name(result)
     try:
