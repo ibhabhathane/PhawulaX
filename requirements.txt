@@ -3,4 +3,3 @@ youtube_dl
 pyrogram
 tgcrypto
 telethon
-ffmpeg-python
