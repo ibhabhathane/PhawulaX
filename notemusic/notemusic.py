@@ -1,5 +1,3 @@
-from client import NoteMusic
-
 import json
 
 from youtubesearchpython import SearchVideos
