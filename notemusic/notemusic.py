@@ -5,6 +5,7 @@ import json
 from youtubesearchpython import SearchVideos
 import youtube_dl
 
+
 class Functions:
     def input_str(message) -> str:
     	input_ = message.text
