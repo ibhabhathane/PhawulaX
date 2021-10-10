@@ -1,4 +1,3 @@
-from pyrogram import Client
 from pyrogram.types import Message
 from client import NoteMusic
 
@@ -15,10 +14,9 @@ class Functions:
     		return str(input_.split(maxsplit=1)[1].strip())
     	return ''
 	
-    def search_music(user_input, message: Message):
+    def search_music(user_input):
         search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        if not search.result() == None:
-            return json.loads(search.result())
+        return json.loads(search.result())
 
     def get_link(result):
         if not result == None:
