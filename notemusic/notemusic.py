@@ -4,7 +4,7 @@ import json
 
 from youtubesearchpython import SearchVideos
 import youtube_dl
-
+import pafy
 
 class Functions:
     def input_str(message) -> str:
@@ -48,5 +48,12 @@ class Functions:
             # "quiet": True,
         }
         with youtube_dl.YoutubeDL(_opts) as ydl:
-            ydl._ies = [ydl.get_info_extractor('Youtube')]
             ydl.download([link])
+            
+    def down_song(link):
+        vid = pafy.new(link)
+        vid.getbestaudio().download("./cache/")
+        
+    def get_file(link):
+        vid = pafy.new(link)
+        return title + ".m4a"
