@@ -26,11 +26,8 @@ async def down_music(link, file_name):
            "extractaudio": True,
            "audioformat": "mp3",
     }
-    try:
-        with youtube_dl.YoutubeDL(_opts) as ydl:
-            ydl.download([link])
-    except:
-        print("OOOOOOODIIIIIIOO")
+    with youtube_dl.YoutubeDL(_opts) as ydl:
+        info_dict = ydl.download([link])
 
 @c.on(events.NewMessage(pattern="^/song*"))
 async def song(event):
