@@ -55,6 +55,6 @@ class Functions:
         vid.getbestaudio().download("./cache/")
             
     def get_file(link):
-        vid = pafy.new(url)
+        vid = pafy.new(link)
         return vid.title + ".m4a"
             
