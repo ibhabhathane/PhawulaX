@@ -7,4 +7,4 @@ from plugins.music_telethon import *
 
 if __name__ == "__main__":
 	NoteMusic.run()
-	# c.run_until_disconnected()
+	c.run_until_disconnected()
