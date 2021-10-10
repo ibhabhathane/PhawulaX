@@ -48,6 +48,7 @@ async def song(_, message: Message):
         except:
             await message.reply("VISH PORRAAAAA!!! Num deu pra enviar the música.", quote=True)
         time.sleep(2)
-        os.remove(f"./cache/{file_name}")
+        os.remove(f"./cache/{file}")
+        # os.remove(f"./cache/{file_name}")
         
         
