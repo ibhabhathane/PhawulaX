@@ -23,7 +23,7 @@ async def start(_, message: Message):
     start_text = "Oi!\nEu sou o [NoteMusic](t.me/notemusicbot)! Tudo bem?\n\n__Sou um Bot para baixar músicas, utilizo os serviços do YouTube para fornecer os resultados.__\n\n**Gostaria de saber mais sobre mim?**\nUtilize o comando /help"
     await message.reply(start_text, disable_web_page_preview=True, quote=True)
 
-@NoteMusic.on_message(filters.command("music", prefixes="!"))
+@NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
     if Functions.input_str(message) == "":
         await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
