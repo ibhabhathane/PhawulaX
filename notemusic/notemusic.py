@@ -56,4 +56,4 @@ class Functions:
         
     def get_file(link):
         vid = pafy.new(link)
-        return title + ".m4a"
+        return vid.title + ".m4a"
