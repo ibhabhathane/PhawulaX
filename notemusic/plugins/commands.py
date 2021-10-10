@@ -16,12 +16,12 @@ cmd = partial(filters.command, prefixes=list("/"))
 @NoteMusic.on_message(cmd("help"))
 async def help(_, message: Message):
     help_text = "▫️ **USANDO O BOT**\n\n/music\n__Use este comando para obviamente, baixar a música que você quer. É somente possível baixar música de até 10 minutos de duração. Este comando, naturalmente, serve como pesquisa.__\n\n➖**Exemplo de como usar:**\n/music `Haddaway - What is Love?`"
-    await message.reply(help_text)
+    await message.reply(help_text, quote=True)
 	   
 @NoteMusic.on_message(cmd("start"))
 async def start(_, message: Message):
     start_text = "Oi!\nEu sou o [NoteMusic](t.me/notemusicbot)! Tudo bem?\n\n__Sou um Bot para baixar músicas, utilizo os serviços do YouTube para fornecer os resultados.__\n\n**Gostaria de saber mais sobre mim?**\nUtilize o comando /help"
-    await message.reply(start_text, disable_web_page_preview=True)
+    await message.reply(start_text, disable_web_page_preview=True, quote=True)
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
@@ -30,7 +30,7 @@ async def song(_, message: Message):
         return
     result = Functions.search_music(Functions.input_str(message))
     if result is None:
-        await message.reply("Não foi possível encontrar a música.")
+        await message.reply("Não foi possível encontrar a música.", quote=True)
         return
     link = Functions.get_link(result)
     file_name = Functions.get_file_name(result)
