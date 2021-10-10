@@ -28,7 +28,7 @@ async def down_music(link, file_name):
            "postprocessors": [
                {
                 "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3"
+                "preferredcodec": "mp3",
                 "preferredquality": "192",
             },
         ],
