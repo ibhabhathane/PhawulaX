@@ -2,4 +2,3 @@ pyrogram
 tgcrypto
 youtube-search-python
 youtube-dl
-pafy
