@@ -4,6 +4,7 @@ import json
 
 from youtubesearchpython import SearchVideos
 import youtube_dl
+import pafy
 
 class Functions:
     def input_str(message) -> str:
@@ -25,9 +26,9 @@ class Functions:
             title_ = result["search_result"][0]["title"]
             title = title_.replace(" ", "_")
             if not ("[" and "]") in title:
-                return title + ".mp3"
+                return title + ".m4a"# ".mp3"
             else:
-                return title.replace(("]" or "["), "") + ".mp3"
+                return title.replace(("]" or "["), "") + ".m4a"# ".mp3"
     	
     def down_music(link, file_name):
         _opts = {
@@ -48,4 +49,8 @@ class Functions:
         }
         with youtube_dl.YoutubeDL(_opts) as ydl:
             ydl.download([link])
+            
+        def down_song(link):
+            vid = pafy.new(link)
+            vid.getbestaudio().download("./cache/")
             
