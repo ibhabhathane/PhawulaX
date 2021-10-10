@@ -31,6 +31,7 @@ async def song(_, message: Message):
     result = Functions.search_music(Functions.input_str(message))
     if result is None:
         await message.reply("Não foi possível encontrar a música.")
+        return
     link = Functions.get_link(result)
     file_name = Functions.get_file_name(result)
     try:
