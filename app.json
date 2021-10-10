@@ -2,16 +2,15 @@
 	"env": {
 		"API_ID": {
 			"description": "Get this value from https://my.telegram.org",
-			"value": "3716600"
+			"required": true
 		},
 		"API_HASH": {
 			"description": "Get this value from https://my.telegram.org",
-			"value": "0ed423ceea4fbb06c0e627d9db0f4a6b"
+			"required": true
 		},
 		"BOT_TOKEN": {
 			"description": "Get this from https://t.me/botfather and enable Inline Mode. (ADD YOUR BOT IN LOG CHANNEL)",
-			"required": false,
-			"value": "1873445772:AAFl_RkVFVT3-MS1UBHsxfzgJnoZ9v6lZ5U"
+			"required": true
 		}
 	},
 	"buildpacks": [
