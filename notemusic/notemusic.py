@@ -26,9 +26,9 @@ class Functions:
             title_ = result["search_result"][0]["title"]
             title = title_.replace(" ", "_")
             if not ("[" and "]") in title:
-                return title + ".m4a"# ".mp3"
+                return title + ".mp3"
             else:
-                return title.replace(("]" or "["), "") + ".m4a"# ".mp3"
+                return title.replace(("]" or "["), "") + ".mp3"
     	
     def down_music(link, file_name):
         _opts = {
