@@ -50,11 +50,11 @@ class Functions:
         with youtube_dl.YoutubeDL(_opts) as ydl:
             ydl.download([link])
             
-        def down_song(link):
-            vid = pafy.new(link)
-            vid.getbestaudio().download("./cache/")
+    def down_song(link):
+        vid = pafy.new(link)
+        vid.getbestaudio().download("./cache/")
             
-        def get_file(link):
-            vid = pafy.new(url)
-            return vid.title + ".m4a"
+    def get_file(link):
+        vid = pafy.new(url)
+        return vid.title + ".m4a"
             
