@@ -22,14 +22,14 @@ async def down_music(link, file_name):
         "outtmpl": f"./cache/{file_name}",
            "prefer_ffmpeg": True,
            "format": "bestaudio",
-            
-            # "extractaudio": True,
-            # "audioformat": "mp3",
+           
+           "extractaudio": True,
+           "audioformat": "mp3",
            "postprocessors": [
                {
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "mp3",
-                # "preferredquality": "140",
+                "preferredquality": "192",
             },
         ],
     }
