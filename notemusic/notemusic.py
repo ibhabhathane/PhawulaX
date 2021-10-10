@@ -15,7 +15,7 @@ class Functions:
     		return str(input_.split(maxsplit=1)[1].strip())
     	return ''
 	
-    def search_music(user_input):
+    def search_music(user_input, message: Message):
         search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
         if not search.result() == None:
             return json.loads(search.result())
