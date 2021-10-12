@@ -35,9 +35,9 @@ class Functions:
             
             "extractaudio": True,
             "audioformat": "mp3",
-            # 'noplaylist': True,
-            # 'no_warnings': True,
-            # 'source_address': '0.0.0.0',
+            'noplaylist': True,
+            'no_warnings': True,
+            'source_address': '0.0.0.0',
             # "postprocessors": [{
                 # "key": "FFmpegExtractAudio",
                 # "preferredcodec": "mp3",
