@@ -32,11 +32,17 @@ class Functions:
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "format": "bestaudio/best",
-            "postprocessors": [{
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": "256",
-            }],
+            
+            "extractaudio": True,
+            "audioformat": "mp3",
+            'noplaylist': True,
+            'no_warnings': True,
+            'source_address': '0.0.0.0',
+            # "postprocessors": [{
+                # "key": "FFmpegExtractAudio",
+                # "preferredcodec": "mp3",
+                # "preferredquality": "256",
+            # }],
             # "quiet": True,
             "prefer_ffmpeg": True, 
         }
