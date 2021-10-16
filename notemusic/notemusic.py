@@ -39,7 +39,7 @@ class Functions:
             {
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "mp3",
-                "preferredquality": uid,
+                "preferredquality": "192",
             },
             {"key": "FFmpegMetadata"},
         ],
