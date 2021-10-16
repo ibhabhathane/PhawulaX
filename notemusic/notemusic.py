@@ -35,14 +35,15 @@ class Functions:
             "format": "bestaudio/best",
             "geo_bypass": True,
             "nocheckcertificate": True,
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
-                    "preferredquality": "192",
-                },
-                {"key": "FFmpegMetadata"},
-            ],
+            "extractaudio": True,
+            "audioformat": "mp3",
+            # "postprocessors": [
+                # {
+                    # "key": "FFmpegExtractAudio",
+                    # "preferredcodec": "mp3",
+                    # "preferredquality": "192",
+                # },
+            # ],
             # "quiet": True,
         }
         try:
