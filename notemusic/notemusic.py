@@ -45,11 +45,11 @@ class Functions:
         ],
         # "quiet": True,
     }
-    try:
-        with youtube_dl.YoutubeDL(_opts) as ytdl:
-            ytdl.download([link])
-    except Exception as y_e:
-        print(y_e)
+    # try:
+    with youtube_dl.YoutubeDL(_opts) as ytdl:
+        ytdl.download([link])
+    # except Exception as y_e:
+        # print(y_e)
         # _opts = {
             # "outtmpl": f"./cache/{file_name}",
             # "format": "bestaudio/best",
