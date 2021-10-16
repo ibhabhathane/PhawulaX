@@ -51,23 +51,3 @@ class Functions:
                 ytdl.download([link])
         except Exception as y_e:
             print(y_e)
-        # _opts = {
-            # "outtmpl": f"./cache/{file_name}",
-            # "format": "bestaudio/best",
-            
-            # "extractaudio": True,
-            # "audioformat": "mp3",
-            # 'noplaylist': True, #
-            # 'no_warnings': True, #
-            # 'source_address': '0.0.0.0', #
-            # "postprocessors": [{ #
-                # "key": "FFmpegExtractAudio", #
-                # "preferredcodec": "mp3", #
-                # "preferredquality": "256", #
-            # }], #
-            # "quiet": True, #
-            # "prefer_ffmpeg": True,  #
-        # }
-        # with youtube_dl.YoutubeDL(_opts) as ydl:
-            # ydl.download([link])
-            
