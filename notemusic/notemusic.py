@@ -47,7 +47,7 @@ class Functions:
     }
     try:
         with youtube_dl.YoutubeDL(_opts) as ytdl:
-            ytdl.download([url])
+            ytdl.download([link])
     except Exception as y_e:
         print(y_e)
         # _opts = {
