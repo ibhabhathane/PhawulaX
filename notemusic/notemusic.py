@@ -30,26 +30,26 @@ class Functions:
     	
     def down_music(link, file_name):
         _opts = {
-        "outtmpl": f"./cache/{file_name}",
-        "prefer_ffmpeg": True,
-        "format": "bestaudio/best",
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-        "postprocessors": [
-            {
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": "192",
-            },
-            {"key": "FFmpegMetadata"},
-        ],
-        # "quiet": True,
-    }
-    # try:
-    with youtube_dl.YoutubeDL(_opts) as ytdl:
-        ytdl.download([link])
-    # except Exception as y_e:
-        # print(y_e)
+            "outtmpl": f"./cache/{file_name}",
+            "prefer_ffmpeg": True,
+            "format": "bestaudio/best",
+            "geo_bypass": True,
+            "nocheckcertificate": True,
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "192",
+                },
+                {"key": "FFmpegMetadata"},
+            ],
+            # "quiet": True,
+        }
+        try:
+            with youtube_dl.YoutubeDL(_opts) as ytdl:
+                ytdl.download([link])
+        except Exception as y_e:
+            print(y_e)
         # _opts = {
             # "outtmpl": f"./cache/{file_name}",
             # "format": "bestaudio/best",
