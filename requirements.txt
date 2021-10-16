@@ -1,4 +1,4 @@
 youtube-search-python==1.4.6
 git+https://github.com/ytdl-org/youtube-dl
-git+https://github.com/code-rgb/pyrogram.git@x21
+git+https://github.com/AmanoTeam/pyrogram.git
 TgCrypto==1.2.2
