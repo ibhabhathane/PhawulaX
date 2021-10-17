@@ -38,7 +38,7 @@ async def song(event):
     link = Functions.get_link(result)
     file_name = Functions.get_file_name(result)
     try:
-        await down_music(link, file_name)
+        Functions.down_music(link, file_name)# await down_music(link, file_name)
     except:
         await event.reply("Num deu pra baixar...")
     if os.path.exists(f"./cache/{file_name}"):
