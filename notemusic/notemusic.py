@@ -32,18 +32,18 @@ class Functions:
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
-            "format": "bestaudio",#/best",
+            "format": "bestaudio/best",
             "geo_bypass": True,
             "nocheckcertificate": True,
-            # "extractaudio": True,
-            # "audioformat": "mp3",
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
-                    "preferredquality": "196",
-                },
-            ],
+            "extractaudio": True,
+            "audioformat": "mp3",
+            # "postprocessors": [
+                # {
+                    # "key": "FFmpegExtractAudio",
+                    # "preferredcodec": "mp3",
+                    # "preferredquality": "192",
+                # },
+            # ],
             # "quiet": True,
         }
         with youtube_dl.YoutubeDL(_opts) as ytdl:
