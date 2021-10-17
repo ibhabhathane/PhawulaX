@@ -17,7 +17,7 @@ def input_str(event):
         return str(input_.split(maxsplit=1)[1].strip())
     return ''
     
-async def down_music(link, file_name):
+def down_music(link, file_name):
     _opts = {
         "outtmpl": f"./cache/{file_name}",
            "prefer_ffmpeg": True,
@@ -38,7 +38,7 @@ async def song(event):
     link = Functions.get_link(result)
     file_name = Functions.get_file_name(result)
     try:
-        Functions.down_music(link, file_name)# await down_music(link, file_name)
+        down_music(link, file_name)
     except:
         await event.reply("Num deu pra baixar...")
     if os.path.exists(f"./cache/{file_name}"):
