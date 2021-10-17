@@ -32,7 +32,7 @@ class Functions:
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
-            "format": "bestaudio/best",
+            "format": "bestaudio",#/best",
             "geo_bypass": True,
             "nocheckcertificate": True,
             # "extractaudio": True,
