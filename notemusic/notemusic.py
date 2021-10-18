@@ -56,7 +56,7 @@ class Functions:
         pytube.YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
         
         
-    def music_process(message):
+    async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
         if result is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
