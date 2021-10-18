@@ -6,7 +6,7 @@ import time
 
 from youtubesearchpython import SearchVideos
 # import youtube_dl
-from pytube import YouTube, compat
+from pytube import YouTube
 
 
 class Functions:
@@ -59,8 +59,7 @@ class Functions:
             "http": "socks5://127.0.0.1:1080",
             'https': 'socks5://127.0.0.1:1080'
         }
-        compat.install_proxy(proxy_handler)
-        YouTube(link).streams.get_audio_only().download(output_path="./cache/", filename=file_name)# YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
+        YouTube(link, proxiee=proxy_handler).streams.get_audio_only().download(output_path="./cache/", filename=file_name)# YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
         
         
     async def music_process(message):
