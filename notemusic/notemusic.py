@@ -73,6 +73,8 @@ class Functions:
         Functions.down_song(link, file_name)
         # except:
             # await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
+        if not link:
+            print("oi")
         else:
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
