@@ -29,6 +29,7 @@ class Functions:
                 return title.replace(("]" or "["), "") + ".mp3"
     	
     def down_music(link, file_name):
+        ydl_opts = {"format": "bestaudio[ext=m4a]"}
         _opts = {
             "outtmpl": f"./cache/{file_name}",
             "prefer_ffmpeg": True,
@@ -46,5 +47,5 @@ class Functions:
             # ],
             # "quiet": True,
         }
-        with youtube_dl.YoutubeDL(_opts) as ytdl:
+        with youtube_dl.YoutubeDL(ydl_opts) as ytdl:
             ytdl.extract_info(link, download=True)#ytdl.download([link])
