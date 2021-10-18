@@ -6,10 +6,6 @@ from client import NoteMusic
 
 from functools import partial, wraps
 
-import os
-
-import time 
-
 
 cmd = partial(filters.command, prefixes=list("/"))
 
