@@ -26,30 +26,7 @@ async def start(_, message: Message):
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
     if Functions.input_str(message) == "":
-        await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
-        return
-    result = Functions.search_music(Functions.input_str(message))
-    if result is None:
-        await message.reply("Não foi possível encontrar a música.", quote=True)
-        return
-    # max duration
-    duration = result['search_result'][0]['duration']
-    if int(duration.split(":")[0]) > 6 or len(duration) >= 7:
-        return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
-    # max duration
-    link = Functions.get_link(result)
-    file_name = Functions.get_file_name(result)
-    try:
-        Functions.down_song(link, file_name)
-    except:
-        await message.reply("Viiiish... Num deu pra baixar o song. Heheh.", quote=True)
-    if os.path.exists(f"./cache/{file_name}"):
-        try:
-            await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-            await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", quote=True)
-        except:
-            await message.reply("VISH PORRAAAAA!!! Num deu pra enviar the música.", quote=True)
-        time.sleep(2)
-        os.remove(f"./cache/{file_name}")
+        return await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
+    Functions.music_process(message)
         
         
