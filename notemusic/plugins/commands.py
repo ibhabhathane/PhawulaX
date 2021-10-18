@@ -34,7 +34,7 @@ async def song(_, message: Message):
         return
     # max duration
     duration = result['search_result'][0]['duration'].split(':')
-    if int(duration[0]) > 6:
+    if int(duration[0]) > 6 or len(duration) >= 7:
         return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
     # max duration
     link = Functions.get_link(result)
