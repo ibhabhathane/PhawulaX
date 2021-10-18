@@ -74,10 +74,10 @@ class Functions:
         # except:
             # await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
         if os.path.exists(f"./cache/{file_name}"):#else:
-            try:
-                await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-                await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", quote=True)
-            except:
-                await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
+            # try:
+            await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
+            await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", quote=True)
+            # except:
+                # await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
             time.sleep(2)
             os.remove(f"./cache/{file_name}")
