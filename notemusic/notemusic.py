@@ -1,3 +1,5 @@
+from client import NoteMusic
+
 import os
 
 import json
