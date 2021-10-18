@@ -1,7 +1,7 @@
 import json
 
 from youtubesearchpython import SearchVideos
-import youtube_dl
+import youtube_dlc
 
 
 class Functions:
@@ -46,5 +46,5 @@ class Functions:
             # ],
             # "quiet": True,
         }
-        with youtube_dl.YoutubeDL(_opts) as ytdl:
+        with youtube_dlc.YoutubeDL(_opts) as ytdl:
             ytdl.extract_info(link, download=True)#ytdl.download([link])
