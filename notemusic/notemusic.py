@@ -59,7 +59,7 @@ class Functions:
             "http": "socks5://127.0.0.1:1080",
             'https': 'socks5://127.0.0.1:1080'
         }
-        YouTube(link, proxiee=proxy_handler).streams.get_audio_only().download(output_path="./cache/", filename=file_name)# YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
+        YouTube(link, proxies=proxy_handler).streams.get_audio_only().download(output_path="./cache/", filename=file_name)# YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
         
         
     async def music_process(message):
