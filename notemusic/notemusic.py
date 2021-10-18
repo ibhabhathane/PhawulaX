@@ -79,6 +79,5 @@ class Functions:
                 await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", quote=True)
             except:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
-            finally:
-                time.sleep(2)
-                os.remove(f"./cache/{file_name}")
+            time.sleep(2)
+            os.remove(f"./cache/{file_name}")
