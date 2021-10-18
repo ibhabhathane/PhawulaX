@@ -1,3 +1,5 @@
+import os
+
 import json
 
 from youtubesearchpython import SearchVideos
@@ -52,3 +54,29 @@ class Functions:
             
     def down_song(link, file_name):
         pytube.YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
+        
+        
+    def music_process(message):
+        result = Functions.search_music(Functions.input_str(message))
+        if result is None:
+            return await message.reply("Não foi possível encontrar a música.", quote=True)
+        # max duration
+        duration = result['search_result'][0]['duration']
+        if int(duration.split(":")[0]) > 11 or len(duration) >= 7:
+            return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
+        # max duration
+        link = Functions.get_link(result)
+        file_name = Functions.get_file_name(result)
+        try:
+            Functions.down_song(link, file_name)
+        except:
+            await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reclame ao mantenedor do projeto.", quote=True)
+        else:
+            try:
+                await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
+                await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", quote=True)
+            except:
+                await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
+            finally:
+                time.sleep(2)
+                os.remove(f"./cache/{file_name}")
