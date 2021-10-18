@@ -27,6 +27,6 @@ async def start(_, message: Message):
 async def song(_, message: Message):
     if Functions.input_str(message) == "":
         return await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
-    Functions.music_process(message)
+    await Functions.music_process(message)
         
         
