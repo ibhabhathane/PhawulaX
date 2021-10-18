@@ -1,7 +1,8 @@
 import json
 
 from youtubesearchpython import SearchVideos
-import youtube_dlc
+# import youtube_dl
+import pytube
 
 
 class Functions:
@@ -28,15 +29,15 @@ class Functions:
             else:
                 return title.replace(("]" or "["), "") + ".mp3"
     	
-    def down_music(link, file_name):
-        _opts = {
-            "outtmpl": f"./cache/{file_name}",
-            "prefer_ffmpeg": True,
-            "format": "bestaudio/best",
-            "geo_bypass": True,
-            "nocheckcertificate": True,
-            "extractaudio": True,
-            "audioformat": "mp3",
+    # def down_music(link, file_name):
+        # _opts = {
+            # "outtmpl": f"./cache/{file_name}",
+            # "prefer_ffmpeg": True,
+            # "format": "bestaudio/best",
+            # "geo_bypass": True,
+            # "nocheckcertificate": True,
+            # "extractaudio": True,
+            # "audioformat": "mp3",
             # "postprocessors": [
                 # {
                     # "key": "FFmpegExtractAudio",
@@ -45,10 +46,9 @@ class Functions:
                 # },
             # ],
             # "quiet": True,
-        }
-        with youtube_dlc.YoutubeDL(_opts) as ytdl:
-            ytdl.extract_info(link, download=True)#ytdl.download([link])
+        # }
+        # with youtube_dl.YoutubeDL(_opts) as ytdl:
+            # ytdl.extract_info(link, download=True)#ytdl.download([link])
             
     def down_song(link, file_name):
-        import pytube
         pytube.YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
