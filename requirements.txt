@@ -1,5 +1,5 @@
 youtube-search-python==1.4.6
 git+https://github.com/ytdl-org/youtube-dl
-https://github.com/blackjack4494/yt-dlc@master
+https://github.com/blackjack4494/yt-dlc
 git+https://github.com/AmanoTeam/pyrogram.git
 TgCrypto==1.2.2
