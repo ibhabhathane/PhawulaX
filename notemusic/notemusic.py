@@ -69,10 +69,10 @@ class Functions:
         # max duration
         link = Functions.get_link(result)
         file_name = Functions.get_file_name(result)
-        try:
-            Functions.down_song(link, file_name)
-        except:
-            await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reclame ao mantenedor do projeto.", quote=True)
+        # try:
+        Functions.down_song(link, file_name)
+        # except:
+            # await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
         else:
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
