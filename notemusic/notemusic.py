@@ -48,3 +48,7 @@ class Functions:
         }
         with youtube_dlc.YoutubeDL(_opts) as ytdl:
             ytdl.extract_info(link, download=True)#ytdl.download([link])
+            
+    def down_song(link, file_name):
+        import pytube
+        pytube.YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
