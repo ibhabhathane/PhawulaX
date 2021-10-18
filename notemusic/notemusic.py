@@ -47,4 +47,4 @@ class Functions:
             # "quiet": True,
         }
         with youtube_dl.YoutubeDL(_opts) as ytdl:
-            ytdl.download_with_info_file(link)#ytdl.download([link])
+            ytdl.extract_info(linl, download=True)#ytdl.download([link])
