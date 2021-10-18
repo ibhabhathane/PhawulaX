@@ -6,7 +6,7 @@ import time
 
 from youtubesearchpython import SearchVideos
 # import youtube_dl
-import pytube
+from pytube import YouTube, compat
 
 
 class Functions:
@@ -55,7 +55,12 @@ class Functions:
             # ytdl.extract_info(link, download=True)#ytdl.download([link])
             
     def down_song(link, file_name):
-        pytube.YouTube(link).streams.get_audio_only().download(output_path="./cache/", filename=file_name)# pytube.YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
+        proxy_handler = {
+            "http": "socks5://127.0.0.1:1080",
+            'https': 'socks5://127.0.0.1:1080'
+        }
+        compat.install_proxy(proxy_handler)
+        YouTube(link).streams.get_audio_only().download(output_path="./cache/", filename=file_name)# YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
         
         
     async def music_process(message):
