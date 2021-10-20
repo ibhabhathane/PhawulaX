@@ -41,7 +41,7 @@ class Functions:
         title_ = result["search_result"][0]["title"]
         thumb_name = f"{title_}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
-        open(os.path.join("./cache/", thumb_name), "wb").write(thumb.content)
+        open(thumb_name, "wb").write(thumb.content)
         return thumb_name
     	
     # def down_music(link, file_name):
