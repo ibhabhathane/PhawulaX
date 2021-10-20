@@ -34,6 +34,14 @@ class Functions:
                 return title + ".mp3"
             else:
                 return title.replace(("]" or "["), "") + ".mp3"
+                
+    def get_thumb(result):
+        title = result["search_result"][0]["title"]
+        thumbnail = result["search_result"][0]["thumbnails"][0]
+        thumb_name = f"./cache/thumb{title}.jpg"
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, "wb").write(thumb.content)
+        return thumb_name
     	
     # def down_music(link, file_name):
         # _opts = {
@@ -71,14 +79,15 @@ class Functions:
         # max duration
         link = Functions.get_link(result)
         file_name = Functions.get_file_name(result)
+        thumb = Functions.get_thumb(result)
         try:
             Functions.down_song(link, file_name)
         except:
             await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
-        if os.path.exists(f"./cache/{file_name}"):
+        if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-                await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", quote=True)
+                await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result["search_result"][0]["title"], thumb=thumb quote=True)
             except:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
             time.sleep(2)
