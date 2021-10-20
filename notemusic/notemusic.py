@@ -92,3 +92,4 @@ class Functions:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
             time.sleep(2)
             os.remove(f"./cache/{file_name}")
+            os.remove(thumb)
