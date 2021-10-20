@@ -38,8 +38,8 @@ class Functions:
                 
     def get_thumb(result):
         thumbnail = result["search_result"][0]["thumbnails"][0]
-        title = result["search_result"][0]["title"]
-        thumb_name = f"{title}.jpg"
+        title_ = result["search_result"][0]["title"]
+        thumb_name = f"{title_}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(os.path.join("./cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
