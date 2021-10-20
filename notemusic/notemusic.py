@@ -37,9 +37,8 @@ class Functions:
                 return title.replace(("]" or "["), "") + ".mp3"
                 
     def get_thumb(result):
-        title = result["search_result"][0]["title"]
         thumbnail = result["search_result"][0]["thumbnails"][0]
-        thumb_name = f"./cache/thumb{title}.jpg"
+        thumb_name = f"./cache/{Functions.get_file_name(result)}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
         return thumb_name
