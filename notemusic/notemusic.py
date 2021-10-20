@@ -39,9 +39,9 @@ class Functions:
     def get_thumb(result):
         thumbnail = result["search_result"][0]["thumbnails"][0]
         title = result["search_result"][0]["title"]
-        thumb_name = os.path.join("./cache/", f"{title}.jpg")
+        thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, "wb").write(thumb.content)
+        open(os.path.join("./cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
     	
     # def down_music(link, file_name):
