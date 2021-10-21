@@ -7,7 +7,8 @@ import requests
 
 import time
 
-from youtubesearchpython import SearchVideos
+# from youtubesearchpython import SearchVideos
+from youtube_search import YoutubeSearch
 # import youtube_dl
 from pytube import YouTube
 
@@ -20,26 +21,24 @@ class Functions:
     	return ''
 	
     def search_music(user_input):
-        search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        return json.loads(search.result())
+        # search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
+        result = YoutubeSearch(query, max_results=1).to_dict()
+        return result
+        # return json.loads(search.result())
 
     def get_link(result):
-        if not result == None:
-            return result['search_result'][0]['link']
+        # return result['search_result'][0]['link']
+        return f"https://www.youtube.com{results[0]['url_suffix']}"
     
     def get_file_name(result):
-        if not result == None:
-            title_ = result["search_result"][0]["title"]
-            title = title_.replace(" ", "_")
-            if not ("[" and "]") in title:
-                return title + ".mp3"
-            else:
-                return title.replace(("]" or "["), "") + ".mp3"
+        title_ = result[0]["title"]#result["search_result"][0]["title"]
+        title = title_.replace(" ", "_")
+        return title + ".mp3"
                 
     def get_thumb(result):
-        thumbnail = result["search_result"][0]["thumbnails"][0]
-        title = result["search_result"][0]["title"]
-        thumb_name = f"{title}.jpg"
+        thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
+        title = result[0]["title"]#result["search_result"][0]["title"]
+        thumb_name = f"thumb{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
         return thumb_name
