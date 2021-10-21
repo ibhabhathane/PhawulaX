@@ -36,7 +36,7 @@ class Functions:
         return title + ".mp3"
                 
     def get_thumb(result):
-        print("HEREEEEEE: " + str(os.getcwd()))
+        print("HEREEEEEE: " + str(os.listdir()))
         thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
         title = result[0]["title"]#result["search_result"][0]["title"]
         thumb_name = f"{title}.jpg"
@@ -70,7 +70,7 @@ class Functions:
         
         
     async def music_process(message):
-        print("ANOTHHEEEEEER: " + str(os.getcwd()))
+        print("ANOTHHEEEEEER: " + str(os.listdir()))
         result = Functions.search_music(Functions.input_str(message))
         if result is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
@@ -81,11 +81,7 @@ class Functions:
         # max duration
         link = Functions.get_link(result)
         file_name = Functions.get_file_name(result)
-        thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
-        title = result[0]["title"]#result["search_result"][0]["title"]
-        thumb_name = f"{title}.jpg"
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(os.path.join("./cache/", thumb_name), "wb").write(thumb.content)
+        thumb = Functions.get_thumb(result)
         try:
             Functions.down_song(link, file_name)
         except Exception as e:
