@@ -98,4 +98,4 @@ class Functions:
                 print(str(e))
             time.sleep(2)
             os.remove(f"./cache/{file_name}")
-            os.remove(f"./cache/{thumb}")
+            os.remove(thumb)
