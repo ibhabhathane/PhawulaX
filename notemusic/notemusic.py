@@ -22,7 +22,7 @@ class Functions:
 	
     def search_music(user_input):
         # search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        result = YoutubeSearch(query, max_results=1).to_dict()
+        result = YoutubeSearch(user_input, max_results=1).to_dict()
         return result
         # return json.loads(search.result())
 
