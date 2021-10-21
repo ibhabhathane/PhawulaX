@@ -88,7 +88,7 @@ class Functions:
         if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-                await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result["search_result"][0]["title"], thumb=thumb, quote=True)
+                await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result[0]["title"], thumb=thumb, quote=True)
             except Exception as e:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
                 print(str(e))
