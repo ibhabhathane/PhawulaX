@@ -1,4 +1,5 @@
 youtube-search-python==1.4.6
+yutube-search
 git+https://github.com/AmanoTeam/pyrogram.git
 TgCrypto==1.2.2
 pytube
