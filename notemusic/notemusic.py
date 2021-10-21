@@ -28,7 +28,7 @@ class Functions:
 
     def get_link(result):
         # return result['search_result'][0]['link']
-        return f"https://www.youtube.com{results[0]['url_suffix']}"
+        return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_file_name(result):
         title_ = result[0]["title"]#result["search_result"][0]["title"]
