@@ -41,12 +41,12 @@ class Functions:
         title = result[0]["title"]#result["search_result"][0]["title"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, "wb").write(thumb.content)# os.path.join("./cache/", thumb_name), "wb").write(thumb.content)
+        open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
     	
     # def down_music(link, file_name):
         # _opts = {
-            # "outtmpl": f"./cache/{file_name}",
+            # "outtmpl": f"./notemusic/plugins/cache/{file_name}",
             # "prefer_ffmpeg": True,
             # "format": "bestaudio/best",
             # "geo_bypass": True,
@@ -66,7 +66,7 @@ class Functions:
             # ytdl.extract_info(link, download=True)#ytdl.download([link])
             
     def down_song(link, file_name):
-        YouTube(link).streams.filter(only_audio=True)[0].download("./cache/", filename=file_name)
+        YouTube(link).streams.filter(only_audio=True)[0].download("./notemusic/plugins/cache/", filename=file_name)
         
         
     async def music_process(message):
@@ -88,14 +88,14 @@ class Functions:
             await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
             print(str(e))
         print("KEEEEEEEEK: " + str(os.listdir()))
-        if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb):
+        if os.path.exists(f"./notemusic/plugins/cache/{file_name}") and os.path.exists(f"./notemusic/plugins/cache/{thumb}"):
             print("VAAAAAAAI: " + str(os.listdir()))
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-                await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result[0]["title"], thumb=thumb, quote=True)
+                await message.reply_audio(audio=f"./notemusic/plugis/cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result[0]["title"], thumb=thumb, quote=True)
             except Exception as e:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
                 print(str(e))
             time.sleep(2)
-            os.remove(f"./cache/{file_name}")
-            os.remove(thumb)
+            os.remove(f"./notemusic/plugins/cache/{file_name}")
+            os.remove(f"./notemusic/plugins/cache/{thumb}")
