@@ -36,12 +36,12 @@ class Functions:
         return title + ".mp3"
                 
     def get_thumb(result):
+        print("HEREEEEEE: " + os.path)
         thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
         title = result[0]["title"]#result["search_result"][0]["title"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(os.path.join("./cache/", thumb_name), "wb").write(thumb.content)
-        print("HEREEEEEE: " + os.path)
         return thumb_name
     	
     # def down_music(link, file_name):
@@ -70,6 +70,7 @@ class Functions:
         
         
     async def music_process(message):
+        print("ANOTHHEEEEEER: " + os.path)
         result = Functions.search_music(Functions.input_str(message))
         if result is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
@@ -87,7 +88,6 @@ class Functions:
             await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
             print(str(e))
         if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb):
-            print("ANOTHHEEEEEER: " + os.path)
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
                 await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result[0]["title"], thumb=thumb, quote=True)
