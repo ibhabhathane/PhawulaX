@@ -42,7 +42,7 @@ class Functions:
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
-        return thumb
+        return thumb_name
     	
     # def down_music(link, file_name):
         # _opts = {
