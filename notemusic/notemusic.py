@@ -36,7 +36,7 @@ class Functions:
         return title + ".mp3"
                 
     def get_thumb(result):
-        print("HEREEEEEE: " + os.path)
+        print("HEREEEEEE: " + str(os.path))
         thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
         title = result[0]["title"]#result["search_result"][0]["title"]
         thumb_name = f"{title}.jpg"
@@ -70,7 +70,7 @@ class Functions:
         
         
     async def music_process(message):
-        print("ANOTHHEEEEEER: " + os.path)
+        print("ANOTHHEEEEEER: " + str(os.path))
         result = Functions.search_music(Functions.input_str(message))
         if result is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
