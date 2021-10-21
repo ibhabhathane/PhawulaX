@@ -81,13 +81,17 @@ class Functions:
         # max duration
         link = Functions.get_link(result)
         file_name = Functions.get_file_name(result)
-        thumb = Functions.get_thumb(result)
+        thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
+        title = result[0]["title"]#result["search_result"][0]["title"]
+        thumb_name = f"{title}.jpg"
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(os.path.join("./cache/", thumb_name), "wb").write(thumb.content)
         try:
             Functions.down_song(link, file_name)
         except Exception as e:
             await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
             print(str(e))
-        if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb):
+        if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb_name):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
                 await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result[0]["title"], thumb=thumb, quote=True)
@@ -96,4 +100,4 @@ class Functions:
                 print(str(e))
             time.sleep(2)
             os.remove(f"./cache/{file_name}")
-            os.remove(f"./cache/{thumb}")
+            os.remove(f"./cache/{thumb_name}")
