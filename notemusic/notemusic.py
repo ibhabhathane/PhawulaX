@@ -87,6 +87,7 @@ class Functions:
         except Exception as e:
             await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
             print(str(e))
+        print("KEEEEEEEEK: " + str(os.listdir()))
         if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb_name):
             print("VAAAAAAAI: " + str(os.listdir()))
             try:
@@ -97,4 +98,4 @@ class Functions:
                 print(str(e))
             time.sleep(2)
             os.remove(f"./cache/{file_name}")
-            os.remove(f"./cache/{thumb_name}")
+            os.remove(f"./cache/{thumb}")
