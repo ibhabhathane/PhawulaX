@@ -83,14 +83,16 @@ class Functions:
         thumb = Functions.get_thumb(result)
         try:
             Functions.down_song(link, file_name)
-        except:
+        except Exception as ex:
             await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
+            print(str(e))
         if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
                 await message.reply_audio(audio=f"./cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result["search_result"][0]["title"], thumb=thumb, quote=True)
-            except:
+            except Exception as e:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
+                print(str(e))
             time.sleep(2)
             os.remove(f"./cache/{file_name}")
             os.remove(thumb)
