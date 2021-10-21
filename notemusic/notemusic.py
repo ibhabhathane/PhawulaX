@@ -88,7 +88,7 @@ class Functions:
             await message.reply("❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
             print(str(e))
         print("KEEEEEEEEK: " + str(os.listdir()))
-        if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb_name):
+        if os.path.exists(f"./cache/{file_name}") and os.path.exists(thumb):
             print("VAAAAAAAI: " + str(os.listdir()))
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
