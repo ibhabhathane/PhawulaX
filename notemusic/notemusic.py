@@ -97,6 +97,7 @@ class Functions:
             except Exception as e:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
                 print(str(e))
-            time.sleep(2)
-            os.remove(f"./notemusic/plugins/cache/{file_name}")
-            os.remove(f"./notemusic/plugins/cache/{thumb}")
+            finally:
+                time.sleep(2)
+                os.remove(f"./notemusic/plugins/cache/{file_name}")
+                os.remove(f"./notemusic/plugins/cache/{thumb}")
