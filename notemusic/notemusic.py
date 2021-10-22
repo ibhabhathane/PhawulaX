@@ -72,7 +72,7 @@ class Functions:
         if result is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
         duration = result[0]["duration"]#result['search_result'][0]['duration']
-        if int(duration.split(":")[0]) > 11 or len(duration) >= 7:
+        if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
             return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
         link = Functions.get_link(result)
         file_name = Functions.get_file_name(result)
