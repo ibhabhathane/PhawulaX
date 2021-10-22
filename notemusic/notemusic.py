@@ -85,7 +85,6 @@ class Functions:
         link = Functions.get_link(result)
         file_name = Functions.get_file_name(result)
         thumb = Functions.get_thumb(result)
-        
         try:
             Functions.down_song(link, file_name)
         except Exception as e:
