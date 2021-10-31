@@ -25,14 +25,11 @@ class NoteBot(Client):
         for path in os.listdir("./notemusic/plugins"):
             if path.endswith(".py"):
                 arq = path
-            importlib.import_module("notemusic.plugins." + arq)
+            importlib.import_module("n
+            plugins." + arq)
 
     async def stop(self):
         await super().stop()
         print("STOP")
 
-    async def sleep(self, msg):
-        await msg.reply("`Sleeping for (10) Seconds.`")
-        Config.HU_APP.restart()
-    
 NoteMusic = NoteBot()
