@@ -10,6 +10,7 @@ class Config:
 
 class NoteBot(Client):
     def __init__(self):
+        print(str(os.getcwd()))
         kwargs = {
             'plugins': dict(root="plugins"),
             'api_id': Config.API_ID,
