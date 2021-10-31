@@ -22,10 +22,10 @@ class NoteBot(Client):
     async def start(self):
         await super().start()
         print("START")
-        # for p in os.listdir("notemusic/plugins"):
-            # if p.endswith(".py"):
-                # arq = p
-        importlib.import_module("plugins.commands")
+        for p in os.listdir("notemusic/plugins"):
+            if p.endswith(".py"):
+                arq = p
+                importlib.import_module("plugins." + arq)
 
     async def stop(self):
         await super().stop()
