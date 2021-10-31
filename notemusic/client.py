@@ -25,7 +25,7 @@ class NoteBot(Client):
         for path in os.listdir("./notemusic/plugins"):
             if path.endswith(".py"):
                 arq = path
-            print(arq)
+                print(arq)
             print(os.listdir())
             importlib.import_module("plugins." + arq)
 
