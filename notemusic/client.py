@@ -8,7 +8,7 @@ class Config:
     API_HASH = str("0ed423ceea4fbb06c0e627d9db0f4a6b")# str(os.environ.get("API_HASH"))
     BOT_TOKEN = str("2023772023:AAH0A_msjngj5XxqNEkpiobpcmVcMhRF5wU")# str(os.environ.get("BOT_TOKEN"))
 
-class NoteBot(Client):
+class NoteMusic(Client):
     def __init__(self):
         kwargs = {
             'plugins': dict(root="notemusic/plugins", exclude="music_telethon"),
@@ -31,4 +31,4 @@ class NoteBot(Client):
         await msg.reply("`Sleeping for (10) Seconds.`")
         Config.HU_APP.restart()
     
-NoteMusic = NoteBot()
+NoteMusic = NoteMusic()
