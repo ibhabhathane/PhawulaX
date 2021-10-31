@@ -10,8 +10,7 @@ class Config:
 
 class NoteBot(Client):
     def __init__(self):
-        print(os.getcwd())
-        plugins = dict(root=os.path.join("./notemusic/","plugins"))
+        plugins = dict(root=os.path.join("./notemusic/", "plugins/"))
         kwargs = {
             'plugins': plugins,
             'api_id': Config.API_ID,
