@@ -11,8 +11,9 @@ class Config:
 class NoteBot(Client):
     def __init__(self):
         print(os.getcwd())
+        plugins = dict(root=os.path.join("./notemusic/","plugins"))
         kwargs = {
-            'plugins': dict(root=os.path.join("notemusic", "*")),
+            'plugins': plugins,
             'api_id': Config.API_ID,
             'api_hash': Config.API_HASH,
             'session_name': ":memory:",
