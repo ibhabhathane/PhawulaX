@@ -1,5 +1,4 @@
 import os
-import importlib
 
 from pyrogram import Client
 
@@ -22,13 +21,6 @@ class NoteBot(Client):
     async def start(self):
         await super().start()
         print("START")
-        for path in os.listdir("./notemusic/plugins"):
-            if path.endswith(".py"):
-                arq = path#.replace(".py", "")
-                print(arq)
-                importlib.import_module("notemusic.plugins." + arq)
-            print("HERREEEEEE: " + str(os.listdir()))
-            
 
     async def stop(self):
         await super().stop()
