@@ -27,7 +27,7 @@ class NoteBot(Client):
                 arq = path
                 print(arq)
                 importlib.import_module("plugins." + arq)
-            print(os.listdir())
+            print("HERREEEEEE: " + os.listdir())
             
 
     async def stop(self):
