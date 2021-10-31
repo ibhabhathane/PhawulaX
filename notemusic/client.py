@@ -25,7 +25,7 @@ class NoteBot(Client):
         # for p in os.listdir("notemusic/plugins"):
             # if p.endswith(".py"):
                 # arq = p
-        # importlib.import_module(f"notemusic.plugins.commands")
+        importlib.import_module("notemusic.plugins.commands")
 
     async def stop(self):
         await super().stop()
