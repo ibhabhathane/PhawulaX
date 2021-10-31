@@ -17,6 +17,11 @@ def check_owner(user: int) -> bool:
         return True
     return False
 
+# twste
+@NoteMusic.on_message(cmd("on"))
+async def on(_, message: Message):
+    await message.reply("I'm alive!")
+# twste
 
 @NoteMusic.on_message(cmd("sm"))
 async def sm(_, message: Message):
