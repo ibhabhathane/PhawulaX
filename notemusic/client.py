@@ -24,7 +24,7 @@ class NoteBot(Client):
         print("START")
         for path in os.listdir("./notemusic/plugins"):
             if path.endswith(".py"):
-                arq = path.replace("music_telethon.py", "")
+                arq = path
             importlib.import_module("plugins." + arq)
 
     async def stop(self):
