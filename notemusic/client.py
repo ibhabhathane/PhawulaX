@@ -11,6 +11,7 @@ class Config:
 class NoteBot(Client):
     def __init__(self):
         kwargs = {
+            'plugins': dict(root="notemusic.plugins")
             'api_id': Config.API_ID,
             'api_hash': Config.API_HASH,
             'session_name': ":memory:",
