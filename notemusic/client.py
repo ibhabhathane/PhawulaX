@@ -12,7 +12,7 @@ class NoteBot(Client):
     def __init__(self):
         name = self.__class__.__name__.lower()
         kwargs = {
-            'plugins': dict(root=f"{name}/plugins")
+            'plugins': dict(root=f"{name}/plugins"),
             'api_id': Config.API_ID,
             'api_hash': Config.API_HASH,
             'session_name': ":memory:",
