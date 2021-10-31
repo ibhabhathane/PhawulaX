@@ -24,7 +24,7 @@ class NoteBot(Client):
         print("START")
         for p in os.listdir("notemusic/plugins"):
             if p.endswith(".py"):
-                arq = p
+                arq = p.replace(".py", "")
                 importlib.import_module("plugins." + arq)
 
     async def stop(self):
