@@ -1,4 +1,5 @@
-from client import NoteMusic
+# from client import NoteMusic
+from notemusic import NoteMusic
 
 # from plugins.commands import *
 # from plugins.creator_commands import *
