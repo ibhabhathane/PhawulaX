@@ -1,5 +1,4 @@
-# from client import NoteMusic
-from pyrogram import Client
+from client import NoteMusic
 
 import os
 
@@ -13,32 +12,6 @@ from youtube_search import YoutubeSearch
 # import youtube_dl
 from pytube import YouTube
 
-
-class Config:
-    API_ID = int(3716600)# int(os.environ.get("API_ID"))
-    API_HASH = str("0ed423ceea4fbb06c0e627d9db0f4a6b")# str(os.environ.get("API_HASH"))
-    BOT_TOKEN = str("2023772023:AAH0A_msjngj5XxqNEkpiobpcmVcMhRF5wU")# str(os.environ.get("BOT_TOKEN"))
-
-class NoteBot(Client):
-    def __init__(self):
-        kwargs = {
-            'plugins': dict(root="notemusic.plugins"),
-            'api_id': Config.API_ID,
-            'api_hash': Config.API_HASH,
-            'session_name': ":memory:",
-            'bot_token': Config.BOT_TOKEN
-        }
-        super().__init__(**kwargs)
-
-    async def start(self):
-        await super().start()
-        print("START")
-
-    async def stop(self):
-        await super().stop()
-        print("STOP")
-    
-NoteMusic = NoteBot()
 
 class Functions:
     def input_str(message) -> str:
