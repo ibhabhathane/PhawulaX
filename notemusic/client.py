@@ -22,6 +22,7 @@ class NoteBot(Client):
     async def start(self):
         await super().start()
         print("START")
+        await self.send_message(-1001165341477, "NoteMusic iniciado com sucesso!")
         for p in os.listdir("notemusic/plugins"):
             if p.endswith(".py"):
                 arq = p.replace(".py", "")
