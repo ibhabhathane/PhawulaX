@@ -10,9 +10,7 @@ class Config:
 
 class NoteBot(Client):
     def __init__(self):
-        plugins = dict(root=os.path.join("./notemusic/", "plugins/"))
         kwargs = {
-            'plugins': plugins,
             'api_id': Config.API_ID,
             'api_hash': Config.API_HASH,
             'session_name': ":memory:",
@@ -23,6 +21,10 @@ class NoteBot(Client):
     async def start(self):
         await super().start()
         print("START")
+        for path in os.listdir("./notemusic/plugins"):
+            if path.endswith(".py"):
+                arq = path
+            importlib.import_module("notemusic.plugins." + arq)
 
     async def stop(self):
         await super().stop()
