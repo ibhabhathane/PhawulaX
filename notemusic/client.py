@@ -26,8 +26,9 @@ class NoteBot(Client):
             if path.endswith(".py"):
                 arq = path
                 print(arq)
+                importlib.import_module("plugins." + arq)
             print(os.listdir())
-            importlib.import_module("plugins." + arq)
+            
 
     async def stop(self):
         await super().stop()
