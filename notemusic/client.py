@@ -26,7 +26,7 @@ class NoteBot(Client):
             if path.endswith(".py"):
                 arq = path.replace(".py", "")
                 print(arq)
-                importlib.import_module("plugins." + arq)
+                importlib.import_module("notemusic.plugins." + arq)
             print("HERREEEEEE: " + str(os.listdir()))
             
 
