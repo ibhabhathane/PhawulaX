@@ -2,8 +2,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from notemusic import Functions
-# from client import NoteMusic
-from notemusic import NoteMusic
+from client import NoteMusic
 
 from typing import Union
 from functools import partial, wraps
