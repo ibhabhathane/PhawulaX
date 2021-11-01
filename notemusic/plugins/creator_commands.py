@@ -36,7 +36,7 @@ async def fp_answer(_, message: Message):
 async def pm_answer(_, message: Message):
     exceptions_ = [1157759484, 2023772023]
     if not message.from_user.id in exceptions_:
-        return await message.forward(1157759484)
+        await message.forward(1157759484)
     if message.reply_to_message:
         fw_id = message.reply_to_message.forward_from.id
         if message.text:
