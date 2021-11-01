@@ -26,7 +26,7 @@ class NoteBot(Client):
             for p in os.listdir("notemusic/plugins"):
                 if p.endswith(".py"):
                     arq = p.replace(".py", "")
-                    importlib.import_module("plugins." + arq)
+                    importlib.import_module("plugins." + "commands")#arq)
         except Exception as e:
             print(str(e))
             await self.send_message(-100116534147, f"**❌ OCORREU UM ERRO**\n\nNão foi possível importar os plugins, ocorreu este erro: `{str(e)}`")
