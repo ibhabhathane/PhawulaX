@@ -24,13 +24,12 @@ async def test(_, message: Message):
     await message.reply("Teste!")
 
 
-@NoteMusic.on_message(cmd("sm"))
+@NoteMusic.on_message(cmd("sm") & filter_owner)
 async def sm(_, message: Message):
-    if check_owner(message.from_user.id) == True:
-        msg = Functions.input_str(message)
-        id_ = msg.split(maxsplit=1)[0]
-        msg_ = msg.split(maxsplit=1)[1]
-        await NoteMusic.send_message(id_, msg_)
+    msg = Functions.input_str(message)
+    id_ = msg.split(maxsplit=1)[0]
+    msg_ = msg.split(maxsplit=1)[1]
+    await NoteMusic.send_message(id_, msg_)
 
 @NoteMusic.on_message(cmd("fp"))
 async def fp_answer(_, message: Message):
