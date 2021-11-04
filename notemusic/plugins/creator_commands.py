@@ -12,8 +12,8 @@ cmd = partial(filters.command, prefixes=list("/"))
 
 CREATOR_ID = 1157759484
 
-def check_owner(user: int) -> bool:
-    if user == CREATOR_ID:
+def check_owner(_, msg: Message) -> bool:
+    if msg.from_user.id == CREATOR_ID:
         return True
     return False
 
