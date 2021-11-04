@@ -18,10 +18,6 @@ async def check_owner(_, __, message: Message) -> bool:
     return False
     
 filter_owner = filters.create(check_owner)
-    
-@NoteMusic.on_message(cmd("test") & filter_owner)
-async def test(_, message: Message):
-    await message.reply("Teste!")
 
 
 @NoteMusic.on_message(cmd("sm") & filter_owner)
