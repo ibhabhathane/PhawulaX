@@ -1,7 +1,7 @@
 import os
 import importlib
 
-from pyrogram import Client
+from pyrogram import Client, types
 
 
 class Config:
@@ -38,3 +38,17 @@ class NoteBot(Client):
         print("STOP")
 
 NoteMusic = NoteBot()
+
+# test
+class Msg(types.Message):
+    def __init__(self, client: NoteMusic):
+        super().__init__(client=client)
+        
+    @property
+    def input_str(self) -> str:
+        """ Returns the input string without command """
+        input_ = self.text
+        if ' ' in input_ or '\n' in input_:
+            return str(input_.split(maxsplit=1)[1].strip())
+        return ''
+# test 
