@@ -23,7 +23,7 @@ class NoteBot(Client):
         await super().start()
         print("START")
         try:
-            pathpath = os.listdir("notemusic/plugins")
+            path = os.listdir("notemusic/plugins")
             path.remove("creator_commands.py")
             for p in path:
                 if p.endswith(".py"):
