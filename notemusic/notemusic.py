@@ -73,7 +73,7 @@ class Functions:
             # ytdl.extract_info(link, download=True)#ytdl.download([link])
             
     def down_song(link, file_name):
-        YouTube(link).streams.filter(only_audio=True)[0].download("./notemusic/plugins/cache/", filename=file_name)
+        YouTube(link).streams.filter(only_audio=True).first().download("./notemusic/plugins/cache/", filename=file_name)
         
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
