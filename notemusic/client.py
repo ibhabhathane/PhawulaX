@@ -40,7 +40,6 @@ class NoteBot(Client):
 NoteMusic = NoteBot()
 
 # test
-from typing import List, Dict, Tuple, Union, Optional, Sequence
 class Msg(types.Message):
     @property
     def input_str(self) -> str:
