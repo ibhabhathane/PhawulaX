@@ -1,7 +1,7 @@
 import os
 import importlib
 
-from pyrogram import Client, types
+from pyrogram import Client
 
 
 class Config:
@@ -40,7 +40,8 @@ class NoteBot(Client):
 NoteMusic = NoteBot()
 
 # test
-class Msg:
+from pyrogram.types import Message as RawMessage
+class Message(RawMessage)
     @property
     def input_str(self) -> str:
         """ Returns the input string without command """
