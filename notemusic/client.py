@@ -50,6 +50,8 @@ class Msg(types.Message):
         self._module = module
         self._kwargs = kwargs
         super().__init__(client=client, **mvars)
+        Msg = Msg()
+        return Msg
     
     @classmethod
     def parse(cls, client: NoteMusic, message: types.Message, **kwargs: Union[str, bool]) -> 'Message':
