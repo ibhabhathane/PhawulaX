@@ -52,12 +52,10 @@ class Msg(types.Message):
         super().__init__(client=client, **mvars)
     
     @classmethod
-    def parse(cls, client: NoteMusic,
-              message: Message, **kwargs: Union[str, bool]) -> 'Message':
+    def parse(cls, client: NoteMusic, message: Message, **kwargs: Union[str, bool]) -> 'Message':
         """ parse message """
         mvars = vars(message)
-        for key_ in ['_client', '_filtered', '_filtered_input_str',
-                     '_flags', '_process_canceled', '_module', '_kwargs']:
+        for key_ in ['_client', '_filtered', '_filtered_input_str', '_flags', '_process_canceled', '_module', '_kwargs']:
             if key_ in mvars:
                 del mvars[key_]
         if mvars['reply_to_message']:
