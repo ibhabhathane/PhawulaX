@@ -42,28 +42,6 @@ NoteMusic = NoteBot()
 # test
 from typing import List, Dict, Tuple, Union, Optional, Sequence
 class Msg(types.Message):
-    def __init__(self, client: NoteMusic, mvars: Dict[str, object], module: str, **kwargs: Union[str, bool]) -> None:
-        self._filtered = False
-        self._filtered_input_str = ''
-        self._flags: Dict[str, str] = {}
-        self._process_canceled = False
-        self._module = module
-        self._kwargs = kwargs
-        super().__init__(client=client, **mvars)
-        Msg = Msg()
-        return Msg
-    
-    @classmethod
-    def parse(cls, client: NoteMusic, message: types.Message, **kwargs: Union[str, bool]) -> 'Message':
-        """ parse message """
-        mvars = vars(message)
-        for key_ in ['_client', '_filtered', '_filtered_input_str', '_flags', '_process_canceled', '_module', '_kwargs']:
-            if key_ in mvars:
-                del mvars[key_]
-        if mvars['reply_to_message']:
-            mvars['reply_to_message'] = cls.parse(client, mvars['reply_to_message'], **kwargs)
-        return cls(client, mvars, **kwargs)
-        
     @property
     def input_str(self) -> str:
         """ Returns the input string without command """
