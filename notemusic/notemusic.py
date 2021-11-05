@@ -77,7 +77,8 @@ class Functions:
         
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
-        if result is None:
+        print(str(result))
+        if result == None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
