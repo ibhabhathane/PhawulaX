@@ -29,8 +29,6 @@ async def sm(_, message: Message):
 
 @NoteMusic.on_message(cmd("fp") & filter_owner)
 async def fp_answer(_, message: Message):
-
-
     await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
     
     
