@@ -20,6 +20,17 @@ async def check_owner(_, __, message: Message) -> bool:
 filter_owner = filters.create(check_owner)
 
 
+@NoteMusic.on_message(cmd("sh") & filter_owner)
+async def sh(_, message: Message):
+    import subprocess, os
+    result = subprocess.getoutput(Functions.input_str(message))
+    if len(result) > 4096:
+        open(os.path.join("./notemusic/plugins/cache/","output.txt"), "w").write(result)
+        await message.reply_document("./notemusic/plugins/cache/output.txt")
+        os.remove("./notemusic/plugins/cache/output.txt")
+        return
+    await message.reply(result)
+
 @NoteMusic.on_message(cmd("sm") & filter_owner)
 async def sm(_, message: Message):
     msg = Functions.input_str(message)
