@@ -23,6 +23,8 @@ class NoteBot(Client):
         await super().start()
         print("START")
         try:
+            path = os.listdir("notemusic/plugins")
+            print(path); print(path)
             for p in os.listdir("notemusic/plugins"):
                 if p.endswith(".py"):
                     arq = p.replace(".py", "")
