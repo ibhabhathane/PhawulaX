@@ -41,7 +41,7 @@ NoteMusic = NoteBot()
 
 # test
 from pyrogram.types import Message as RawMessage
-class Message(RawMessage)
+class Message(RawMessage):
     @property
     def input_str(self) -> str:
         """ Returns the input string without command """
