@@ -40,7 +40,7 @@ class NoteBot(Client):
 NoteMusic = NoteBot()
 
 # test
-class Msg(types.Message):
+class Msg():
     @property
     def input_str(self) -> str:
         """ Returns the input string without command """
