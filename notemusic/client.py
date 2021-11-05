@@ -40,9 +40,16 @@ class NoteBot(Client):
 NoteMusic = NoteBot()
 
 # test
+from typing import List, Dict, Tuple, Union, Optional, Sequence
 class Msg(types.Message):
-    def __init__(self, client: NoteMusic):
-        super().__init__(client=client)
+    def __init__(self, client: NoteMusic, mvars: Dict[str, object], module: str, **kwargs: Union[str, bool]) -> None:
+        self._filtered = False
+        self._filtered_input_str = ''
+        self._flags: Dict[str, str] = {}
+        self._process_canceled = False
+        self._module = module
+        self._kwargs = kwargs
+        super().__init__(client=client, **mvars)
         
     @property
     def input_str(self) -> str:
