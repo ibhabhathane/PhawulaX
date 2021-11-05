@@ -37,17 +37,15 @@ async def ev(_, message: Message):
     from meval import meval
     import traceback
     try:
-        result = await meval(Functions.input_str(message), globals(), **locals())
+        await meval(Functions.input_str(message), globals(), **locals())
     except BaseException:
         result = "Error: <code>{}</code>".format(traceback.format_exc())
+        await message.reply(result)
     else:
         if len(result) > 4096:
             open(os.path.join("./notemusic/plugins/cache/","output.txt"), "w").write(result)
             await message.reply_document("./notemusic/plugins/cache/output.txt")
             os.remove("./notemusic/plugins/cache/output.txt")
-            return
-    finally:
-        await message.reply(result)
 
 @NoteMusic.on_message(cmd("sm") & filter_owner)
 async def sm(_, message: Message):
