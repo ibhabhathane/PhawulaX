@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from notemusic import Functions
-from client import NoteMusic, Msg
+from client import NoteMusic, Message as Msg
 
 from typing import Union
 from functools import partial, wraps
@@ -23,6 +23,7 @@ filter_owner = filters.create(check_owner)
 # test
 @NoteMusic.on_message(cmd("test") & filter_owner)
 async def test(_, msg: Msg):
+    # k
     print(f"HEEEEEEEEREEE: {str(msg)}")
     k = msg.input_str
     print(f"ANOTHEEEER: {str(k)}")
