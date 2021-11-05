@@ -53,7 +53,7 @@ class Msg(types.Message):
     
     @classmethod
     def parse(cls, client: NoteMusic,
-              message: RawMessage, **kwargs: Union[str, bool]) -> 'Message':
+              message: Message, **kwargs: Union[str, bool]) -> 'Message':
         """ parse message """
         mvars = vars(message)
         for key_ in ['_client', '_filtered', '_filtered_input_str',
