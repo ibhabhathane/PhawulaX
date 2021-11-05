@@ -29,8 +29,9 @@ async def sm(_, message: Message):
 
 @NoteMusic.on_message(cmd("fp") & filter_owner)
 async def fp_answer(_, message: Message):
-    if check_owner(message.from_user.id) == True:
-        await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
+
+
+    await NoteMusic.send_message(-1001446397223, Functions.input_str(message))
     
     
 @NoteMusic.on_message(filters.private)
