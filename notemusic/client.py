@@ -38,15 +38,3 @@ class NoteBot(Client):
         print("STOP")
 
 NoteMusic = NoteBot()
-
-# test
-from pyrogram.types import Message as RawMessage
-class Message(RawMessage):
-    @property
-    def input_str(self) -> str:
-        """ Returns the input string without command """
-        input_ = self.text
-        if ' ' in input_ or '\n' in input_:
-            return str(input_.split(maxsplit=1)[1].strip())
-        return ''
-# test 
