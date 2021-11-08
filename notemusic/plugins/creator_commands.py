@@ -19,10 +19,18 @@ async def check_owner(_, __, message: Message) -> bool:
     
 filter_owner = filters.create(check_owner)
 
-
+#apagar
+@NoteMusic.on_message(cmd("ap") & filter_owner)
+async def ap(_, message: Message):
+    text = Functions.input_str
+    if not text:
+        await message.reply("Die wen?")
+        return
+    await message.reply(f"Here: {text}")
+#apagar
 @NoteMusic.on_message(cmd("sm") & filter_owner)
 async def sm(_, message: Message):
-    msg = Functions.input_str(message)
+    msg = Functions.input_str#(message)
     id_ = msg.split(maxsplit=1)[0]
     msg_ = msg.split(maxsplit=1)[1]
     await NoteMusic.send_message(id_, msg_)
