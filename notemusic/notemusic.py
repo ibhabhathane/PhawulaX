@@ -14,15 +14,16 @@ from pytube import YouTube
 
 
 class Functions:
-    def input_str(message) -> str:
-    	input_ = message.text
+    @property
+    def input_str(self) -> str:
+    	input_ = self.text
     	if ' ' in input_ or '\n' in input_:
     		return str(input_.split(maxsplit=1)[1].strip())
     	return ''
 	
-    def search_music(user_input):
+    def search_music(query):
         # search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        result = YoutubeSearch(user_input, max_results=1).to_dict()
+        result = YoutubeSearch(query, max_results=1).to_dict()
         return result
         # return json.loads(search.result())
 
@@ -76,7 +77,7 @@ class Functions:
         YouTube(link).streams.filter(only_audio=True).first().download("./notemusic/plugins/cache/", filename=file_name)
         
     async def music_process(message):
-        result = Functions.search_music(Functions.input_str(message))
+        result = Functions.search_music(Functions.input_str)#(message))
         if result == []:#is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
         duration, dur = Functions.get_duration(result)
