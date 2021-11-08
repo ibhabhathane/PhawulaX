@@ -21,7 +21,8 @@ async def start(_, message: Message):
 
 @NoteMusic.on_message(cmd("music"))
 async def song(_, message: Message):
-    if Functions.input_str(message) == "":
+    music = Functions.input_str
+    if not music:#Functions.input_str(message) == "":
         return await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
     await Functions.music_process(message)
         
