@@ -15,8 +15,8 @@ from pytube import YouTube
 
 class Functions:
     @property
-    def input_str(self) -> str:
-    	input_ = self.text
+    def input_str(message) -> str:
+    	input_ = message.text
     	if ' ' in input_ or '\n' in input_:
     		return str(input_.split(maxsplit=1)[1].strip())
     	return ''
