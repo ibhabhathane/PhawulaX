@@ -14,7 +14,6 @@ from pytube import YouTube
 
 
 class Functions:
-    @property
     def input_str(message) -> str:
     	input_ = message.text
     	if ' ' in input_ or '\n' in input_:
@@ -77,7 +76,7 @@ class Functions:
         YouTube(link).streams.filter(only_audio=True).first().download("./notemusic/plugins/cache/", filename=file_name)
         
     async def music_process(message):
-        result = Functions.search_music(Functions.input_str)#(message))
+        result = Functions.search_music(Functions.input_str(message))
         if result == []:#is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
         duration, dur = Functions.get_duration(result)
