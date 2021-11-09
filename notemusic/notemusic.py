@@ -26,11 +26,11 @@ class Functions:
         return result
         # return json.loads(search.result())
 
-    def get_link(result):
+    def get_link(result) -> str:
         # return result['search_result'][0]['link']
         return f"https://www.youtube.com{result[0]['url_suffix']}"
     
-    def get_filename(result):
+    def get_filename(result) -> str:
         title_ = result[0]["title"]#result["search_result"][0]["title"]
         title = title_.replace(" ", "_")
         return title + ".mp3"
