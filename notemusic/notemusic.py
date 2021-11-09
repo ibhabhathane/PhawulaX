@@ -30,7 +30,7 @@ class Functions:
         # return result['search_result'][0]['link']
         return f"https://www.youtube.com{result[0]['url_suffix']}"
     
-    def get_file_name(result):
+    def get_filename(result):
         title_ = result[0]["title"]#result["search_result"][0]["title"]
         title = title_.replace(" ", "_")
         return title + ".mp3"
@@ -51,9 +51,9 @@ class Functions:
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
     	
-    # def down_music(link, file_name):
+    # def down_music(link, filename):
         # _opts = {
-            # "outtmpl": f"./notemusic/plugins/cache/{file_name}",
+            # "outtmpl": f"./notemusic/plugins/cache/{filename}",
             # "prefer_ffmpeg": True,
             # "format": "bestaudio/best",
             # "geo_bypass": True,
@@ -72,8 +72,8 @@ class Functions:
         # with youtube_dl.YoutubeDL(_opts) as ytdl:
             # ytdl.extract_info(link, download=True)#ytdl.download([link])
             
-    def down_song(link, file_name):
-        YouTube(link).streams.filter(only_audio=True).first().download("./notemusic/plugins/cache/", filename=file_name)
+    def down_song(link, filename):
+        YouTube(link).streams.filter(only_audio=True).first().download("./userge/xcache/", filename=filename)
         
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
@@ -83,21 +83,21 @@ class Functions:
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
             return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
         link = Functions.get_link(result)
-        file_name = Functions.get_file_name(result)
+        filename = Functions.get_filename(result)
         thumb = Functions.get_thumb(result)
         try:
-            Functions.down_song(link, file_name)
+            Functions.down_song(link, filename)
         except Exception as e:
             await message.reply(f"❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
             print(str(e))
-        if os.path.exists(f"./notemusic/plugins/cache/{file_name}") and os.path.exists(f"./notemusic/plugins/cache/{thumb}"):
+        if os.path.exists(f"./notemusic/plugins/cache/{filename}") and os.path.exists(f"./notemusic/plugins/cache/{thumb}"):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
-                await message.reply_audio(audio=f"./notemusic/plugins/cache/{file_name}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result[0]["title"], thumb=f"./notemusic/plugins/cache/{thumb}", duration=dur, quote=True)
+                await message.reply_audio(audio=f"./notemusic/plugins/cache/{filename}", caption=f"[Abrir no YouTube]({link})\n\n▫️ Atualizado pelo: @NoteZV", title=result[0]["title"], thumb=f"./notemusic/plugins/cache/{thumb}", duration=dur, quote=True)
             except Exception as e:
                 await message.reply("❌ **ERRO**\n\nNão foi possível realizar o upload da música.", quote=True)
                 print(str(e))
             finally:
                 time.sleep(2)
-                os.remove(f"./notemusic/plugins/cache/{file_name}")
+                os.remove(f"./notemusic/plugins/cache/{filename}")
                 os.remove(f"./notemusic/plugins/cache/{thumb}")
