@@ -19,6 +19,10 @@ async def check_owner(_, __, message: Message) -> bool:
     
 filter_owner = filters.create(check_owner)
 
+@NoteMusic.on_message(cmd("oi"))
+async def oi(_, message: Message):
+    await message.reply("Oi!")
+    
 @NoteMusic.on_message(cmd("sm") & filter_owner)
 async def sm(_, message: Message):
     msg = Functions.input_str(message)
