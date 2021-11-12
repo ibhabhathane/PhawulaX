@@ -7,7 +7,7 @@ import requests
 
 import time
 
-# from youtubesearchpython import SearchVideos
+from youtubesearchpython import Search
 from youtube_search import YoutubeSearch
 # import youtube_dl
 from pytube import YouTube
@@ -44,7 +44,7 @@ class Functions:
         return duration, dur
                 
     def get_thumb(result):
-        thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
+        thumbnail = Search("idfc", limit=1).result()["result"][0]["thumbnails"][0]["url"]# result[0]["thumbnails"][0]
         title = result[0]["title"]#result["search_result"][0]["title"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
