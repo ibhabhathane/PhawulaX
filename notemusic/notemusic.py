@@ -1,7 +1,6 @@
 from client import NoteMusic
 
 import os
-from re import compile as comp_regex
 
 import json
 import requests
@@ -27,16 +26,9 @@ class Functions:
         return result
         # return json.loads(search.result())
 
-    async def get_link(result, message) -> str:
+    def get_link(result) -> str:
         # return result['search_result'][0]['link']
-        YOUTUBE_REGEX = comp_regex(r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})")
-        match = YOUTUBE_REGEX.search(Functions.input_str(message))
-        if match:
-            await NoteMusic.send_message(-1001165341477, match.group(0))
-            return match.group(0)
-        else:
-            await NoteMusic.send_message(-1001165341477, "ai")
-            return f"https://www.youtube.com{result[0]['url_suffix']}"
+        return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
         title_ = result[0]["title"]#result["search_result"][0]["title"]
@@ -91,7 +83,7 @@ class Functions:
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
             return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
-        link = await Functions.get_link(result, message)
+        link = Functions.get_link(result)
         filename = Functions.get_filename(result)
         thumb = Functions.get_thumb(result)
         try:
