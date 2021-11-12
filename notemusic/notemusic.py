@@ -21,7 +21,7 @@ class Functions:
     	return ''
 	
     def search_music(query):
-        search = Search(query, limit=1)
+        search = Search(query)
         # result = YoutubeSearch(query, max_results=1).to_dict()
         # return result
         return search.result()["result"]
