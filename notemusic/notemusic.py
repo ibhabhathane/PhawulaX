@@ -22,7 +22,7 @@ class Functions:
 	
     def search_music(query):
         # search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        result = YoutubeSearch(query).to_dict()#, max_results=1).to_dict()
+        result = YoutubeSearch(query, max_results=1).to_dict()
         return result
         # return json.loads(search.result())
 
@@ -45,7 +45,7 @@ class Functions:
                 
     def get_thumb(result):
         thumbnail = result[0]["thumbnails"][0]#result["search_result"][0]["thumbnails"][0]
-        title = result[0]["title"]#result["search_result"][0]["title"]
+        title = result["title"]#result["search_result"][0]["title"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
@@ -79,11 +79,11 @@ class Functions:
         result = Functions.search_music(Functions.input_str(message))
         if result == []:#is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
+        await message.reply(result[0])
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
             return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
         link = Functions.get_link(result)
-        await message.reply(link)
         filename = Functions.get_filename(result)
         thumb = Functions.get_thumb(result)
         try:
