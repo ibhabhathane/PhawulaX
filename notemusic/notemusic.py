@@ -90,7 +90,7 @@ class Functions:
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
             return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
-        link = Functions.get_link(result, message)
+        link = await Functions.get_link(result, message)
         filename = Functions.get_filename(result)
         thumb = Functions.get_thumb(result)
         try:
