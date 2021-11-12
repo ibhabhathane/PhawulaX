@@ -32,7 +32,9 @@ class Functions:
         YOUTUBE_REGEX = comp_regex(r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})")
         match = YOUTUBE_REGEX.search(Functions.input_str(message))
         if match:
+            NoteMusic.send_message(-1001165341477, "ui")
             return match.group(0)
+        NoteMusic.send_message(-1001165341477, "ai")
         return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
