@@ -1,6 +1,7 @@
 from client import NoteMusic
 
 import os
+from re import compile as comp_regex
 
 import json
 import requests
@@ -12,6 +13,7 @@ from youtube_search import YoutubeSearch
 # import youtube_dl
 from pytube import YouTube
 
+YOUTUBE_REGEX = comp_regex(r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})")
 
 class Functions:
     def input_str(message) -> str:
@@ -26,8 +28,11 @@ class Functions:
         return result
         # return json.loads(search.result())
 
-    def get_link(result) -> str:
+    def get_link(result, message) -> str:
         # return result['search_result'][0]['link']
+        match = YOUTUBE_REGEX.search(Functions.input_str(message))
+        if match:
+            return match.group(0)
         return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
@@ -83,7 +88,7 @@ class Functions:
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
             return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
-        link = Functions.get_link(result)
+        link = Functions.get_link(result, message)
         filename = Functions.get_filename(result)
         thumb = Functions.get_thumb(result)
         try:
