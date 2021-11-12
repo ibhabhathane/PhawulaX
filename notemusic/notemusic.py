@@ -21,22 +21,22 @@ class Functions:
     	return ''
 	
     def search_music(query):
-        # search = SearchVideos(user_input, offset = 1, mode = "json", max_results = 1)
-        result = YoutubeSearch(query, max_results=1).to_dict()
-        return result
-        # return json.loads(search.result())
+        search = Search(query, limit=1)
+        # result = YoutubeSearch(query, max_results=1).to_dict()
+        # return result
+        return search.result()["result"]
 
     def get_link(result) -> str:
-        # return result['search_result'][0]['link']
-        return f"https://www.youtube.com{result[0]['url_suffix']}"
+        return result[0]['link']
+        # return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
-        title_ = result[0]["title"]#result["search_result"][0]["title"]
+        title_ = result[0]["title"]
         title = title_.replace(" ", "_")
         return title + ".mp3"
         
     def get_duration(result):
-        duration = result[0]["duration"]#result['search_result'][0]['durstion']
+        duration = result[0]["duration"]
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
@@ -44,8 +44,8 @@ class Functions:
         return duration, dur
                 
     def get_thumb(result):
-        thumbnail = Search("idfc", limit=1).result()["result"][0]["thumbnails"][0]["url"]# result[0]["thumbnails"][0]
-        title = result[0]["title"]#result["search_result"][0]["title"]
+        thumbnail = result[0]["thumbnails"][0]
+        title = result[0]["title"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
@@ -77,7 +77,7 @@ class Functions:
         
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
-        if result == []:#is None:
+        if result is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
