@@ -27,14 +27,14 @@ class Functions:
         return result
         # return json.loads(search.result())
 
-    def get_link(result, message) -> str:
+    async def get_link(result, message) -> str:
         # return result['search_result'][0]['link']
         YOUTUBE_REGEX = comp_regex(r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})")
         match = YOUTUBE_REGEX.search(Functions.input_str(message))
         if match:
-            NoteMusic.send_message(-1001165341477, "ui")
+            await NoteMusic.send_message(-1001165341477, "ui")
             return match.group(0)
-        NoteMusic.send_message(-1001165341477, "ai")
+        await NoteMusic.send_message(-1001165341477, "ai")
         return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
