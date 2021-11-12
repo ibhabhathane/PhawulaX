@@ -34,8 +34,10 @@ class Functions:
         if match:
             await NoteMusic.send_message(-1001165341477, "ui")
             return match.group(0)
-        await NoteMusic.send_message(-1001165341477, "ai")
-        return f"https://www.youtube.com{result[0]['url_suffix']}"
+            await NoteMusic.send_message(-1001165341477, match.group(0))
+        else:
+            await NoteMusic.send_message(-1001165341477, "ai")
+            return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
         title_ = result[0]["title"]#result["search_result"][0]["title"]
