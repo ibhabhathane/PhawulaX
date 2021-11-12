@@ -44,7 +44,7 @@ class Functions:
         return duration, dur
                 
     def get_thumb(result):
-        thumbnail = result[0]["thumbnails"][0]
+        thumbnail = result[0]["thumbnails"][0]["url"] # result[0]["thumbnails"][0]
         title = result[0]["title"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
