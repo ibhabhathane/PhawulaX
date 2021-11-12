@@ -7,8 +7,8 @@ import requests
 
 import time
 
-from youtubesearchpython import Search
-#from youtube_search import YoutubeSearch
+# from youtubesearchpython import Search
+from youtube_search import YoutubeSearch
 # import youtube_dl
 from pytube import YouTube
 
@@ -21,14 +21,14 @@ class Functions:
     	return ''
 	
     def search_music(query):
-        search = Search(query)
-        # result = YoutubeSearch(query, max_results=1).to_dict()
-        # return result
-        return search.result()["result"]
+        # search = Search(query, limit=1)
+        result = YoutubeSearch(query, max_results=1).to_dict()
+        return result
+        # return search.result()["result"]
 
     def get_link(result) -> str:
-        return result[0]['link']
-        # return f"https://www.youtube.com{result[0]['url_suffix']}"
+        # return result[0]['link']
+        return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
         title_ = result[0]["title"]
@@ -44,7 +44,7 @@ class Functions:
         return duration, dur
                 
     def get_thumb(result):
-        thumbnail = result[0]["thumbnails"][0]["url"] # result[0]["thumbnails"][0]
+        thumbnail = result[0]["thumbnails"][0] # result[0]["thumbnails"][0]["url"]
         title = result[0]["title"]
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
@@ -77,9 +77,8 @@ class Functions:
         
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
-        if result is None:#== []:
+        if result == []:#is None:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
-        await message.reply(result[0])
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
             return await message.reply("Músicas com duração acima de 10min não são permitidas. Use o YouTube ou pague meu host. Por este motivo, nem sonhe, não irei baixar essa desgraça.", quote=True)
