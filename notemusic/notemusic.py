@@ -13,7 +13,6 @@ from youtube_search import YoutubeSearch
 # import youtube_dl
 from pytube import YouTube
 
-YOUTUBE_REGEX = comp_regex(r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})")
 
 class Functions:
     def input_str(message) -> str:
@@ -30,6 +29,7 @@ class Functions:
 
     def get_link(result, message) -> str:
         # return result['search_result'][0]['link']
+        YOUTUBE_REGEX = comp_regex(r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})")
         match = YOUTUBE_REGEX.search(Functions.input_str(message))
         if match:
             return match.group(0)
