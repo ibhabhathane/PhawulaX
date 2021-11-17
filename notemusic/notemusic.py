@@ -70,7 +70,7 @@ class Functions:
             # "quiet": True,
         # }
         # with youtube_dl.YoutubeDL(_opts) as ytdl:
-            # ytdl.extract_info(link, download=True)#ytdl.download([link])
+            # ytdl.download([link])
             
     def down_song(link, filename):
         YouTube(link).streams.filter(only_audio=True)[0].download("./notemusic/plugins/cache/", filename=filename)
