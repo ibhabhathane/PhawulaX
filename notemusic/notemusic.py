@@ -45,8 +45,8 @@ class Functions:
                 
     def get_thumb(result):
         thumbnail = result[0]["thumbnails"][0] # result[0]["thumbnails"][0]["url"]
-        title = str(result[0]['title']).replace(" ", "_")
-        thumb_name = f"{title}.jpg"
+        title = result[0]['title']
+        thumb_name = f"temp.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
