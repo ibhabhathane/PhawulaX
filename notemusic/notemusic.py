@@ -31,7 +31,7 @@ class Functions:
         return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
-        title_ = str(result[0]["title"]).replace("(", "")
+        title_ = str(result[0]["title"]).replace("(", "").replace(")", "").replace("/", "")
         title = title_.replace(" ", "_")
         return title + ".mp3"
         
