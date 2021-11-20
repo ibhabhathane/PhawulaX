@@ -7,8 +7,8 @@ import requests
 
 import time
 
-# from youtubesearchpython import Search
-from youtube_search import YoutubeSearch
+from youtubesearchpython import Search
+# from youtube_search import YoutubeSearch
 # import youtube_dl
 from pytube import YouTube
 
@@ -21,14 +21,14 @@ class Functions:
     	return ''
 	
     def search_music(query):
-        # search = Search(query, limit=1)
-        result = YoutubeSearch(query, max_results=1).to_dict()
-        return result
-        # return search.result()["result"]
+        search = Search(query, limit=1)
+        # result = YoutubeSearch(query, max_results=1).to_dict()
+        # return result
+        return search.result()["result"]
 
     def get_link(result) -> str:
-        # return result[0]['link']
-        return f"https://www.youtube.com{result[0]['url_suffix']}"
+        return result[0]['link']
+        # return f"https://www.youtube.com{result[0]['url_suffix']}"
     
     def get_filename(result) -> str:
         title_ = str(result[0]["title"]).replace("/", "")
@@ -44,7 +44,7 @@ class Functions:
         return duration, dur
                 
     def get_thumb(result):
-        thumbnail = result[0]["thumbnails"][0] # result[0]["thumbnails"][0]["url"]
+        thumbnail = result[0]["thumbnails"][0]["url"]#result[0]["thumbnails"][0]
         title = str(result[0]['title']).replace("/", "")
         thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
@@ -77,7 +77,7 @@ class Functions:
         
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
-        if result == []:#is None:
+        if result is None:#== []:
             return await message.reply("Não foi possível encontrar a música.", quote=True)
         duration, dur = Functions.get_duration(result)
         if int(duration.split(":")[0]) >= 11 or len(duration) >= 7:
