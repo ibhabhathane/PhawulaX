@@ -9,7 +9,7 @@ import time
 
 # from youtubesearchpython import Search
 from youtube_search import YoutubeSearch
-# import youtube_dl
+import youtube_dl #
 from pytube import YouTube
 
 
@@ -51,15 +51,15 @@ class Functions:
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
     	
-    # def down_music(link, filename):
-        # _opts = {
-            # "outtmpl": f"./notemusic/plugins/cache/{filename}",
-            # "prefer_ffmpeg": True,
-            # "format": "bestaudio/best",
+    def down_music(link, filename):
+        _opts = {
+            "outtmpl": f"./notemusic/plugins/cache/{filename}",
+            "prefer_ffmpeg": True,
+            "format": "bestaudio/best",
             # "geo_bypass": True,
             # "nocheckcertificate": True,
-            # "extractaudio": True,
-            # "audioformat": "mp3",
+            "extractaudio": True,
+            "audioformat": "mp3",
             # "postprocessors": [
                 # {
                     # "key": "FFmpegExtractAudio",
@@ -68,12 +68,12 @@ class Functions:
                 # },
             # ],
             # "quiet": True,
-        # }
-        # with youtube_dl.YoutubeDL(_opts) as ytdl:
-            # ytdl.download([link])
+        }
+        with youtube_dl.YoutubeDL(_opts) as ytdl:
+            ytdl.download([link])
             
-    def down_song(link, filename):
-        YouTube(link).streams.filter(only_audio=True).first().download("./notemusic/plugins/cache/", filename=filename)
+    # def down_song(link, filename):
+        # YouTube(link).streams.filter(only_audio=True).first().download("./notemusic/plugins/cache/", filename=filename)
         
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
