@@ -2,5 +2,4 @@ youtube-search
 git+https://github.com/AmanoTeam/pyrogram.git
 TgCrypto==1.2.2
 pytube
-git+https://github.com/ytdl-org/youtube-dl
 requests
