@@ -15,8 +15,7 @@ class NoteBot(Client):
             'api_id': Config.API_ID,
             'api_hash': Config.API_HASH,
             'session_name': ":memory:",
-            'bot_token': Config.BOT_TOKEN,
-            'plugins': dict(root="notemusic/plugins")
+            'bot_token': Config.BOT_TOKEN
         }
         super().__init__(**kwargs)
 
