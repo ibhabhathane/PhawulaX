@@ -1,7 +1,7 @@
 from client import NoteMusic
 
 import os
-from six.moves.urllib.request import urlopen
+import requests
 
 import time
 
@@ -45,8 +45,7 @@ class Functions:
         thumbnail = result[0]["thumbnails"][0] #result[0]["thumbnails"][0]["url"]
         title = str(result[0]['title']).replace("/", "")
         thumb_name = f"{title}.jpg"
-        # thumb = requests.get(thumbnail, allow_redirects=True)
-        thumb = urlopen(thumbnail).read()
+        thumb = requests.get(thumbnail, allow_redirects=True)
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
     	
