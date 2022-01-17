@@ -1,5 +1,5 @@
 youtube-search
 git+https://github.com/AmanoTeam/pyrogram.git
-TgCrypto==1.2.2
-pytube
+git+https://github.com/AmanoTeam/tgcrypto.git
+git+https://github.com/pytube/pytube.git
 requests
