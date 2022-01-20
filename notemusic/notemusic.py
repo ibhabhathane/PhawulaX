@@ -83,11 +83,11 @@ class Functions:
         link = Functions.get_link(result)
         filename = Functions.get_filename(result)
         thumb = Functions.get_thumb(result)
-        try:
-            Functions.down_song(link, filename)
-        except Exception as e:
-            await message.reply(f"❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
-            await message.reply(str(e))#print(str(e))
+        # try:
+        Functions.down_song(link, filename)
+        # except Exception as e:
+            # await message.reply(f"❌ **ERRO**\n\nNão foi possível baixar a música. Tente novamente em alguns minutos.\n\nSe o erro persistir, reporte ao mantenedor do projeto.", quote=True)
+            # print(str(e))
         if os.path.exists(f"./notemusic/plugins/cache/{filename}") and os.path.exists(f"./notemusic/plugins/cache/{thumb}"):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_audio")
