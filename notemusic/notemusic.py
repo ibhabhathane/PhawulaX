@@ -35,13 +35,11 @@ class Functions:
         
     def get_duration(result):
         duration = result[0]["duration"]
-        print("HEREWWWWEEEEEE "+ duration)
-        return duration
-        # secmul, dur, dur_arr = 1, 0, duration.split(":")
-        # for i in range(len(dur_arr) - 1, -1, -1):
-            # dur += int(dur_arr[i]) * secmul
-            # secmul *= 60
-        # return duration, dur
+        secmul, dur, dur_arr = 1, 0, duration.split(":")
+        for i in range(len(dur_arr) - 1, -1, -1):
+            dur += int(dur_arr[i]) * secmul
+            secmul *= 60
+        return duration, dur
                 
     def get_thumb(result):
         thumbnail = result[0]["thumbnails"][0] #result[0]["thumbnails"][0]["url"]
