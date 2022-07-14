@@ -49,7 +49,7 @@ class Functions:
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
     	
-    def down_son(link, filename):
+    def down_song(link, filename):
         _opts = {
             "outtmpl": f"./notemusic/plugins/cache/{filename}",
             "prefer_ffmpeg": True,
