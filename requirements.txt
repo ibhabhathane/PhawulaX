@@ -3,3 +3,4 @@ pyrogram
 TgCrypto==1.2.2
 pytube
 requests
+youtube_dl
