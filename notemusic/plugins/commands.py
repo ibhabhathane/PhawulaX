@@ -25,4 +25,8 @@ async def song(_, message: Message):
         return await message.reply("▫️ **COMANDO INVÁLIDO**\n\nUtilize o comando /help para obter ajuda.", quote=True)
     await Functions.music_process(message)
         
-        
+@NoteMusic.on_message(cmd("video"))
+async def video(_, message: Message):
+    if Functions.input_str(message) == "":
+        return await message.reply("Cê tá doido?!", quote=True)
+    return Functions.video_process(message)
