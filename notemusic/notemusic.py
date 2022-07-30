@@ -70,9 +70,46 @@ class Functions:
         with yt_dlp.YoutubeDL(_opts) as ytdl:
             ytdl.download([link])
             
+    def down_video(link, filename):
+        _opts = {
+            "outtmpl": f"./notemusic/plugins/cache/{filename}",
+            "format": "mp4",
+            "writethumbnail": True,
+            "prefer_ffmpeg": True,
+            #"quiet": True,
+            "postprocessors": [
+                {
+                    "key": "FFmpegMetadata",
+                }],
+        }
+        with yt_dlp.YoutubeDL(_opts) as ytdl:
+            ytdl.download(link)
+            
     # def down_song(link, filename):
         # YouTube(link).streams.filter(only_audio=True)[0].download("./notemusic/plugins/cache/", filename=filename)
-        
+    
+    async def video_process(message):
+        result = Functions.search_music(Functions.input_str(message))
+        if result == []:#is None:
+            return await message.reply("Não foi possível encontrar o vídeo.", quote=True)
+        link = Functions.get_link(result)
+        filename = Functions.get_filename(result)
+        try:
+            Functions.down_video(link, filename)
+        except Exception as e:
+            await message.reply("Deu ruim, viu!")
+            print(str(e))
+        if os.path.exists(f"./notemusic/plugins/cache/{filename}"):
+            try:
+                await NoteMusic.send_chat_action(message.chat.id, "upload_video")
+                await message.reply_video(video=f"./notemusic/plugins/cache/{filename}")
+            except Exception as e:
+                await message.reply("Deu ruim, viu!!!")
+                print(str(e))
+            finally:
+                time.sleep(2)
+                os.remove(f"./notemusic/plugins/cache/{filename}")
+
     async def music_process(message):
         result = Functions.search_music(Functions.input_str(message))
         if result == []:#is None:
