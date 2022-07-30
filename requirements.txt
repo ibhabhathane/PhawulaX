@@ -6,3 +6,4 @@ TgCrypto==1.2.2
 requests
 yt-dlp
 ffmpeg-python
+ffprobe-python
