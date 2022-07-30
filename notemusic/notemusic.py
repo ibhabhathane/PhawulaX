@@ -73,7 +73,7 @@ class Functions:
     def down_video(link, filename):
         _opts = {
             "outtmpl": f"./notemusic/plugins/cache/{filename}",
-            "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio",
+            "format": "bestvideo[ext=mp4]",
             "writethumbnail": True,
             "prefer_ffmpeg": True,
             #"quiet": True,
