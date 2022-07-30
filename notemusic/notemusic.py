@@ -8,7 +8,7 @@ import time
 # from youtubesearchpython import Search
 from youtube_search import YoutubeSearch
 import yt_dlp
-from pytube import YouTube
+# from pytube import YouTube
 
 
 class Functions:
