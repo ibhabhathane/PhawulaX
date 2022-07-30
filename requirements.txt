@@ -5,5 +5,3 @@ TgCrypto==1.2.2
 # pytube
 requests
 yt-dlp
-ffmpeg-python
-ffprobe-python
