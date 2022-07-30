@@ -29,4 +29,4 @@ async def song(_, message: Message):
 async def video(_, message: Message):
     if Functions.input_str(message) == "":
         return await message.reply("Cê tá doido?!", quote=True)
-    return Functions.video_process(message)
+    await Functions.video_process(message)
