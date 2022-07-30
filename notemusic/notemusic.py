@@ -77,10 +77,6 @@ class Functions:
             "writethumbnail": True,
             "prefer_ffmpeg": True,
             #"quiet": True,
-            "postprocessors": [
-                {
-                    "key": "FFmpegMetadata",
-                }],
         }
         with yt_dlp.YoutubeDL(_opts) as ytdl:
             ytdl.download(link)
