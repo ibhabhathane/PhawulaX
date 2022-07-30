@@ -58,13 +58,13 @@ class Functions:
             "nocheckcertificate": True,
             "extractaudio": True,
             "audioformat": "mp3",
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
-                    "preferredquality": "192",
-                },
-            ],
+            # "postprocessors": [
+                # {
+                    # "key": "FFmpegExtractAudio",
+                    # "preferredcodec": "mp3",
+                    # "preferredquality": "192",
+                # },
+            # ],
             # "quiet": True,
         }
         with yt_dlp.YoutubeDL(_opts) as ytdl:
