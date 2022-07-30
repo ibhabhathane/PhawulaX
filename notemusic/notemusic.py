@@ -7,7 +7,7 @@ import time
 
 # from youtubesearchpython import Search
 from youtube_search import YoutubeSearch
-import youtube_dl
+import yt_dlp
 from pytube import YouTube
 
 
@@ -67,7 +67,7 @@ class Functions:
             ],
             # "quiet": True,
         }
-        with youtube_dl.YoutubeDL(_opts) as ytdl:
+        with yt_dlp.YoutubeDL(_opts) as ytdl:
             ytdl.download([link])
             
     # def down_song(link, filename):
