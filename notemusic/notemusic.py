@@ -95,6 +95,11 @@ class Functions:
             return await message.reply("Não foi possível encontrar o vídeo.", quote=True)
         link = Functions.get_link(result)
         filename = Functions.get_filename_(result)
+        thumb = Functions.get_thumb(result)
+        try:
+            await message.reply_photo(f"./notemusic/plugins/cache/{thumb}")
+        except Exception as e:
+            await message.reply("Triste.")
         try:
             Functions.down_video(link, filename)
         except Exception as e:
