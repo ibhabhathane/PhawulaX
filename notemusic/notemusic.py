@@ -33,6 +33,11 @@ class Functions:
         title = title_.replace(" ", "_")
         return title + ".mp3"
         
+    def get_filename_(result) -> str:
+        title_ = str(result[0]["title"]).replace("/", "")
+        title = title_.replace(" ", "_")
+        return title + ".mp4"
+        
     def get_duration(result):
         duration = result[0]["duration"]
         secmul, dur, dur_arr = 1, 0, duration.split(":")
@@ -72,7 +77,7 @@ class Functions:
             
     def down_video(link, filename):
         _opts = {
-            "outtmpl": f"./notemusic/plugins/cache/{filename}.%(ext)s",
+            "outtmpl": f"./notemusic/plugins/cache/{filename}",
             "format": "bestvideo[ext=mp4]",
             "writethumbnail": True,
             "prefer_ffmpeg": True,
@@ -89,7 +94,7 @@ class Functions:
         if result == []:#is None:
             return await message.reply("Não foi possível encontrar o vídeo.", quote=True)
         link = Functions.get_link(result)
-        filename = Functions.get_filename(result)
+        filename = Functions.get_filename_(result)
         try:
             Functions.down_video(link, filename)
         except Exception as e:
