@@ -97,18 +97,14 @@ class Functions:
         filename = Functions.get_filename_(result)
         thumb = Functions.get_thumb(result)
         try:
-            await message.reply_photo(f"./notemusic/plugins/cache/{thumb}")
-        except Exception as e:
-            await message.reply("Triste.")
-        try:
             Functions.down_video(link, filename)
         except Exception as e:
             await message.reply("Deu ruim, viu!")
             print(str(e))
-        if os.path.exists(f"./notemusic/plugins/cache/{filename}"):
+        if os.path.exists(f"./notemusic/plugins/cache/{filename}") and os.path.exists(f"./notemusic/plugins/cache/{thumb}"):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_video")
-                await message.reply_video(video=f"./notemusic/plugins/cache/{filename}")
+                await message.reply_video(video=f"./notemusic/plugins/cache/{filename}", thumb=f"./notemusic/plugins/cache/{thumb}")
             except Exception as e:
                 await message.reply("Deu ruim, viu!!!")
                 print(str(e))
