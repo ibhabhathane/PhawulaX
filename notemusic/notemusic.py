@@ -93,6 +93,7 @@ class Functions:
         result = Functions.search_music(Functions.input_str(message))
         if result == []:#is None:
             return await message.reply("Não foi possível encontrar o vídeo.", quote=True)
+        duration, dur = Functions.get_duration(result)
         link = Functions.get_link(result)
         filename = Functions.get_filename_(result)
         thumb = Functions.get_thumb(result)
@@ -104,7 +105,7 @@ class Functions:
         if os.path.exists(f"./notemusic/plugins/cache/{filename}") and os.path.exists(f"./notemusic/plugins/cache/{thumb}"):
             try:
                 await NoteMusic.send_chat_action(message.chat.id, "upload_video")
-                await message.reply_video(video=f"./notemusic/plugins/cache/{filename}", thumb=f"./notemusic/plugins/cache/{thumb}")
+                await message.reply_video(video=f"./notemusic/plugins/cache/{filename}", thumb=f"./notemusic/plugins/cache/{thumb}", duration=dur, quote=True)
             except Exception as e:
                 await message.reply("Deu ruim, viu!!!")
                 print(str(e))
