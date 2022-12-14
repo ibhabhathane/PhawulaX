@@ -16,8 +16,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: start bot
       run: |
-      apt update && apt upgrade -y
-      apt install git ffmpeg -y
-      pip3 install -U pip
-      pip3 install -Ur requirements.txt \
-      python3 notemusic/__main__.py
+        apt update && apt upgrade -y
+        apt install git ffmpeg -y
+        pip3 install -U pip
+        pip3 install -Ur requirements.txt \
+        python3 notemusic/__main__.py
