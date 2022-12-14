@@ -15,4 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: start bot
-      run: python3 notemusic/__main__.py
+      run: | apt update && apt upgrade -y \
+apt install git ffmpeg -y \
+pip3 install -U pip \
+mkdir /app/ \
+workdir /app/ \
+cp . /app/ \
+pip3 install -Ur requirements.txt \
+python3 notemusic/__main__.py
