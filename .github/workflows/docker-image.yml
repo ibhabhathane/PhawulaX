@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: start bot
-      run: bash Dockerfile
+      run: python3 notemusic/__main__.py
