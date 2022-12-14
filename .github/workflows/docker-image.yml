@@ -17,5 +17,5 @@ jobs:
     - name: start bot
       run: |
         pip3 install -U pip
-        pip3 install -Ur requirements.txt \
+        pip3 install -Ur requirements.txt
         python3 notemusic/__main__.py
