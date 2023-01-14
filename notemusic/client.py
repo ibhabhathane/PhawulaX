@@ -7,7 +7,7 @@ from pyrogram import Client
 class Config:
     API_ID = int(3716600)# int(os.environ.get("API_ID"))
     API_HASH = str("0ed423ceea4fbb06c0e627d9db0f4a6b")# str(os.environ.get("API_HASH"))
-    BOT_TOKEN = str("2012434816:AAFlZYMuFO4GLHPM02YcOeQErf0v6RZ_ACg")# str(os.environ.get("BOT_TOKEN"))
+    BOT_TOKEN = str("2023772023:AAELvE7PzeD2hggebtCuN0HM5FWhV9WbXgs")# str(os.environ.get("BOT_TOKEN"))
 
 class NoteBot(Client):
     def __init__(self):
