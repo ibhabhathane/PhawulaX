@@ -8,7 +8,7 @@ import time
 # from youtubesearchpython import Search
 from youtube_search import YoutubeSearch
 import yt_dlp
-# from pytube import YouTube
+from pytube import YouTube
 
 
 class Functions:
@@ -54,27 +54,6 @@ class Functions:
         open(os.path.join("./notemusic/plugins/cache/", thumb_name), "wb").write(thumb.content)
         return thumb_name
     	
-    def down_song(link, filename):
-        _opts = {
-            "outtmpl": f"./notemusic/plugins/cache/{filename}",
-            "prefer_ffmpeg": True,
-            "format": "bestaudio/best",
-            "geo_bypass": True,
-            "nocheckcertificate": True,
-            "extractaudio": True,
-            "audioformat": "mp3",
-            # "postprocessors": [
-                # {
-                    # "key": "FFmpegExtractAudio",
-                    # "preferredcodec": "mp3",
-                    # "preferredquality": "192",
-                # },
-            # ],
-            # "quiet": True,
-        }
-        with yt_dlp.YoutubeDL(_opts) as ytdl:
-            ytdl.download([link])
-            
     def down_video(link, filename):
         _opts = {
             "outtmpl": f"./notemusic/plugins/cache/{filename}",
@@ -86,8 +65,8 @@ class Functions:
         with yt_dlp.YoutubeDL(_opts) as ytdl:
             ytdl.download(link)
             
-    # def down_song(link, filename):
-        # YouTube(link).streams.filter(only_audio=True)[0].download("./notemusic/plugins/cache/", filename=filename)
+    def down_song(link, filename):
+        YouTube(link).streams.filter(only_audio=True)[0].download("./notemusic/plugins/cache/", filename=filename)
     
     async def video_process(message):
         result = Functions.search_music(Functions.input_str(message))
